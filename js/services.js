@@ -1,0 +1,1 @@
+(function(){"use strict";var e;e=angular.module("tubeServices",[]),e.service("playerService",["$window","$rootScope",function(e,r){return e.onYouTubeIframeAPIReady=function(){var e;return e=new YT.Player("player",{height:200,width:300,videoId:"CG48Y5dL9J8",events:{onReady:onPlayerReady}})},e.onPlayerReady=function(e){return alert("prepped")}}])}).call(this);

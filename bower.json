@@ -1,0 +1,25 @@
+{
+  "name": "yt_lectures",
+  "version": "0.0.1",
+  "authors": [
+    "James Pants <jamespants@gmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-mocks": "~1.2.24",
+    "angular-route": "~1.2.24",
+    "angular-scroll": "~0.6.2",
+    "contentful": "~0.1.2",
+    "showdown": "~0.3.1",
+    "ui-utils": "~0.1.1"
+  }
+}

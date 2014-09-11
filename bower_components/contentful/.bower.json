@@ -1,0 +1,25 @@
+{
+  "name": "contentful",
+  "main": "dist/contentful.min.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "Makefile",
+    "example",
+    "package.json",
+    "repl.js"
+  ],
+  "homepage": "https://github.com/contentful/contentful.js",
+  "version": "0.1.2",
+  "_release": "0.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.2",
+    "commit": "81071527520643466bf0225c2653c96cd2c4c174"
+  },
+  "_source": "git://github.com/contentful/contentful.js.git",
+  "_target": "~0.1.2",
+  "_originalSource": "contentful",
+  "_direct": true
+}

@@ -1,0 +1,13 @@
+{
+  "name": "contentful",
+  "main": "dist/contentful.min.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "Makefile",
+    "example",
+    "package.json",
+    "repl.js"
+  ]
+}

@@ -1,0 +1,1 @@
+(function(){"use strict";var e;e=angular.module("tube",["ngRoute","ngSanitize","tubeControllers","tubeDirectives"]),e.config(["$routeProvider","$locationProvider",function(e,t){return e.when("/list",{templateUrl:"partials/index.html",controller:"IndexCtrl"}).when("/:featureId",{templateUrl:"partials/detail.html",controller:"TubeCtrl"}).otherwise({redirectTo:"/"})}])}).call(this);
