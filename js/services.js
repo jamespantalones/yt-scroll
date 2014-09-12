@@ -1,1 +1,0 @@
-(function(){"use strict";var e;e=angular.module("tubeServices",[]),e.service("playerService",["$window","$rootScope",function(e,c){}])}).call(this);
