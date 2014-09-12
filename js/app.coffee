@@ -37,6 +37,8 @@ Video.prototype = {
 				playerVars:{
 					modestBranding: 1
 					controls: 0
+					showinfo: 0
+					autoplay: 0
 				}
 				events: {
 					'onReady': onPlayerReady
@@ -54,10 +56,8 @@ Video.prototype = {
 
 	render: ->
 		self = this
-		self.player.seekTo(5)
-		self.player.playVideo()
-
-		self.player.pauseVideo()
+		# self.player.playVideo()
+		# self.player.pauseVideo()
 		
 		$('.frame').on('scroll', ->
 			self.onScroll($('.frame'))
