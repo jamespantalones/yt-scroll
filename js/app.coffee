@@ -1,10 +1,10 @@
 
-Video = ->
+Piece = ->
 	self = this
 	self.init()
 
 
-Video.prototype = {
+Piece.prototype = {
 	player: {}
 	flag1: 0
 	flag2: 0
@@ -52,8 +52,6 @@ Video.prototype = {
 
 	
 
-	
-
 	render: ->
 		self = this
 		# self.player.playVideo()
@@ -71,14 +69,11 @@ Video.prototype = {
 		video = $('.video')
 		topic = $('.topic')
 
-
-		
 		topic.waypoint({
 			continuous: false
 			
 			handler: (direction) ->
 				currentOrder = $(this).data 'topic'
-				
 				if direction == 'down'
 					
 					if currentOrder == 1
@@ -127,6 +122,6 @@ Video.prototype = {
 	
 }
 
-new Video()
+new Piece()
 
 

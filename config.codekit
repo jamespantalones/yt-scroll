@@ -1531,6 +1531,28 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/img\/cloud_1a.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 332079,
+		"inputAbbreviatedPath": "\/img\/cloud_1a.png",
+		"outputAbbreviatedPath": "\/img\/cloud_1a.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/cloud_1b.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 247667,
+		"inputAbbreviatedPath": "\/img\/cloud_1b.png",
+		"outputAbbreviatedPath": "\/img\/cloud_1b.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/morton.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -2259,7 +2281,7 @@
 			"flagValue": -1
 			},
 		"compress": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"conditionals": {

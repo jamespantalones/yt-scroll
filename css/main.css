@@ -4,10 +4,16 @@
   src: url("../fonts/clanpro-narrultra-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/clanpro-narrultra-webfont.woff2") format("woff2"), url("../fonts/clanpro-narrultra-webfont.woff") format("woff"), url("../fonts/clanpro-narrultra-webfont.ttf") format("truetype"), url("../fonts/clanpro-narrultra-webfont.svg#clan_pronarrow_ultra") format("svg");
   font-weight: bold;
   font-style: normal; }
+@font-face {
+  font-family: 'apercumono';
+  src: url("../fonts/apercu_mono-webfont-webfont.eot");
+  src: url("../fonts/apercu_mono-webfont-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/apercu_mono-webfont-webfont.woff2") format("woff2"), url("../fonts/apercu_mono-webfont-webfont.woff") format("woff"), url("../fonts/apercu_mono-webfont-webfont.ttf") format("truetype"), url("../fonts/apercu_mono-webfont-webfont.svg#apercumono") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 html {
   min-height: 100%;
   width: 100%;
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: lighter;
   font-size: 16px;
   margin: 0; }
@@ -19,7 +25,7 @@ body {
   margin: 0; }
 
 h1 {
-  font-family: 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
+  font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
   font-weight: lighter; }
 
 h1 {
@@ -58,19 +64,53 @@ h1 {
   text-align: center; }
   .hero h1 {
     margin: 0;
-    margin-left: 5%;
     position: absolute;
     color: white;
     text-align: center;
-    font-size: 5em;
+    font-size: 8em;
     text-transform: uppercase; }
     .hero h1.top {
       top: 20px;
-      font-family: 'clan_pronarrow_ultra'; }
+      font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra'; }
     .hero h1.bottom {
       bottom: 20px;
       position: absolute; }
 
+.clouds {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  z-index: 5;
+  opacity: 0.8;
+  -webkit-filter: grayscale(1);
+  overflow: hidden;
+  background-color: transparent;
+  background-size: cover; }
+  .clouds .cloud.level-one {
+    background-image: url(../img/cloud_1a.png) no-repeat bottom left; }
+  .clouds .cloud.level-one.animate {
+    -webkit-animation: cloudpan 460s 0s infinite linear; }
+  .clouds .cloud:after {
+    display: block;
+    position: relative;
+    left: 100%;
+    width: 100%;
+    -webkit-background-size: inherit;
+    background-size: inherit;
+    background-position: inherit;
+    background-image: inherit;
+    content: ' '; }
+
+@-webkit-keyframes cloudpan {
+  from {
+    -webkit-transform: translateX(0) translateZ(0);
+    transform: translateX(0) translateZ(0); }
+  to {
+    -webkit-transform: translateX(-100%) translateZ(0);
+    transform: translateX(-100%) translateZ(0); } }
 .video {
   position: relative;
   width: 50%;
@@ -114,8 +154,11 @@ h1 {
   margin-left: 50%;
   margin-top: 50px;
   color: white; }
+  .text .topic {
+    margin-bottom: 100%; }
   .text h1 {
     padding-left: 20px;
+    font-size: 10em;
     margin: 0;
     text-transform: uppercase;
     font-family: 'clan_pronarrow_ultra'; }
