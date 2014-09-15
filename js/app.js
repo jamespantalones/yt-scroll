@@ -83,7 +83,7 @@
         reset: function() {
             var e, r;
             r = this;
-            e = $(".image-hero").innerHeight();
+            e = $(".frame").innerHeight();
             console.log(e);
             return r.sendHeight(e);
         },
