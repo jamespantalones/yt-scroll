@@ -14,15 +14,23 @@ Piece.prototype = {
 	chapter1: 2
 	chapter2: 56
 	chapter3: 100
+	prefix: null
 	
 
-	
 	init: ->
 		self = this
-		tag = document.createElement('script')
-		tag.src = "//www.youtube.com/iframe_api"
-		firstScriptTag = document.getElementsByTagName('script')[0]
-		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+		self.prefix = self.browserPrefix()
+		
+		$(->
+			self.preload()
+		)
+		
+		do addYT = ->
+			tag = document.createElement('script')
+			tag.src = "//www.youtube.com/iframe_api"
+			firstScriptTag = document.getElementsByTagName('script')[0]
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+
 
 		window.onYouTubeIframeAPIReady = ->
 			width = $(document).width()
@@ -51,6 +59,18 @@ Piece.prototype = {
 			self.render()
 
 	
+	preload: ->
+		self = this
+
+		image = new Image()
+
+		image.onload = ->
+			setTimeout( ->
+				self.render()
+			, 250)
+
+		#load image
+		image.src = $('.image-hero').attr('src')
 
 	render: ->
 		self = this
@@ -60,6 +80,36 @@ Piece.prototype = {
 		$('.frame').on('scroll', ->
 			self.onScroll($('.frame'))
 		)
+
+		self.reset()
+
+		setTimeout( ->
+			self.reset()
+		, 250)
+
+		$(window).on('resize', ->
+			self.reset()
+		)
+
+	reset: ->
+		self = this
+
+		#set new height
+		height = $('.image-hero').innerHeight()
+		console.log height
+
+		#send height
+		self.sendHeight(height)
+
+	sendHeight: (height) ->
+		message = {
+			height: height
+		}
+
+		messageJSON = JSON.stringify(message)
+		console.log messageJSON
+
+		return window.parent.postMessage(messageJSON, '*')
 
 
 	onScroll: (frame) ->
@@ -116,10 +166,39 @@ Piece.prototype = {
 
 		})
 
+	browserPrefix: ->
+		#Gets the browser prefix
+		browserPrefix = ''
+		do navigator.sayswho = ->
+			N = navigator.appName
+			ua = navigator.userAgent
+			M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i)
+			tem = ua.match(/version\/([\.\d]+)/i)
+
+
+			if M && tem != null
+				M[2] = tem[1]
+				
+
+			M = if M[2] then [M[1], M[2]] else [navigator.appVersion, '-?']
+			M = M[0]
 
 
 
-	
+			if (M == "Chrome")
+				browserPrefix = "-webkit-"
+				
+			if (M == "Firefox")
+				browserPrefix = "-moz-"
+				
+			if (M == "Safari")
+				browserPrefix = "-webkit-"
+				
+			if (M == "MSIE")
+				browserPrefix = "-ms-"
+				
+		return browserPrefix
+
 }
 
 new Piece()

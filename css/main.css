@@ -57,11 +57,20 @@ h1 {
   margin: 0;
   width: 100%;
   height: 100%;
-  background: url(../img/morton.jpg) no-repeat center center;
   background-size: cover;
   top: 0;
   left: 0;
   text-align: center; }
+  .hero img.image-hero {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: auto;
+    right: 10%;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 0; }
   .hero h1 {
     margin: 0;
     position: absolute;
@@ -91,8 +100,6 @@ h1 {
   background-size: cover; }
   .clouds .cloud.level-one {
     background-image: url(../img/cloud_1a.png) no-repeat bottom left; }
-  .clouds .cloud.level-one.animate {
-    -webkit-animation: cloudpan 460s 0s infinite linear; }
   .clouds .cloud:after {
     display: block;
     position: relative;
@@ -117,7 +124,7 @@ h1 {
   overflow: hidden;
   left: 20px;
   -webkit-transition: all .1s ease-in-out;
-  z-index: 9; }
+  z-index: 1; }
   .video h1 {
     padding: 20px;
     color: white;
@@ -153,7 +160,8 @@ h1 {
   width: 50%;
   margin-left: 50%;
   margin-top: 50px;
-  color: white; }
+  color: white;
+  z-index: 3; }
   .text .topic {
     margin-bottom: 100%; }
   .text h1 {
