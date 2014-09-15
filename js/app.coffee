@@ -96,7 +96,6 @@ Piece.prototype = {
 
 		#set new height
 		height = $('.hero').innerHeight()
-		console.log height
 
 		#send height
 		self.sendHeight(height)

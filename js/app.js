@@ -84,7 +84,6 @@
             var e, r;
             r = this;
             e = $(".hero").innerHeight();
-            console.log(e);
             return r.sendHeight(e);
         },
         sendHeight: function(e) {
