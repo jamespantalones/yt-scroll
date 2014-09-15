@@ -1,4 +1,5 @@
-@import 'fonts.scss';
+@import '_fonts.scss';
+@import '_mixins.scss';
 
 html{
 	min-height: 100%;
@@ -60,8 +61,11 @@ h1{
 	left: 0;
 	text-align: center;
 	img.image-hero{
-		width: 300%;
+		width: auto;
+		max-width: 100%;
+		height: 100%;
 		display: block;
+		// @include vendorize(transform, translateX(-66%));
 		position: absolute;
 		bottom: 0;
 		left: auto;
