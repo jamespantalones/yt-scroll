@@ -21,7 +21,7 @@ html {
 body {
   height: 100%;
   width: 100%;
-  background-color: #3300ff;
+  background-color: black;
   margin: 0; }
 
 h1 {
@@ -40,7 +40,12 @@ h1 {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  box-sizing: border-box; }
+
+.ng-scope {
+  width: 100%;
+  height: 100%; }
 
 .hero-overlay {
   position: absolute;
@@ -49,7 +54,6 @@ h1 {
   width: 100%;
   height: 100%;
   z-index: 99;
-  background-color: yellow;
   opacity: 0.5; }
 
 .hero {
@@ -58,7 +62,7 @@ h1 {
   width: 100%;
   min-height: 100%;
   min-height: 700px;
-  background: url(../img/morton.jpg) no-repeat center center;
+  background: url(../img/too-short.jpg) no-repeat center center;
   background-size: cover;
   top: 0;
   left: 0;
@@ -78,39 +82,6 @@ h1 {
       bottom: 20px;
       position: absolute; }
 
-.clouds {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 320px;
-  z-index: 5;
-  opacity: 0.8;
-  -webkit-filter: grayscale(1);
-  overflow: hidden;
-  background-color: transparent;
-  background-size: cover; }
-  .clouds .cloud.level-one {
-    background-image: url(../img/cloud_1a.png) no-repeat bottom left; }
-  .clouds .cloud:after {
-    display: block;
-    position: relative;
-    left: 100%;
-    width: 100%;
-    -webkit-background-size: inherit;
-    background-size: inherit;
-    background-position: inherit;
-    background-image: inherit;
-    content: ' '; }
-
-@-webkit-keyframes cloudpan {
-  from {
-    -webkit-transform: translateX(0) translateZ(0);
-    transform: translateX(0) translateZ(0); }
-  to {
-    -webkit-transform: translateX(-100%) translateZ(0);
-    transform: translateX(-100%) translateZ(0); } }
 .video {
   position: relative;
   width: 50%;

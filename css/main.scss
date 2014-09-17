@@ -1,43 +1,11 @@
 @import '_fonts.scss';
 @import '_mixins.scss';
-
-html{
-	min-height: 100%;
-	width: 100%;
-	font-family: 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
-	font-weight: lighter;
-	font-size: 16px;
-	margin: 0;
-}
-
-body{
-	height: 100%;
-	width: 100%;
-	background-color: #3300ff;
-	margin: 0;
-}
-
-h1{
-	font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
-	font-weight: lighter;
-}
-
-h1{
-	text-transform: uppercase;
-	letter-spacing: -1px;
-}
+@import '_globals.scss';
 
 
-.frame{
-	position: absolute;
-	margin: 0;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	overflow-x: hidden;
-	overflow-y: scroll;
-}
+
+
+
 
 .hero-overlay{
 	position: absolute;
@@ -46,7 +14,6 @@ h1{
 	width: 100%;
 	height: 100%;
 	z-index: 99;
-	background-color: yellow;
 	opacity: 0.5;
 }
 
@@ -56,7 +23,7 @@ h1{
 	width: 100%;
 	min-height: 100%;
 	min-height: 700px;
-	background: url(../img/morton.jpg) no-repeat center center;
+	background: url(../img/too-short.jpg) no-repeat center center;
 	background-size: cover;
 	top: 0;
 	left: 0;
@@ -80,50 +47,6 @@ h1{
 		}
 	}
 
-}
-
-.clouds{
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	height: 100%;
-	min-height: 320px;
-	z-index: 5;
-	opacity: 0.8;
-	-webkit-filter: grayscale(1);
-	overflow: hidden;
-	background-color: transparent;
-	background-size: cover;
-	.cloud.level-one{
-		background-image: url(../img/cloud_1a.png) no-repeat bottom left;
-	}
-	.cloud.level-one.animate{
-		// -webkit-animation: cloudpan 460s 0s infinite linear;
-	}
-
-	.cloud:after{
-		display: block;
-		position: relative;
-		left: 100%;
-		width: 100%;
-		-webkit-background-size: inherit;
-		background-size: inherit;
-		background-position: inherit;
-		background-image: inherit;
-		content: ' ';
-	}
-}
-
-@-webkit-keyframes cloudpan{
-	from{
-		-webkit-transform: translateX(0) translateZ(0);
-		transform: translateX(0) translateZ(0);
-	}
-	to{
-		-webkit-transform: translateX(-100%) translateZ(0);
-		transform: translateX(-100%) translateZ(0);
-	}
 }
 
 
