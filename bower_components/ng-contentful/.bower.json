@@ -1,0 +1,35 @@
+{
+  "name": "ng-contentful",
+  "version": "0.1.2",
+  "homepage": "https://github.com/contentful/ng-contentful",
+  "authors": [
+    "Jan Varwig <jan@contentful.com>"
+  ],
+  "description": "An AngularJS module for accessing Contentfuls content-delivery-api",
+  "main": "ng-contentful.js",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "README.md",
+    "test"
+  ],
+  "dependencies": {
+    "contentful": "~0.1.0"
+  },
+  "_release": "0.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.2",
+    "commit": "c09214cdfafd40fbcf3ae9f36e288d3d18e56992"
+  },
+  "_source": "git://github.com/contentful/ng-contentful.git",
+  "_target": "~0.1.2",
+  "_originalSource": "ng-contentful",
+  "_direct": true
+}

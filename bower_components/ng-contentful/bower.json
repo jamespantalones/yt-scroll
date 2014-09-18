@@ -1,0 +1,25 @@
+{
+  "name": "ng-contentful",
+  "version": "0.1.0",
+  "homepage": "https://github.com/contentful/ng-contentful",
+  "authors": [
+    "Jan Varwig <jan@contentful.com>"
+  ],
+  "description": "An AngularJS module for accessing Contentfuls content-delivery-api",
+  "main": "ng-contentful.js",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "README.md",
+    "test"
+  ],
+  "dependencies": {
+    "contentful": "~0.1.0"
+  }
+}

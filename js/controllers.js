@@ -1,8 +1,23 @@
 (function() {
     "use strict";
-    var t;
-    t = angular.module("ytControllers", []);
-    t.controller("IndexCtrl", [ "$scope", "$http", function(t, l) {
-        return t.list = "";
+    var e;
+    e = angular.module("ytControllers", []);
+    e.controller("IndexCtrl", [ "$scope", "$http", "contentfulClient", function(e, t, n) {
+        e.playerVars = {
+            controls: 0,
+            autoplay: 0,
+            modestbranding: 1,
+            showinfo: 0
+        };
+        return n.entries({
+            "sys.id": "5DqKC5VpHa2Mw4UkOwuYwe",
+            include: 10
+        }).then(function(t) {
+            e.feature = t[0];
+            e.fields = e.feature.fields;
+            e.items = e.fields.youTubeListItems;
+            console.log(e.fields);
+            return e.video = e.items[0].fields.youTubeVideoId;
+        });
     } ]);
 }).call(this);

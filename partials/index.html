@@ -2,11 +2,13 @@
 <div class="frame">
   <div class="hero">
     <div class="image-hero"></div>
-    <h1 class="top">Morton Subotnick</h1>
-    <h1 class="bottom">10 Things We Now Know</h1>
+    <h1 class="top">{{fields.title}}</h1>
+  </div>
+  <div class="intro-text">
+    <p>{{fields.introText}}</p>
   </div>
   <div class="video">
-    <div id="player"></div>
+    <youtube-video id="main-vid" video-id="video" player-vars="playerVars"></youtube-video>
   </div>
   <div class="text">
     <div data-topic="1" class="topic">

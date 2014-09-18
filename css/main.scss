@@ -50,12 +50,19 @@
 }
 
 
+.intro-text{
+	position: relative;
+	color: white;
+	width: 80%;
+	margin-left: 10%;
+}
+
 
 .video{
 	position: relative;
+	float: left;
 	width: 50%;
 	overflow: hidden;
-	left: 50px;
 	margin-top: 50px;
 	-webkit-transition: all .1s ease-in-out;
 	z-index: 1;
@@ -73,35 +80,17 @@
 	}
 }
 
-.images{
-	position: absolute;
-	top: 200%;
-	left: 0;
-	width: 50%;
-	margin-left: 0;
-	text-align: center;
-	.img-wrap{
-		margin-left: 25%;
-		width: 300px;
-		margin-left: auto;
-		margin-right: auto;
-		height: 300px;
-		overflow: hidden;
-		img{
-			max-width: 100%;
-		}
-	}
-	
-}
+
+
+
+
 
 .text{
-	position: absolute;
-	top: 100%;
 	right: 0;
+	float: right;
 	width: 50%;
 	margin-left: 50%;
 	margin-top: 50px;
-	color: white;
 	z-index: 3;
 	.topic{
 		margin-bottom: 100%;
@@ -118,8 +107,6 @@
 		padding: 20px;
 		padding-top: 0;
 		margin-top: 0;
-		font-size: 2em;
-		line-height: 1.5;
 	}
 	span.arrow{
 		font-size: 5em;
