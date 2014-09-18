@@ -20,7 +20,7 @@ h1{
 	text-transform: uppercase;
 	letter-spacing: -1px;
 	font-size: 8em;
-	color: white;
+	color: $purple;
 }
 
 h2{
@@ -29,7 +29,7 @@ h2{
 	text-transform: uppercase;
 	letter-spacing: -1px;
 	font-size: 2em;
-	color: white;
+	color: $purple;
 }
 
 
@@ -37,21 +37,11 @@ h2{
 p{
 	font-size: 1.5em;
 	line-height: 2;
-	color: white;
+	color: $purple;
 }
 
 
-.frame{
-	position: absolute;
-	margin: 0;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	box-sizing: border-box;
-}
+
 
 .ng-scope{
 	width: 100%;

@@ -6,3 +6,8 @@
   #{$property}: $value;
 }
 
+@mixin smallboxy(){
+
+	box-shadow: 1px 0px 1px $medgray, 0px 1px 0px $darkgray, 2px 1px 0px $medgray, 1px 2px 0px $darkgray, 3px 2px 0px $medgray, 2px 3px 0px $darkgray, 4px 3px 0px $medgray, 3px 4px 0px $darkgray, 5px 4px 0px $medgray, 4px 5px 0px $darkgray, 6px 5px 0px $medgray, 5px 6px 0px $darkgray, 7px 6px 0px $medgray, 6px 7px 0px $darkgray, 8px 7px 0px $medgray, 7px 8px 0px $darkgray, 9px 8px 0px $medgray, 8px 9px 0px $darkgray, 10px 9px 0px $medgray, 9px 10px 0px $darkgray, 11px 10px 0px $medgray;
+}
+

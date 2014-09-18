@@ -30,7 +30,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: -1px;
   font-size: 8em;
-  color: white; }
+  color: #6b2ae7; }
 
 h2 {
   font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
@@ -38,12 +38,16 @@ h2 {
   text-transform: uppercase;
   letter-spacing: -1px;
   font-size: 2em;
-  color: white; }
+  color: #6b2ae7; }
 
 p {
   font-size: 1.5em;
   line-height: 2;
-  color: white; }
+  color: #6b2ae7; }
+
+.ng-scope {
+  width: 100%;
+  height: 100%; }
 
 .frame {
   position: absolute;
@@ -54,11 +58,8 @@ p {
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  box-sizing: border-box; }
-
-.ng-scope {
-  width: 100%;
-  height: 100%; }
+  box-sizing: border-box;
+  background: #ebf8fd; }
 
 .hero-overlay {
   position: absolute;
@@ -75,7 +76,8 @@ p {
   width: 100%;
   min-height: 100%;
   min-height: 700px;
-  background: url(../img/too-short.jpg) no-repeat center center;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
   top: 0;
   left: 0;
@@ -84,12 +86,12 @@ p {
   .hero h1 {
     margin: 0;
     position: absolute;
-    color: white;
+    color: #ebf8fd;
     text-align: center;
     font-size: 8em;
     text-transform: uppercase; }
     .hero h1.top {
-      top: 20px;
+      top: 15%;
       font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra'; }
     .hero h1.bottom {
       bottom: 20px;
@@ -109,10 +111,12 @@ p {
   height: 0;
   overflow: hidden;
   margin-bottom: 50px;
+  margin-top: 50px;
   width: 40%;
   margin-right: 5%;
   margin-left: 5%;
   -webkit-transition: all .1s ease-in-out;
+  box-shadow: 1px 0px 1px #4d4d4d, 0px 1px 0px #333333, 2px 1px 0px #4d4d4d, 1px 2px 0px #333333, 3px 2px 0px #4d4d4d, 2px 3px 0px #333333, 4px 3px 0px #4d4d4d, 3px 4px 0px #333333, 5px 4px 0px #4d4d4d, 4px 5px 0px #333333, 6px 5px 0px #4d4d4d, 5px 6px 0px #333333, 7px 6px 0px #4d4d4d, 6px 7px 0px #333333, 8px 7px 0px #4d4d4d, 7px 8px 0px #333333, 9px 8px 0px #4d4d4d, 8px 9px 0px #333333, 10px 9px 0px #4d4d4d, 9px 10px 0px #333333, 11px 10px 0px #4d4d4d;
   z-index: 1; }
   .video iframe, .video object, .video embed {
     position: absolute;
@@ -130,7 +134,7 @@ p {
   width: 50%;
   z-index: 3; }
   .text .topic {
-    margin-bottom: 100%; }
+    margin-bottom: 200px; }
   .text h1 {
     padding-left: 20px;
     margin: 0; }
@@ -141,9 +145,12 @@ p {
     padding-top: 0;
     margin-top: 0; }
   .text span.arrow {
-    font-size: 5em;
-    text-align: center;
+    font-size: 3em;
+    text-align: left;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 200px;
     display: block;
+    padding-left: 20px;
+    color: #6b2ae7;
     margin-top: 10%; }

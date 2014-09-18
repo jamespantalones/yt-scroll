@@ -6,7 +6,8 @@ ytControllers.controller('IndexCtrl', [
 	'$scope'
 	'$http'
 	'contentfulClient'
-	($scope, $http, contentfulClient) ->
+	'addBG'
+	($scope, $http, contentfulClient, addBG) ->
 
 		$scope.player = {}
 
@@ -33,6 +34,11 @@ ytControllers.controller('IndexCtrl', [
 			
 			#get array of all items to send to factory
 			$scope.items = $scope.fields.youTubeListItems
+
+			url = $scope.fields.heroImage.fields.file.url
+
+			#send in image to service
+			addBG.paste(url)
 
 			#dev reference
 			console.log $scope.fields

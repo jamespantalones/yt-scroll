@@ -2,23 +2,37 @@
     "use strict";
     var e;
     e = angular.module("ytDirectives", []);
-    e.directive("sticky", function() {
+    e.directive("addBackground", function() {
         var e;
         return e = function(t, r, n) {
-            r.waypoint({
-                context: ".frame",
-                offset: "-6.25%",
-                handler: function(e) {
-                    if (e === "down") {
-                        return r.addClass("sticky");
-                    } else {
-                        return r.removeClass("sticky");
-                    }
-                }
+            var a;
+            a = r.data("image");
+            console.log(a);
+            r.css({
+                background: "black"
             });
             return {
                 link: e
             };
+        };
+    });
+    e.directive("sticky", function() {
+        var e;
+        e = function(e, t, r) {
+            return t.waypoint({
+                context: ".frame",
+                offset: "-6.25%",
+                handler: function(e) {
+                    if (e === "down") {
+                        return t.addClass("sticky");
+                    } else {
+                        return t.removeClass("sticky");
+                    }
+                }
+            });
+        };
+        return {
+            link: e
         };
     });
     e.directive("wrap", function() {
@@ -30,32 +44,32 @@
                 context: ".frame",
                 offset: "10%",
                 handler: function(e) {
-                    var r, n, i;
+                    var r, n, a;
                     r = $(this);
-                    i = r.data("id");
+                    a = r.data("id");
                     n = r.data("chapter");
                     if (e === "down") {
                         if (n === 1) {
                             return;
                         }
-                        t.player.cueVideoById(i);
+                        t.player.cueVideoById(a);
                     } else {
                         return;
                     }
-                    return t.player.cueVideoById(i);
+                    return t.player.cueVideoById(a);
                 }
             }).waypoint({
                 context: ".frame",
                 offset: "80%",
                 handler: function(e) {
-                    var r, n, i, a;
+                    var r, n, a, i;
                     r = $(this);
-                    a = r.data("id");
-                    i = r.prev().data("id");
+                    i = r.data("id");
+                    a = r.prev().data("id");
                     n = r.data("chapter");
                     if (e === "up") {
                         if (r.prev().length) {
-                            return t.player.cueVideoById(i);
+                            return t.player.cueVideoById(a);
                         } else {}
                     }
                 }

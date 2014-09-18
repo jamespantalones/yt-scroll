@@ -2,6 +2,29 @@
 
 ytDirectives = angular.module('ytDirectives', [])
 
+
+
+
+
+ytDirectives.directive('addBackground', ->
+	
+	
+	link = ($scope, element, attrs) ->
+		background = element.data 'image'
+		console.log background
+		
+		element.css
+			'background': 'black'
+
+		return{
+			link: link
+		}
+
+)
+
+
+
+
 ytDirectives.directive('sticky', ->
 
 	link = ($scope, element, attrs) ->
@@ -16,9 +39,9 @@ ytDirectives.directive('sticky', ->
 					element.removeClass "sticky"
 			})
 
-		return{
-			link: link
-		}
+	return{
+		link: link
+	}
 
 
 )
@@ -84,3 +107,5 @@ ytDirectives.directive('wrap', ->
 	}
 
 )
+
+
