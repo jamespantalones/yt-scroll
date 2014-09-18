@@ -22,7 +22,7 @@ app.config(['$routeProvider', '$locationProvider', 'contentfulClientProvider',
 		
 		.when('/:featureId', {
 			templateUrl: 'partials/detail.html',
-			controller: 'FeatureCtrl'
+			controller: 'DetailCtrl'
 			})
 		
 		.otherwise({

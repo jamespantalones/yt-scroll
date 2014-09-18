@@ -2,7 +2,17 @@
     "use strict";
     var e;
     e = angular.module("ytControllers", []);
-    e.controller("IndexCtrl", [ "$scope", "$http", "contentfulClient", "addBG", function(e, t, l, r) {
+    e.controller("IndexCtrl", [ "$scope", "$http", "contentfulClient", function(e, t, n) {
+        e.features = "";
+        return n.entries({
+            content_type: "tGyjv9K8h2kiGAW6qe2WI",
+            include: 1
+        }).then(function(t) {
+            console.log(t);
+            return e.features = t;
+        });
+    } ]);
+    e.controller("DetailCtrl", [ "$scope", "$routeParams", "$http", "$location", "contentfulClient", "addBG", "$sce", function(e, t, n, r, o, l, i) {
         e.player = {};
         e.playerVars = {
             controls: 0,
@@ -11,20 +21,19 @@
             showinfo: 0,
             hd: 1
         };
-        e.$on("youtube.player.ready", function(t, l) {
-            return e.player = l;
+        e.$on("youtube.player.ready", function(t, n) {
+            return e.player = n;
         });
-        return l.entries({
+        return o.entries({
             "sys.id": "5DqKC5VpHa2Mw4UkOwuYwe",
             include: 10
         }).then(function(t) {
-            var l;
+            var n;
             e.feature = t[0];
             e.fields = e.feature.fields;
             e.items = e.fields.youTubeListItems;
-            l = e.fields.heroImage.fields.file.url;
-            r.paste(l);
-            console.log(e.fields);
+            n = e.fields.heroImage.fields.file.url;
+            l.paste(n);
             return e.video = e.items[0].fields.youTubeVideoId;
         });
     } ]);

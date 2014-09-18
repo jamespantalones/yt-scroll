@@ -1,20 +1,5 @@
 
-<div class="frame">
-  <div class="hero">
-    <div class="image-hero"></div>
-    <h1 class="top">{{fields.title}}</h1>
-  </div>
-  <div class="intro-text">
-    <p>{{fields.introText}}</p>
-  </div>
-  <div sticky="sticky" class="video">
-    <youtube-video id="main-vid" video-id="video" player-vars="playerVars"></youtube-video>
-  </div>
-  <div class="text">
-    <div wrap="wrap" ng-repeat="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" class="topic">
-      <h1>{{item.fields.order}}</h1>
-      <h2>{{item.fields.title}}</h2>
-      <p>{{item.fields.bodyText}}</p><span class="arrow fa fa-angle-double-down"></span>
-    </div>
-  </div>
-</div>
+<ul class="features">
+  <li ng-model="features" ng-repeat="feature in features"><a href="#/{{feature.sys.id}}">
+      <h3>{{feature.fields.title}}</h3></a></li>
+</ul>

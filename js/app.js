@@ -8,7 +8,7 @@
             controller: "IndexCtrl"
         }).when("/:featureId", {
             templateUrl: "partials/detail.html",
-            controller: "FeatureCtrl"
+            controller: "DetailCtrl"
         }).otherwise({
             redirectTo: "/"
         });

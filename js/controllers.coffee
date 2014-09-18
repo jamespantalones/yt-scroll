@@ -2,12 +2,34 @@
 
 ytControllers = angular.module('ytControllers', [])
 
+
+
 ytControllers.controller('IndexCtrl', [
 	'$scope'
 	'$http'
 	'contentfulClient'
+	($scope, $http, contentfulClient) ->
+		$scope.features = ''
+
+		contentfulClient.entries({'content_type': 'tGyjv9K8h2kiGAW6qe2WI','include': 1}).then (data) ->
+			console.log data
+			$scope.features = data
+
+
+])
+
+
+
+
+ytControllers.controller('DetailCtrl', [
+	'$scope'
+	'$routeParams'
+	'$http'
+	'$location'
+	'contentfulClient'
 	'addBG'
-	($scope, $http, contentfulClient, addBG) ->
+	'$sce'
+	($scope, $routeParams, $http, $location, contentfulClient, addBG, $sce) ->
 
 		$scope.player = {}
 
@@ -24,11 +46,10 @@ ytControllers.controller('IndexCtrl', [
 		)
 
 
-
-
-		contentfulClient.entries({'sys.id':'5DqKC5VpHa2Mw4UkOwuYwe', 'include': 10}).then (data) ->
+		contentfulClient.entries({'sys.id': '5DqKC5VpHa2Mw4UkOwuYwe', 'include': 10}).then (data) ->
 			
 			$scope.feature = data[0]
+
 			
 			$scope.fields = $scope.feature.fields
 			
@@ -41,19 +62,10 @@ ytControllers.controller('IndexCtrl', [
 			addBG.paste(url)
 
 			#dev reference
-			console.log $scope.fields
+			
 		
 			#add initial youtube
 			$scope.video = $scope.items[0].fields.youTubeVideoId
-
-
-
-				
-
-			#add listener
-		
-
-
 
 
 ])

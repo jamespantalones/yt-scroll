@@ -1953,14 +1953,25 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/partials\/index.html": {
+	"\/partials\/detail.html": {
 		"fileType": 8192,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/partials\/index.html",
+		"inputAbbreviatedPath": "\/partials\/detail.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/partials\/detail.jade": {
+		"compileDebug": 1,
+		"fileType": 512,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/partials\/detail.jade",
+		"outputAbbreviatedPath": "\/partials\/detail.html",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0
 		},
 	"\/partials\/index.jade": {
 		"compileDebug": 1,

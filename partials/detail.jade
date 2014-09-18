@@ -1,0 +1,22 @@
+.frame
+	div(class="hero")
+		.image-hero
+		h1(class="top") {{fields.title}}
+
+	
+			
+	.intro-text
+		p {{fields.introText}}
+
+
+	div(class="video" sticky)
+		youtube-video(id="main-vid", video-id="video", player-vars="playerVars")
+
+
+	.text
+		div(wrap class="topic", ng-repeat="item in fields.youTubeListItems", data-chapter="{{item.fields.order}}", data-id="{{item.fields.youTubeVideoId}}")
+			
+			h1 {{item.fields.order}}
+			h2 {{item.fields.title}}
+			p {{item.fields.bodyText}}
+			span(class="arrow fa fa-angle-double-down")
