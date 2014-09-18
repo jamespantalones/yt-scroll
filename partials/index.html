@@ -7,56 +7,14 @@
   <div class="intro-text">
     <p>{{fields.introText}}</p>
   </div>
-  <div class="video">
+  <div sticky="sticky" class="video">
     <youtube-video id="main-vid" video-id="video" player-vars="playerVars"></youtube-video>
   </div>
   <div class="text">
-    <div data-topic="1" class="topic">
-      <h1>1</h1>
-      <p>
-        For those unfamiliar with vaporwave... well, it's difficult to pin down. 
-        Rather than follow a typical formula, the genre’s artists draw inspiration 
-        from obscure R&B, funk and soul as much as from the ripples of music that 
-        flow through glistening, soft-focus old-school television ads and the 
-        ambience of luxury spas. Vaporwave is a sort of nouveau-exotica, 
-        evocative and illustrative of dream worlds and fantasy lives; its 
-        aesthetics are coded in Japanese text, computer glitches, net art, 
-        Italian fashion and silver-spoon penthouses. In short, it takes you 
-        elsewhere. And with a wide number of prolific artists, it's never 
-        short of new experiences.
-      </p><span class="arrow fa fa-angle-double-down"></span>
-    </div>
-    <div data-topic="2" class="topic">
-      <h1>2</h1>
-      <p>
-        Constructing a home for vaporwave artists, Hong Kong Express’ Dream 
-        Catalogue has already put out over fifty releases in the past nine months. 
-        I had the pleasure of exchanging a few emails and Twitter messages with 
-        its founder and head, himself an anonymous producer. Why anonymous? 
-        Much vaporwave is nameless and retains its ethereality in this way; 
-        just as magicians do not reveal their tricks, neither do many artists 
-        of this few-years-old movement reveal anything about themselves. 
-        However, Dream Catalogue's boss was more than happy to provide a set 
-        of revelations other than the trivia of name and place: a history of 
-        his young label, its development and future, as well as thoughts on 
-        vaporwave and music in general.
-      </p><span class="arrow fa fa-angle-double-down"></span>
-    </div>
-    <div data-topic="3" class="topic">
-      <h1>3</h1>
-      <p>
-        Constructing a home for vaporwave artists, Hong Kong Express’ Dream 
-        Catalogue has already put out over fifty releases in the past nine months. 
-        I had the pleasure of exchanging a few emails and Twitter messages with 
-        its founder and head, himself an anonymous producer. Why anonymous? 
-        Much vaporwave is nameless and retains its ethereality in this way; 
-        just as magicians do not reveal their tricks, neither do many artists 
-        of this few-years-old movement reveal anything about themselves. 
-        However, Dream Catalogue's boss was more than happy to provide a set 
-        of revelations other than the trivia of name and place: a history of 
-        his young label, its development and future, as well as thoughts on 
-        vaporwave and music in general.
-      </p><span class="arrow fa fa-angle-double-down"></span>
+    <div wrap="wrap" ng-repeat="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" class="topic">
+      <h1>{{item.fields.order}}</h1>
+      <h2>{{item.fields.title}}</h2>
+      <p>{{item.fields.bodyText}}</p><span class="arrow fa fa-angle-double-down"></span>
     </div>
   </div>
 </div>

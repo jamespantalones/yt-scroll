@@ -26,13 +26,19 @@ body {
 
 h1 {
   font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
-  font-weight: lighter; }
-
-h1 {
+  font-weight: lighter;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-size: 8em;
-  font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra'; }
+  color: white; }
+
+h2 {
+  font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
+  font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-size: 2em;
+  color: white; }
 
 p {
   font-size: 1.5em;
@@ -98,18 +104,22 @@ p {
 .video {
   position: relative;
   float: left;
-  width: 50%;
+  padding-bottom: 26.25%;
+  padding-top: 30px;
+  height: 0;
   overflow: hidden;
-  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 40%;
+  margin-right: 5%;
+  margin-left: 5%;
   -webkit-transition: all .1s ease-in-out;
   z-index: 1; }
-  .video h1 {
-    padding: 20px;
-    color: white;
-    text-transform: uppercase;
-    font-size: 3em;
-    line-height: 1;
-    margin: 0; }
+  .video iframe, .video object, .video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
   .video.sticky {
     position: fixed;
     top: 0; }
@@ -118,17 +128,14 @@ p {
   right: 0;
   float: right;
   width: 50%;
-  margin-left: 50%;
-  margin-top: 50px;
   z-index: 3; }
   .text .topic {
     margin-bottom: 100%; }
   .text h1 {
     padding-left: 20px;
-    font-size: 10em;
-    margin: 0;
-    text-transform: uppercase;
-    font-family: 'clan_pronarrow_ultra'; }
+    margin: 0; }
+  .text h2 {
+    padding-left: 20px; }
   .text p {
     padding: 20px;
     padding-top: 0;

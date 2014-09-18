@@ -17,14 +17,22 @@ body{
 h1{
 	font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
 	font-weight: lighter;
-}
-
-h1{
 	text-transform: uppercase;
 	letter-spacing: -1px;
 	font-size: 8em;
-	font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra';
+	color: white;
 }
+
+h2{
+	font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
+	font-weight: lighter;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-size: 2em;
+	color: white;
+}
+
+
 
 p{
 	font-size: 1.5em;

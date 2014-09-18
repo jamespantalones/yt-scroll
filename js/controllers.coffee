@@ -8,22 +8,39 @@ ytControllers.controller('IndexCtrl', [
 	'contentfulClient'
 	($scope, $http, contentfulClient) ->
 
+		$scope.player = {}
+
 		$scope.playerVars = {
 		    controls: 0
 		    autoplay: 0
 		    modestbranding: 1
 		    showinfo: 0
+		    hd: 1
 		}
+
+		$scope.$on('youtube.player.ready', ($event, player) ->
+			$scope.player = player
+		)
+
 
 
 
 		contentfulClient.entries({'sys.id':'5DqKC5VpHa2Mw4UkOwuYwe', 'include': 10}).then (data) ->
+			
 			$scope.feature = data[0]
+			
 			$scope.fields = $scope.feature.fields
+			
+			#get array of all items to send to factory
 			$scope.items = $scope.fields.youTubeListItems
+
+			#dev reference
 			console.log $scope.fields
+		
 			#add initial youtube
 			$scope.video = $scope.items[0].fields.youTubeVideoId
+
+
 
 				
 
