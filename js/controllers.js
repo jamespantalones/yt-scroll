@@ -25,7 +25,7 @@
             return e.player = n;
         });
         return o.entries({
-            "sys.id": "5DqKC5VpHa2Mw4UkOwuYwe",
+            "sys.id": t.featureId,
             include: 10
         }).then(function(t) {
             var n;

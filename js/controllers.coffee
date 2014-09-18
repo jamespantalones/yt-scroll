@@ -46,7 +46,7 @@ ytControllers.controller('DetailCtrl', [
 		)
 
 
-		contentfulClient.entries({'sys.id': '5DqKC5VpHa2Mw4UkOwuYwe', 'include': 10}).then (data) ->
+		contentfulClient.entries({'sys.id': $routeParams.featureId, 'include': 10}).then (data) ->
 			
 			$scope.feature = data[0]
 
