@@ -21,7 +21,8 @@
     "contentful": "~0.1.2",
     "showdown": "~0.3.1",
     "ui-utils": "~0.1.1",
-    "jquery-waypoints": "~2.0.5"
+    "jquery-waypoints": "~2.0.5",
+    "angular-animate": "~1.2.25"
   },
   "devDependencies": {
     "angular-youtube-mb": "~0.1.2",

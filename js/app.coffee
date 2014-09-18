@@ -3,6 +3,7 @@
 app = angular.module('ytlist', [
 	'ngRoute'
 	'ngSanitize'
+	'ngAnimate'
 	'ng-contentful'
 	'youtube-embed'
 	'ytControllers'
