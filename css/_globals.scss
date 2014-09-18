@@ -41,9 +41,20 @@ p{
 }
 
 
-
-
 .ng-scope{
 	width: 100%;
 	height: 100%;
+}
+
+.frame{
+	position: absolute;
+	margin: 0;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	box-sizing: border-box;
+	background: $pastelblue;
 }

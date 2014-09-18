@@ -3,9 +3,6 @@
 ytDirectives = angular.module('ytDirectives', [])
 
 
-
-
-
 ytDirectives.directive('addBackground', ->
 	
 	
@@ -25,13 +22,14 @@ ytDirectives.directive('addBackground', ->
 
 
 
+
 ytDirectives.directive('sticky', ->
 
 	link = ($scope, element, attrs) ->
 
 		element.waypoint({
 			context: '.frame'
-			offset: '-6.25%'
+			offset: 50
 			handler: (direction) ->
 				if direction == 'down'
 					element.addClass "sticky"
@@ -45,6 +43,9 @@ ytDirectives.directive('sticky', ->
 
 
 )
+
+
+
 
 ytDirectives.directive('wrap', ->
 

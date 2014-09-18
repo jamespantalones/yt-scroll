@@ -58,17 +58,9 @@ p {
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
   background: #ebf8fd; }
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99;
-  opacity: 0.5; }
 
 .hero {
   position: relative;
@@ -97,36 +89,20 @@ p {
       bottom: 20px;
       position: absolute; }
 
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  opacity: 0.5; }
+
 .intro-text {
   position: relative;
   color: white;
   width: 80%;
-  margin-left: 10%; }
-
-.video {
-  position: relative;
-  float: left;
-  padding-bottom: 26.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  width: 40%;
-  margin-right: 5%;
-  margin-left: 5%;
-  -webkit-transition: all .1s ease-in-out;
-  box-shadow: 1px 0px 1px #4d4d4d, 0px 1px 0px #333333, 2px 1px 0px #4d4d4d, 1px 2px 0px #333333, 3px 2px 0px #4d4d4d, 2px 3px 0px #333333, 4px 3px 0px #4d4d4d, 3px 4px 0px #333333, 5px 4px 0px #4d4d4d, 4px 5px 0px #333333, 6px 5px 0px #4d4d4d, 5px 6px 0px #333333, 7px 6px 0px #4d4d4d, 6px 7px 0px #333333, 8px 7px 0px #4d4d4d, 7px 8px 0px #333333, 9px 8px 0px #4d4d4d, 8px 9px 0px #333333, 10px 9px 0px #4d4d4d, 9px 10px 0px #333333, 11px 10px 0px #4d4d4d;
-  z-index: 1; }
-  .video iframe, .video object, .video embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
-  .video.sticky {
-    position: fixed;
-    top: 0; }
+  margin: 88px 10% 88px 10%; }
 
 .text {
   right: 0;
@@ -146,7 +122,7 @@ p {
     margin-top: 0; }
   .text span.arrow {
     font-size: 3em;
-    text-align: left;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
     padding-top: 200px;
@@ -154,3 +130,29 @@ p {
     padding-left: 20px;
     color: #6b2ae7;
     margin-top: 10%; }
+
+.video {
+  position: relative;
+  float: left;
+  padding-bottom: 26.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  width: 40%;
+  margin-right: 5%;
+  margin-left: 5%;
+  box-shadow: 1px 0px 1px #4d4d4d, 0px 1px 0px #333333, 2px 1px 0px #4d4d4d, 1px 2px 0px #333333, 3px 2px 0px #4d4d4d, 2px 3px 0px #333333, 4px 3px 0px #4d4d4d, 3px 4px 0px #333333, 5px 4px 0px #4d4d4d, 4px 5px 0px #333333, 6px 5px 0px #4d4d4d, 5px 6px 0px #333333, 7px 6px 0px #4d4d4d, 6px 7px 0px #333333, 8px 7px 0px #4d4d4d, 7px 8px 0px #333333, 9px 8px 0px #4d4d4d, 8px 9px 0px #333333, 10px 9px 0px #4d4d4d, 9px 10px 0px #333333, 11px 10px 0px #4d4d4d;
+  z-index: 1;
+  -webkit-transition: all .5s ease;
+          transition: all .5s ease; }
+  .video iframe, .video object, .video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .video.sticky {
+    position: fixed;
+    top: 0; }

@@ -21,7 +21,7 @@
         e = function(e, t, r) {
             return t.waypoint({
                 context: ".frame",
-                offset: "-6.25%",
+                offset: 50,
                 handler: function(e) {
                     if (e === "down") {
                         return t.addClass("sticky");
