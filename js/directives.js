@@ -1,90 +1,106 @@
 (function() {
     "use strict";
-    var t;
-    t = angular.module("ytDirectives", []);
-    t.directive("addBackground", function() {
-        var t;
-        return t = function(e, r, a) {
-            var n;
-            n = r.data("image");
+    var e;
+    e = angular.module("ytDirectives", []);
+    e.directive("mouseback", function() {
+        var e;
+        e = function(e, t, r) {
+            return t.mousemove(function(e) {
+                var t, r;
+                t = e.pageX * -1.5 / 6;
+                r = e.pageY * -1.5 / 6;
+                return $(this).css({
+                    backgroundPosition: t + "px " + r + "px"
+                });
+            });
+        };
+        return {
+            link: e
+        };
+    });
+    e.directive("addBackground", function() {
+        var e;
+        return e = function(t, r, n) {
+            var i;
+            i = r.data("image");
             r.css({
                 background: "black"
             });
             return {
-                link: t
+                link: e
             };
         };
     });
-    t.directive("sticky", function() {
-        var t;
-        t = function(t, e, r) {
-            return e.waypoint({
+    e.directive("sticky", function() {
+        var e;
+        e = function(e, t, r) {
+            return t.waypoint({
                 context: ".frame",
                 offset: 50,
-                handler: function(t) {
-                    if (t === "down") {
-                        return e.addClass("sticky");
+                handler: function(e) {
+                    if (e === "down") {
+                        return t.addClass("sticky");
                     } else {
-                        return e.removeClass("sticky");
+                        return t.removeClass("sticky");
                     }
                 }
             });
         };
         return {
-            link: t
+            link: e
         };
     });
-    t.directive("wrap", function() {
-        var t, e;
-        t = 1;
-        e = function(e, r, a) {
-            r.addClass("item" + t);
-            $(".item" + t).waypoint({
+    e.directive("wrap", function() {
+        var e, t;
+        e = 1;
+        t = function(t, r, n) {
+            r.addClass("item" + e);
+            $(".item" + e).waypoint({
                 context: ".frame",
                 offset: "10%",
-                handler: function(t) {
-                    var r, a, n, i;
+                handler: function(e) {
+                    var r, n, i, a;
                     r = $(this);
-                    i = r.data("id");
-                    n = r.data("time");
-                    if (!n) {
-                        n = 0;
-                    }
-                    a = r.data("chapter");
-                    if (t === "down") {
-                        if (a === 1) {
-                            return;
-                        }
-                        e.player.cueVideoById(i, n);
-                    } else {
-                        return;
-                    }
-                    return e.player.cueVideoById(i, n);
-                }
-            }).waypoint({
-                context: ".frame",
-                offset: "80%",
-                handler: function(t) {
-                    var r, a, n, i, d;
-                    r = $(this);
-                    d = r.data("id");
-                    n = r.prev().data("id");
+                    a = r.data("id");
                     i = r.data("time");
                     if (!i) {
                         i = 0;
                     }
-                    a = r.data("chapter");
-                    if (t === "up") {
+                    n = r.data("chapter");
+                    if (e === "down") {
+                        if (n === 1) {
+                            return;
+                        }
+                        t.player.cueVideoById(a, i);
+                    } else {
+                        return;
+                    }
+                    return t.player.cueVideoById(a, i);
+                }
+            }).waypoint({
+                context: ".frame",
+                offset: "80%",
+                handler: function(e) {
+                    var r, n, i, a, u;
+                    r = $(this);
+                    u = r.data("id");
+                    i = r.prev().data("id");
+                    a = r.data("time");
+                    if (!a) {
+                        a = 0;
+                    }
+                    n = r.data("chapter");
+                    if (e === "up") {
                         if (r.prev().length) {
-                            return e.player.cueVideoById(n, i);
+                            return t.player.cueVideoById(i, a);
                         } else {}
                     }
                 }
             });
-            return t++;
+            return e++;
         };
         return {
-            link: e
+            link: t
         };
     });
 }).call(this);
