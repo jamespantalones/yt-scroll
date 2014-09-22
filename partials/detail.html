@@ -11,7 +11,7 @@
     <youtube-video id="main-vid" video-id="video" player-vars="playerVars"></youtube-video>
   </div>
   <div class="text">
-    <div wrap="wrap" ng-repeat="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" class="topic">
+    <div wrap="wrap" ng-repeat="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" class="topic">
       <h1>{{item.fields.order}}</h1>
       <h2>{{item.fields.title}}</h2>
       <p>{{item.fields.bodyText}}</p><span class="arrow fa fa-angle-double-down"></span>

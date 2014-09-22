@@ -62,6 +62,13 @@ ytDirectives.directive('wrap', ->
 			handler: (direction) ->
 				active = $(this)
 				videoId = active.data "id"
+				
+				#grab timecode
+				time = active.data "time"
+				
+				if !time
+					time = 0
+				
 				chapter = active.data "chapter"
 
 				if direction == 'down'
@@ -69,13 +76,13 @@ ytDirectives.directive('wrap', ->
 					if chapter == 1
 						#video is already loaded, so no need to reload
 						return
-					$scope.player.cueVideoById(videoId)
+					$scope.player.cueVideoById(videoId, time)
 
 				else
 					return
 				
 			
-				$scope.player.cueVideoById(videoId)
+				$scope.player.cueVideoById(videoId, time)
 			
 
 			}).waypoint({
@@ -88,11 +95,14 @@ ytDirectives.directive('wrap', ->
 					active = $(this)
 					videoId = active.data "id"
 					preVideo = active.prev().data "id"
+					time = active.data "time"
+					if !time
+						time = 0
 					chapter = active.data "chapter"
 					
 					if direction == 'up'
 						if active.prev().length
-							$scope.player.cueVideoById(preVideo)
+							$scope.player.cueVideoById(preVideo, time)
 						else
 							return
 				})

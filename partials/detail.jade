@@ -14,7 +14,11 @@
 
 
 	.text
-		div(wrap class="topic", ng-repeat="item in fields.youTubeListItems", data-chapter="{{item.fields.order}}", data-id="{{item.fields.youTubeVideoId}}")
+		div(wrap class="topic", 
+			ng-repeat="item in fields.youTubeListItems", 
+			data-chapter="{{item.fields.order}}", 
+			data-id="{{item.fields.youTubeVideoId}}",
+			data-time="{{item.fields.startTime}}")
 			
 			h1 {{item.fields.order}}
 			h2 {{item.fields.title}}

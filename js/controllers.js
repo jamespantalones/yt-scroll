@@ -15,7 +15,7 @@
     e.controller("DetailCtrl", [ "$scope", "$routeParams", "$http", "$location", "contentfulClient", "addBG", "$sce", function(e, t, n, r, o, l, i) {
         e.player = {};
         e.playerVars = {
-            controls: 0,
+            controls: 1,
             autoplay: 0,
             modestbranding: 1,
             showinfo: 0,

@@ -4,10 +4,10 @@
     e = angular.module("ytDirectives", []);
     e.directive("addBackground", function() {
         var e;
-        return e = function(t, r, n) {
-            var a;
-            a = r.data("image");
-            console.log(a);
+        return e = function(t, r, a) {
+            var n;
+            n = r.data("image");
+            console.log(n);
             r.css({
                 background: "black"
             });
@@ -38,38 +38,46 @@
     e.directive("wrap", function() {
         var e, t;
         e = 1;
-        t = function(t, r, n) {
+        t = function(t, r, a) {
             r.addClass("item" + e);
             $(".item" + e).waypoint({
                 context: ".frame",
                 offset: "10%",
                 handler: function(e) {
-                    var r, n, a;
+                    var r, a, n, i;
                     r = $(this);
-                    a = r.data("id");
-                    n = r.data("chapter");
+                    i = r.data("id");
+                    n = r.data("time");
+                    if (!n) {
+                        n = 0;
+                    }
+                    a = r.data("chapter");
                     if (e === "down") {
-                        if (n === 1) {
+                        if (a === 1) {
                             return;
                         }
-                        t.player.cueVideoById(a);
+                        t.player.cueVideoById(i, n);
                     } else {
                         return;
                     }
-                    return t.player.cueVideoById(a);
+                    return t.player.cueVideoById(i, n);
                 }
             }).waypoint({
                 context: ".frame",
                 offset: "80%",
                 handler: function(e) {
-                    var r, n, a, i;
+                    var r, a, n, i, d;
                     r = $(this);
-                    i = r.data("id");
-                    a = r.prev().data("id");
-                    n = r.data("chapter");
+                    d = r.data("id");
+                    n = r.prev().data("id");
+                    i = r.data("time");
+                    if (!i) {
+                        i = 0;
+                    }
+                    a = r.data("chapter");
                     if (e === "up") {
                         if (r.prev().length) {
-                            return t.player.cueVideoById(a);
+                            return t.player.cueVideoById(n, i);
                         } else {}
                     }
                 }
