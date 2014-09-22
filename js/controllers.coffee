@@ -86,7 +86,7 @@ ytControllers.controller('DetailCtrl', [
 			#add initial youtube
 			$scope.video = $scope.items[0].fields.youTubeVideoId
 
-			setTimeout(heightServices.sendHeight, 2000)
+			setTimeout(heightService.sendHeight, 2000)
 
 
 

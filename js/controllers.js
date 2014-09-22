@@ -12,7 +12,7 @@
             return e.features = t;
         });
     } ]);
-    e.controller("DetailCtrl", [ "$scope", "$routeParams", "$http", "$location", "contentfulClient", "addBG", "$sce", "heightService", function(e, t, n, r, o, i, l, s) {
+    e.controller("DetailCtrl", [ "$scope", "$routeParams", "$http", "$location", "contentfulClient", "addBG", "$sce", "heightService", function(e, t, n, r, o, l, i, s) {
         var u;
         u = new Showdown.converter();
         e.player = {};
@@ -30,24 +30,24 @@
             "sys.id": t.featureId,
             include: 10
         }).then(function(t) {
-            var n, r, o, i, s, d;
+            var n, r, o, l, d, a;
             e.feature = t[0];
             e.fields = e.feature.fields;
             console.log(e.fields);
-            d = e.fields.youTubeListItems;
-            for (i = 0, s = d.length; i < s; i++) {
-                n = d[i];
+            a = e.fields.youTubeListItems;
+            for (l = 0, d = a.length; l < d; l++) {
+                n = a[l];
                 r = n.fields.bodyText;
                 r = u.makeHtml(r);
             }
             e.trust = function(e) {
-                return l.trustAsHtml(e);
+                return i.trustAsHtml(e);
             };
             e.fields.introText = u.makeHtml(e.fields.introText);
             e.items = e.fields.youTubeListItems;
             o = e.fields.heroImage.fields.file.url;
             e.video = e.items[0].fields.youTubeVideoId;
-            return setTimeout(heightServices.sendHeight, 2e3);
+            return setTimeout(s.sendHeight, 2e3);
         });
     } ]);
 }).call(this);
