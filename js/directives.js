@@ -1,49 +1,48 @@
 (function() {
     "use strict";
-    var e;
-    e = angular.module("ytDirectives", []);
-    e.directive("addBackground", function() {
-        var e;
-        return e = function(t, r, a) {
+    var t;
+    t = angular.module("ytDirectives", []);
+    t.directive("addBackground", function() {
+        var t;
+        return t = function(e, r, a) {
             var n;
             n = r.data("image");
-            console.log(n);
             r.css({
                 background: "black"
             });
             return {
-                link: e
+                link: t
             };
         };
     });
-    e.directive("sticky", function() {
-        var e;
-        e = function(e, t, r) {
-            return t.waypoint({
+    t.directive("sticky", function() {
+        var t;
+        t = function(t, e, r) {
+            return e.waypoint({
                 context: ".frame",
                 offset: 50,
-                handler: function(e) {
-                    if (e === "down") {
-                        return t.addClass("sticky");
+                handler: function(t) {
+                    if (t === "down") {
+                        return e.addClass("sticky");
                     } else {
-                        return t.removeClass("sticky");
+                        return e.removeClass("sticky");
                     }
                 }
             });
         };
         return {
-            link: e
+            link: t
         };
     });
-    e.directive("wrap", function() {
-        var e, t;
-        e = 1;
-        t = function(t, r, a) {
-            r.addClass("item" + e);
-            $(".item" + e).waypoint({
+    t.directive("wrap", function() {
+        var t, e;
+        t = 1;
+        e = function(e, r, a) {
+            r.addClass("item" + t);
+            $(".item" + t).waypoint({
                 context: ".frame",
                 offset: "10%",
-                handler: function(e) {
+                handler: function(t) {
                     var r, a, n, i;
                     r = $(this);
                     i = r.data("id");
@@ -52,20 +51,20 @@
                         n = 0;
                     }
                     a = r.data("chapter");
-                    if (e === "down") {
+                    if (t === "down") {
                         if (a === 1) {
                             return;
                         }
-                        t.player.cueVideoById(i, n);
+                        e.player.cueVideoById(i, n);
                     } else {
                         return;
                     }
-                    return t.player.cueVideoById(i, n);
+                    return e.player.cueVideoById(i, n);
                 }
             }).waypoint({
                 context: ".frame",
                 offset: "80%",
-                handler: function(e) {
+                handler: function(t) {
                     var r, a, n, i, d;
                     r = $(this);
                     d = r.data("id");
@@ -75,17 +74,17 @@
                         i = 0;
                     }
                     a = r.data("chapter");
-                    if (e === "up") {
+                    if (t === "up") {
                         if (r.prev().length) {
-                            return t.player.cueVideoById(n, i);
+                            return e.player.cueVideoById(n, i);
                         } else {}
                     }
                 }
             });
-            return e++;
+            return t++;
         };
         return {
-            link: t
+            link: e
         };
     });
 }).call(this);

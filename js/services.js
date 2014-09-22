@@ -10,32 +10,32 @@
             });
         };
         return {
-            paste: function(t) {
-                return n(t);
+            paste: function(r) {
+                return n(r);
             }
         };
     });
     n.factory("heightService", [ "$rootScope", function(n) {
-        var t, r;
-        t = function() {
-            return $(document).height();
+        var r, t;
+        r = function() {
+            return $(".frame").height();
         };
-        r = function(t) {
-            var r, e;
-            r = {
-                height: t
+        t = function(r) {
+            var t, e;
+            t = {
+                height: r
             };
-            e = JSON.stringify(r);
+            e = JSON.stringify(t);
             console.log(e);
             n.$broadcast("loaded");
             return window.parent.postMessage(e, "*");
         };
         window.addEventListener("resize", function() {
-            return r(t());
+            return t(r());
         });
         return {
             sendHeight: function() {
-                return r(t());
+                return t(r());
             }
         };
     } ]);

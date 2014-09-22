@@ -18,7 +18,7 @@ ytServices.factory('addBG', ->
 ytServices.factory('heightService', ['$rootScope', ($rootScope) ->
 
 	getHeight = ->
-		return $(document).height()
+		return $('.frame').height()
 
 
 	

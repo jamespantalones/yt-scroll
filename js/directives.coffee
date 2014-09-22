@@ -8,7 +8,6 @@ ytDirectives.directive('addBackground', ->
 	
 	link = ($scope, element, attrs) ->
 		background = element.data 'image'
-		console.log background
 		
 		element.css
 			'background': 'black'
