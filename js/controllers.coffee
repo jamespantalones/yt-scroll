@@ -29,7 +29,8 @@ ytControllers.controller('DetailCtrl', [
 	'contentfulClient'
 	'addBG'
 	'$sce'
-	($scope, $routeParams, $http, $location, contentfulClient, addBG, $sce) ->
+	'heightService'
+	($scope, $routeParams, $http, $location, contentfulClient, addBG, $sce, heightService) ->
 
 		converter = new Showdown.converter()
 
@@ -54,7 +55,6 @@ ytControllers.controller('DetailCtrl', [
 			
 			$scope.feature = data[0]
 
-			
 			$scope.fields = $scope.feature.fields
 
 			console.log $scope.fields
@@ -82,10 +82,11 @@ ytControllers.controller('DetailCtrl', [
 			#send in image to service
 			# addBG.paste(url)
 
-			
 		
 			#add initial youtube
 			$scope.video = $scope.items[0].fields.youTubeVideoId
+
+			setTimeout(heightServices.sendHeight, 2000)
 
 
 
