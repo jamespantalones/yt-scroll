@@ -5,6 +5,7 @@ app = angular.module('ytlist', [
 	'ngSanitize'
 	'ngAnimate'
 	'ng-contentful'
+	'duScroll'
 	'youtube-embed'
 	'ytControllers'
 	'ytDirectives'

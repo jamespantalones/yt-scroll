@@ -31,6 +31,8 @@ ytControllers.controller('DetailCtrl', [
 	'$sce'
 	($scope, $routeParams, $http, $location, contentfulClient, addBG, $sce) ->
 
+		converter = new Showdown.converter()
+
 		$scope.player = {}
 
 		$scope.playerVars = {
@@ -45,6 +47,8 @@ ytControllers.controller('DetailCtrl', [
 			$scope.player = player
 		)
 
+		
+
 
 		contentfulClient.entries({'sys.id': $routeParams.featureId, 'include': 10}).then (data) ->
 			
@@ -52,6 +56,23 @@ ytControllers.controller('DetailCtrl', [
 
 			
 			$scope.fields = $scope.feature.fields
+
+			console.log $scope.fields
+
+			
+
+			for item in $scope.fields.youTubeListItems
+				text = item.fields.bodyText
+				text = converter.makeHtml(text)
+
+
+			$scope.trust = (body) ->
+				return $sce.trustAsHtml(body)
+
+
+			
+
+			$scope.fields.introText = converter.makeHtml($scope.fields.introText)
 			
 			#get array of all items to send to factory
 			$scope.items = $scope.fields.youTubeListItems
@@ -59,13 +80,14 @@ ytControllers.controller('DetailCtrl', [
 			url = $scope.fields.heroImage.fields.file.url
 
 			#send in image to service
-			addBG.paste(url)
+			# addBG.paste(url)
 
-			#dev reference
 			
 		
 			#add initial youtube
 			$scope.video = $scope.items[0].fields.youTubeVideoId
+
+
 
 
 ])

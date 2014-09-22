@@ -2,14 +2,20 @@
 	position: relative;
 	color: white;
 	width: 80%;
-	margin: 88px 10% 88px 10%;
+	margin: 0 10% 88px 10%;
+	font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: bold;
 }
 
 .text{
+	background-color: white;
 	right: 0;
 	float: right;
 	width: 50%;
 	z-index: 3;
+	font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialised;
+	font-weight: lighter;
 	.topic{
 		margin-bottom: 200px;
 	}
@@ -22,11 +28,23 @@
 		padding-left: 20px;
 	}
 
-	p{
+	.bodyText{
 		padding: 20px;
 		padding-top: 0;
-		margin-top: 0;
+		font-size: 1.5em;
+		line-height: 1.5;
+		font-family: 'Times', serif;
+		-webkit-font-smoothing: antialised;
+		font-weight: lighter;
+		p{
+			padding-top: 0;
+			font-size: 1.5em;
+			margin-top: 0;
+		}
+
 	}
+
+	
 	span.arrow{
 		font-size: 3em;
 		text-align: center;
@@ -37,5 +55,60 @@
 		padding-left: 20px;
 		color: $purple;
 		margin-top: 10%;
+	}
+}
+
+@media screen and (max-width: 800px), screen and (max-device-width: 800px){
+	.intro-text{
+		position: relative;
+		color: white;
+		width: 80%;
+		margin: 0 10% 88px 10%;
+		font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+		font-weight: lighter;
+		font-size: 0.8em !important;
+	}
+
+	.text{
+		right: 0;
+		float: none;
+		width: 90%;
+		margin-left: 5%;
+		z-index: 3;
+		font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+		-webkit-font-smoothing: antialised;
+		font-weight: lighter;
+		.topic{
+			margin-bottom: 200px;
+		}
+		h1{
+			padding-left: 20px;
+			margin: 0;
+		}
+
+		h2{
+			padding-left: 20px;
+		}
+
+		.bodyText{
+			padding: 20px;
+			padding-top: 0;
+			font-size: 1.2em;
+			line-height: 1.5;
+			font-family: 'Times', serif;
+			-webkit-font-smoothing: antialised;
+			font-weight: lighter;
+			p{
+				padding-top: 0;
+				font-size: 1.5em;
+				margin-top: 0;
+			}
+
+		}
+
+		
+		span.arrow{
+			display: none !important;
+		}
 	}
 }

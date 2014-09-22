@@ -10,7 +10,7 @@ html{
 body{
 	height: 100%;
 	width: 100%;
-	background-color: $pastelblue;
+	background-color: white;
 	margin: 0;
 }
 
@@ -24,9 +24,8 @@ h1{
 }
 
 h2{
-	font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
+	font-family: futura, 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
 	font-weight: lighter;
-	text-transform: uppercase;
 	letter-spacing: -1px;
 	font-size: 2em;
 	color: $purple;
@@ -35,8 +34,8 @@ h2{
 
 
 p{
-	font-size: 1.5em;
-	line-height: 2;
+	font-size: 1.4em;
+	line-height: 1.5;
 	color: $purple;
 }
 
@@ -56,5 +55,5 @@ p{
 	overflow-x: hidden;
 	overflow-y: scroll;
 	box-sizing: border-box;
-	background: $pastelblue;
+	background: white;
 }

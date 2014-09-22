@@ -6,7 +6,7 @@
 	height: 0;
 	overflow: hidden;
 	margin-bottom: 50px;
-	margin-top: 50px;
+	margin-top: 10%;
 	width: 40%;
 	margin-right: 5%;
 	margin-left: 5%;
@@ -24,5 +24,11 @@
 	&.sticky{
 		position: fixed;
 		top: 0;
+	}
+}
+
+@media screen and (max-width: 800px), screen and (max-device-width: 800px){
+	.video{
+		display: none !important;
 	}
 }

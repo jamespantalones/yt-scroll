@@ -21,7 +21,7 @@ html {
 body {
   height: 100%;
   width: 100%;
-  background-color: #ebf8fd;
+  background-color: white;
   margin: 0; }
 
 h1 {
@@ -30,20 +30,19 @@ h1 {
   text-transform: uppercase;
   letter-spacing: -1px;
   font-size: 8em;
-  color: #6b2ae7; }
+  color: black; }
 
 h2 {
-  font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
+  font-family: futura, 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
   font-weight: lighter;
-  text-transform: uppercase;
   letter-spacing: -1px;
   font-size: 2em;
-  color: #6b2ae7; }
+  color: black; }
 
 p {
-  font-size: 1.5em;
-  line-height: 2;
-  color: #6b2ae7; }
+  font-size: 1.4em;
+  line-height: 1.5;
+  color: black; }
 
 .ng-scope {
   width: 100%;
@@ -60,7 +59,7 @@ p {
   overflow-y: scroll;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
-  background: #ebf8fd; }
+  background: white; }
 
 .features {
   margin: 0;
@@ -83,23 +82,35 @@ p {
   width: 100%;
   min-height: 100%;
   min-height: 700px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background-color: #c5cbd0;
   top: 0;
   left: 0;
   text-align: center;
   overflow: hidden; }
+  .hero .image-hero {
+    overflow: hidden;
+    width: 400px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px; }
+    .hero .image-hero img {
+      max-width: 100%;
+      -webkit-filter: grayscale(1);
+      opacity: 0.8; }
   .hero h1 {
     margin: 0;
-    position: absolute;
-    color: #ebf8fd;
+    position: relative;
+    color: black;
     text-align: center;
-    font-size: 8em;
-    text-transform: uppercase; }
+    font-size: 3em;
+    line-height: 1;
+    font-weight: bold;
+    font-size: 100px;
+    text-transform: none; }
     .hero h1.top {
       top: 15%;
-      font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra'; }
+      font-family: futura, 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra'; }
     .hero h1.bottom {
       bottom: 20px;
       position: absolute; }
@@ -113,17 +124,85 @@ p {
   z-index: 99;
   opacity: 0.5; }
 
+@media screen and (max-width: 800px), screen and (max-device-width: 800px) {
+  .hero {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    min-height: 700px;
+    top: 0;
+    left: 0;
+    text-align: center;
+    overflow: hidden; }
+    .hero .image-hero {
+      overflow: hidden;
+      width: 300px;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 100px; }
+      .hero .image-hero img {
+        max-width: 100%;
+        -webkit-filter: grayscale(1);
+        opacity: 0.8; }
+    .hero h1 {
+      margin: 0;
+      text-align: center;
+      font-size: 4em !important;
+      width: 90%;
+      margin-left: 5%;
+      font-weight: bold; }
+    .hero h2 {
+      font-size: 1.5em; } }
+@media screen and (max-width: 600px), screen and (max-device-width: 600px) {
+  .hero {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    min-height: 700px;
+    top: 0;
+    left: 0;
+    text-align: center;
+    overflow: hidden; }
+    .hero .image-hero {
+      overflow: hidden;
+      width: 300px;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 100px; }
+      .hero .image-hero img {
+        max-width: 100%;
+        -webkit-filter: grayscale(1);
+        opacity: 0.8; }
+    .hero h1 {
+      margin: 0;
+      text-align: center;
+      font-size: 3em !important;
+      width: 90%;
+      margin-left: 5%;
+      font-weight: bold; }
+    .hero h2 {
+      font-size: 1.5em; } }
 .intro-text {
   position: relative;
   color: white;
   width: 80%;
-  margin: 88px 10% 88px 10%; }
+  margin: 0 10% 88px 10%;
+  font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+  font-weight: bold; }
 
 .text {
+  background-color: white;
   right: 0;
   float: right;
   width: 50%;
-  z-index: 3; }
+  z-index: 3;
+  font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialised;
+  font-weight: lighter; }
   .text .topic {
     margin-bottom: 200px; }
   .text h1 {
@@ -131,10 +210,18 @@ p {
     margin: 0; }
   .text h2 {
     padding-left: 20px; }
-  .text p {
+  .text .bodyText {
     padding: 20px;
     padding-top: 0;
-    margin-top: 0; }
+    font-size: 1.5em;
+    line-height: 1.5;
+    font-family: 'Times', serif;
+    -webkit-font-smoothing: antialised;
+    font-weight: lighter; }
+    .text .bodyText p {
+      padding-top: 0;
+      font-size: 1.5em;
+      margin-top: 0; }
   .text span.arrow {
     font-size: 3em;
     text-align: center;
@@ -143,9 +230,49 @@ p {
     padding-top: 200px;
     display: block;
     padding-left: 20px;
-    color: #6b2ae7;
+    color: black;
     margin-top: 10%; }
 
+@media screen and (max-width: 800px), screen and (max-device-width: 800px) {
+  .intro-text {
+    position: relative;
+    color: white;
+    width: 80%;
+    margin: 0 10% 88px 10%;
+    font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 0.8em !important; }
+
+  .text {
+    right: 0;
+    float: none;
+    width: 90%;
+    margin-left: 5%;
+    z-index: 3;
+    font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+    -webkit-font-smoothing: antialised;
+    font-weight: lighter; }
+    .text .topic {
+      margin-bottom: 200px; }
+    .text h1 {
+      padding-left: 20px;
+      margin: 0; }
+    .text h2 {
+      padding-left: 20px; }
+    .text .bodyText {
+      padding: 20px;
+      padding-top: 0;
+      font-size: 1.2em;
+      line-height: 1.5;
+      font-family: 'Times', serif;
+      -webkit-font-smoothing: antialised;
+      font-weight: lighter; }
+      .text .bodyText p {
+        padding-top: 0;
+        font-size: 1.5em;
+        margin-top: 0; }
+    .text span.arrow {
+      display: none !important; } }
 .video {
   position: relative;
   float: left;
@@ -154,7 +281,7 @@ p {
   height: 0;
   overflow: hidden;
   margin-bottom: 50px;
-  margin-top: 50px;
+  margin-top: 10%;
   width: 40%;
   margin-right: 5%;
   margin-left: 5%;
@@ -172,6 +299,9 @@ p {
     position: fixed;
     top: 0; }
 
+@media screen and (max-width: 800px), screen and (max-device-width: 800px) {
+  .video {
+    display: none !important; } }
 .slide {
   position: absolute;
   left: 0;

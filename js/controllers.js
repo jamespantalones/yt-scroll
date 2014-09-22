@@ -13,6 +13,8 @@
         });
     } ]);
     e.controller("DetailCtrl", [ "$scope", "$routeParams", "$http", "$location", "contentfulClient", "addBG", "$sce", function(e, t, n, r, o, l, i) {
+        var s;
+        s = new Showdown.converter();
         e.player = {};
         e.playerVars = {
             controls: 1,
@@ -28,12 +30,22 @@
             "sys.id": t.featureId,
             include: 10
         }).then(function(t) {
-            var n;
+            var n, r, o, l, u, a;
             e.feature = t[0];
             e.fields = e.feature.fields;
+            console.log(e.fields);
+            a = e.fields.youTubeListItems;
+            for (l = 0, u = a.length; l < u; l++) {
+                n = a[l];
+                r = n.fields.bodyText;
+                r = s.makeHtml(r);
+            }
+            e.trust = function(e) {
+                return i.trustAsHtml(e);
+            };
+            e.fields.introText = s.makeHtml(e.fields.introText);
             e.items = e.fields.youTubeListItems;
-            n = e.fields.heroImage.fields.file.url;
-            l.paste(n);
+            o = e.fields.heroImage.fields.file.url;
             return e.video = e.items[0].fields.youTubeVideoId;
         });
     } ]);

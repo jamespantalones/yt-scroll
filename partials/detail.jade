@@ -1,12 +1,16 @@
-.frame
+.frame(du-scroll-container)
 	div(class="hero")
-		.image-hero
+		a(href="#start", du-smooth-scroll, offset="30")
+			.image-hero
+				img(ng-src="{{fields.heroImage.fields.file.url}}")
 		h1(class="top") {{fields.title}}
+		h2 {{fields.subTitle}}
 
 	
 			
 	.intro-text
-		p {{fields.introText}}
+		a(id="start")
+		div(ng-bind-html="trust(fields.introText)")
 
 
 	div(class="video" sticky)
@@ -22,5 +26,5 @@
 			
 			h1 {{item.fields.order}}
 			h2 {{item.fields.title}}
-			p {{item.fields.bodyText}}
+			div(class="bodyText", ng-bind-html="trust(item.fields.bodyText)")
 			span(class="arrow fa fa-angle-double-down")

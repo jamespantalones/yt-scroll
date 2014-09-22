@@ -1,11 +1,12 @@
 
-<div class="frame">
-  <div class="hero">
-    <div class="image-hero"></div>
+<div du-scroll-container="du-scroll-container" class="frame">
+  <div class="hero"><a href="#start" du-smooth-scroll="du-smooth-scroll" offset="30">
+      <div class="image-hero"><img ng-src="{{fields.heroImage.fields.file.url}}"/></div></a>
     <h1 class="top">{{fields.title}}</h1>
+    <h2>{{fields.subTitle}}</h2>
   </div>
-  <div class="intro-text">
-    <p>{{fields.introText}}</p>
+  <div class="intro-text"><a id="start"></a>
+    <div ng-bind-html="trust(fields.introText)"></div>
   </div>
   <div sticky="sticky" class="video">
     <youtube-video id="main-vid" video-id="video" player-vars="playerVars"></youtube-video>
@@ -14,7 +15,7 @@
     <div wrap="wrap" ng-repeat="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" class="topic">
       <h1>{{item.fields.order}}</h1>
       <h2>{{item.fields.title}}</h2>
-      <p>{{item.fields.bodyText}}</p><span class="arrow fa fa-angle-double-down"></span>
+      <div ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></div><span class="arrow fa fa-angle-double-down"></span>
     </div>
   </div>
 </div>
