@@ -18,20 +18,6 @@ ytDirectives.directive('mouseback', ->
 )
 
 
-ytDirectives.directive('addBackground', ->
-	
-	
-	link = ($scope, element, attrs) ->
-		background = element.data 'image'
-		
-		element.css
-			'background': 'black'
-
-		return{
-			link: link
-		}
-
-)
 
 
 

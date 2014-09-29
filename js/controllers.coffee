@@ -27,10 +27,9 @@ ytControllers.controller('DetailCtrl', [
 	'$http'
 	'$location'
 	'contentfulClient'
-	'addBG'
 	'$sce'
 	'heightService'
-	($scope, $routeParams, $http, $location, contentfulClient, addBG, $sce, heightService) ->
+	($scope, $routeParams, $http, $location, contentfulClient, $sce, heightService) ->
 
 		converter = new Showdown.converter()
 
@@ -85,6 +84,12 @@ ytControllers.controller('DetailCtrl', [
 		
 			#add initial youtube
 			$scope.video = $scope.items[0].fields.youTubeVideoId
+
+			#send message read
+			$scope.coverBg = {
+				background: "url(http:#{url})"
+				backgroundSize: 'cover'
+			}
 
 			setTimeout(heightService.sendHeight, 2000)
 

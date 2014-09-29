@@ -1,41 +1,28 @@
 (function() {
     "use strict";
-    var n;
-    n = angular.module("ytServices", []);
-    n.factory("addBG", function() {
-        var n;
-        n = function(n) {
-            return $(".hero").css({
-                background: "url(" + n + ")"
-            });
-        };
-        return {
-            paste: function(r) {
-                return n(r);
-            }
-        };
-    });
-    n.factory("heightService", [ "$rootScope", function(n) {
-        var r, t;
-        r = function() {
+    var e;
+    e = angular.module("ytServices", []);
+    e.factory("heightService", [ "$rootScope", function(e) {
+        var t, n;
+        t = function() {
             return $(".frame").height();
         };
-        t = function(r) {
-            var t, e;
-            t = {
-                height: r
+        n = function(t) {
+            var n, r;
+            n = {
+                height: t
             };
-            e = JSON.stringify(t);
-            console.log(e);
-            n.$broadcast("loaded");
-            return window.parent.postMessage(e, "*");
+            r = JSON.stringify(n);
+            console.log(r);
+            e.$broadcast("loaded");
+            return window.parent.postMessage(r, "*");
         };
         window.addEventListener("resize", function() {
-            return t(r());
+            return n(t());
         });
         return {
             sendHeight: function() {
-                return t(r());
+                return n(t());
             }
         };
     } ]);

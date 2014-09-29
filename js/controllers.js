@@ -2,9 +2,9 @@
     "use strict";
     var e;
     e = angular.module("ytControllers", []);
-    e.controller("IndexCtrl", [ "$scope", "$http", "contentfulClient", function(e, t, n) {
+    e.controller("IndexCtrl", [ "$scope", "$http", "contentfulClient", function(e, t, r) {
         e.features = "";
-        return n.entries({
+        return r.entries({
             content_type: "tGyjv9K8h2kiGAW6qe2WI",
             include: 1
         }).then(function(t) {
@@ -12,9 +12,9 @@
             return e.features = t;
         });
     } ]);
-    e.controller("DetailCtrl", [ "$scope", "$routeParams", "$http", "$location", "contentfulClient", "addBG", "$sce", "heightService", function(e, t, n, r, o, l, i, s) {
-        var u;
-        u = new Showdown.converter();
+    e.controller("DetailCtrl", [ "$scope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "heightService", function(e, t, r, n, o, l, i) {
+        var s;
+        s = new Showdown.converter();
         e.player = {};
         e.playerVars = {
             controls: 1,
@@ -23,31 +23,35 @@
             showinfo: 0,
             hd: 1
         };
-        e.$on("youtube.player.ready", function(t, n) {
-            return e.player = n;
+        e.$on("youtube.player.ready", function(t, r) {
+            return e.player = r;
         });
         return o.entries({
             "sys.id": t.featureId,
             include: 10
         }).then(function(t) {
-            var n, r, o, l, d, a;
+            var r, n, o, u, a, c;
             e.feature = t[0];
             e.fields = e.feature.fields;
             console.log(e.fields);
-            a = e.fields.youTubeListItems;
-            for (l = 0, d = a.length; l < d; l++) {
-                n = a[l];
-                r = n.fields.bodyText;
-                r = u.makeHtml(r);
+            c = e.fields.youTubeListItems;
+            for (u = 0, a = c.length; u < a; u++) {
+                r = c[u];
+                n = r.fields.bodyText;
+                n = s.makeHtml(n);
             }
             e.trust = function(e) {
-                return i.trustAsHtml(e);
+                return l.trustAsHtml(e);
             };
-            e.fields.introText = u.makeHtml(e.fields.introText);
+            e.fields.introText = s.makeHtml(e.fields.introText);
             e.items = e.fields.youTubeListItems;
             o = e.fields.heroImage.fields.file.url;
             e.video = e.items[0].fields.youTubeVideoId;
-            return setTimeout(s.sendHeight, 2e3);
+            e.coverBg = {
+                background: "url(http:" + o + ")",
+                backgroundSize: "cover"
+            };
+            return setTimeout(i.sendHeight, 2e3);
         });
     } ]);
 }).call(this);

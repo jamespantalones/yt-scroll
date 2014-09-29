@@ -18,19 +18,6 @@
             link: e
         };
     });
-    e.directive("addBackground", function() {
-        var e;
-        return e = function(t, r, n) {
-            var i;
-            i = r.data("image");
-            r.css({
-                background: "black"
-            });
-            return {
-                link: e
-            };
-        };
-    });
     e.directive("sticky", function() {
         var e;
         e = function(e, t, r) {

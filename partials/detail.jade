@@ -1,8 +1,6 @@
 .frame(du-scroll-container)
-	div(class="hero", mouseback)
+	div(class="hero", ng-style="coverBg")
 		a(href="#start", du-smooth-scroll, offset="30")
-			.image-hero
-				img(ng-src="{{fields.heroImage.fields.file.url}}")
 		h1(class="top") {{fields.title}}
 		h2 {{fields.subTitle}}
 
