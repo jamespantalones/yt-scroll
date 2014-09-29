@@ -7,8 +7,8 @@
         e = function(e, t, r) {
             return t.mousemove(function(e) {
                 var t, r;
-                t = e.pageX * -1.5 / 6;
-                r = e.pageY * -1.5 / 6;
+                t = e.pageX * -1.5 / 15;
+                r = e.pageY * -1.5 / 15;
                 return $(this).css({
                     backgroundPosition: t + "px " + r + "px"
                 });

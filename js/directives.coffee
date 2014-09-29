@@ -7,8 +7,8 @@ ytDirectives.directive('mouseback', ->
 	link = ($scope, element, attrs) ->
 
 		element.mousemove (event) ->
-			amountMoveX = (event.pageX * -1.5 / 6)
-			amountMoveY = (event.pageY * -1.5 / 6)
+			amountMoveX = (event.pageX * -1.5 / 15)
+			amountMoveY = (event.pageY * -1.5 / 15)
 			$(this).css
 				'backgroundPosition': amountMoveX + 'px ' + amountMoveY + 'px'
 

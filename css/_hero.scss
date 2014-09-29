@@ -5,14 +5,10 @@
 	min-height: 100%;
 	min-height: 700px;
 	background-repeat: repeat;
-	background: url(../img/sofa.png) repeat top left;
-	background-color: $pastelblue;
-	background-size: 100px;
 	top: 0;
 	left: 0;
 	text-align: center;
 	overflow: hidden;
-	border-bottom: 1px solid black;
 	.image-hero{
 		overflow: hidden;
 		width: 600px;
@@ -30,7 +26,6 @@
 	h1{
 		margin: 0;
 		position: relative;
-		color: black;
 		text-align: center;
 		font-size: 3em;
 		line-height: 1;

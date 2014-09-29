@@ -1,6 +1,6 @@
 {
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
-"creatorBuild": "17756",
+"creatorBuild": "17908",
 "files": {
 	"\/bower_components\/angular-animate\/angular-animate.js": {
 		"fileType": 64,
@@ -1813,6 +1813,17 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/img\/background.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 123,
+		"inputAbbreviatedPath": "\/img\/background.png",
+		"outputAbbreviatedPath": "\/img\/background.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/cloud_1a.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -1831,6 +1842,17 @@
 		"initialSize": 247667,
 		"inputAbbreviatedPath": "\/img\/cloud_1b.png",
 		"outputAbbreviatedPath": "\/img\/cloud_1b.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/clouds.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 477919,
+		"inputAbbreviatedPath": "\/img\/clouds.jpg",
+		"outputAbbreviatedPath": "\/img\/clouds.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

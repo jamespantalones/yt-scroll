@@ -61,7 +61,7 @@ p {
   overflow-y: scroll;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
-  background: white; }
+  background: url(../img/background.png) repeat top left; }
 
 .features {
   margin: 0;
@@ -85,14 +85,10 @@ p {
   min-height: 100%;
   min-height: 700px;
   background-repeat: repeat;
-  background: url(../img/sofa.png) repeat top left;
-  background-color: white;
-  background-size: 100px;
   top: 0;
   left: 0;
   text-align: center;
-  overflow: hidden;
-  border-bottom: 1px solid black; }
+  overflow: hidden; }
   .hero .image-hero {
     overflow: hidden;
     width: 600px;
@@ -107,7 +103,6 @@ p {
   .hero h1 {
     margin: 0;
     position: relative;
-    color: black;
     text-align: center;
     font-size: 3em;
     line-height: 1;
@@ -197,16 +192,15 @@ p {
   color: white;
   width: 80%;
   margin: 0 10% 88px 10%;
-  font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: bold; }
 
 .text {
-  background-color: white;
   right: 0;
   float: right;
   width: 50%;
   z-index: 3;
-  font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
   -webkit-font-smoothing: antialised;
   font-weight: lighter; }
   .text .topic {
@@ -219,9 +213,9 @@ p {
   .text .bodyText {
     padding: 20px;
     padding-top: 0;
-    font-size: 1.5em;
+    font-size: 1.2em;
     line-height: 1.5;
-    font-family: 'Times', serif;
+    font-family: futura, serif;
     -webkit-font-smoothing: antialised;
     font-weight: lighter; }
     .text .bodyText p {

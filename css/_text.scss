@@ -3,17 +3,16 @@
 	color: white;
 	width: 80%;
 	margin: 0 10% 88px 10%;
-	font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
 	font-weight: bold;
 }
 
 .text{
-	background-color: white;
 	right: 0;
 	float: right;
 	width: 50%;
 	z-index: 3;
-	font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
 	-webkit-font-smoothing: antialised;
 	font-weight: lighter;
 	.topic{
@@ -31,9 +30,9 @@
 	.bodyText{
 		padding: 20px;
 		padding-top: 0;
-		font-size: 1.5em;
+		font-size: 1.2em;
 		line-height: 1.5;
-		font-family: 'Times', serif;
+		font-family: futura, serif;
 		-webkit-font-smoothing: antialised;
 		font-weight: lighter;
 		p{
