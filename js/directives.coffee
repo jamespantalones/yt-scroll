@@ -64,6 +64,7 @@ ytDirectives.directive('wrap', ->
 			handler: (direction) ->
 				active = $(this)
 				videoId = active.data "id"
+				console.log videoId
 				
 				#grab timecode
 				time = active.data "time"
@@ -103,6 +104,7 @@ ytDirectives.directive('wrap', ->
 					
 					if direction == 'up'
 						if active.prev().length
+
 							$scope.player.cueVideoById(preVideo, time)
 						else
 							return

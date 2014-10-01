@@ -47,6 +47,7 @@ ytControllers.controller('DetailCtrl', [
 			$scope.player = player
 		)
 
+
 		
 
 

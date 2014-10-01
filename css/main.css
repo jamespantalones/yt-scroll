@@ -56,7 +56,7 @@ p {
   min-height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background-color: blue;
+  background-color: black;
   overflow-y: scroll;
   -moz-box-sizing: border-box;
        box-sizing: border-box; }
@@ -78,9 +78,10 @@ p {
 
 .hero {
   position: fixed;
+  display: block;
   margin: 0;
   width: 40%;
-  min-height: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   text-align: center;
@@ -97,8 +98,10 @@ p {
   right: 0;
   padding: 0;
   margin-left: 40%;
-  background-color: blue;
-  color: white; }
+  background-color: black;
+  color: white;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box; }
 
 .intro-text {
   color: white !important;
@@ -139,7 +142,9 @@ p {
   z-index: 3;
   font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
   -webkit-font-smoothing: antialised;
-  font-weight: lighter; }
+  font-weight: lighter;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box; }
   .text #intro {
     margin-bottom: 30%; }
   .text p {
@@ -186,7 +191,10 @@ a.arrow-nav {
   width: 40%;
   background-color: blue;
   display: none;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px; }
 
 .video {
   position: relative;
@@ -199,10 +207,21 @@ a.arrow-nav {
   width: 90%;
   margin-right: 5%;
   margin-left: 5%;
-  box-shadow: 1px 0px 1px #4d4d4d, 0px 1px 0px #333333, 2px 1px 0px #4d4d4d, 1px 2px 0px #333333, 3px 2px 0px #4d4d4d, 2px 3px 0px #333333, 4px 3px 0px #4d4d4d, 3px 4px 0px #333333, 5px 4px 0px #4d4d4d, 4px 5px 0px #333333, 6px 5px 0px #4d4d4d, 5px 6px 0px #333333, 7px 6px 0px #4d4d4d, 6px 7px 0px #333333, 8px 7px 0px #4d4d4d, 7px 8px 0px #333333, 9px 8px 0px #4d4d4d, 8px 9px 0px #333333, 10px 9px 0px #4d4d4d, 9px 10px 0px #333333, 11px 10px 0px #4d4d4d;
   z-index: 1;
   -webkit-transition: all .5s ease;
-          transition: all .5s ease; }
+          transition: all .5s ease;
+  -webkit-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  -webkit-transform: rotateX(10deg) rotateY(40deg) rotateZ(-10deg);
+  -ms-transform: rotateX(10deg) rotateY(40deg) rotateZ(-10deg);
+  transform: rotateX(10deg) rotateY(40deg) rotateZ(-10deg); }
+  .video:hover, .video.playing {
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
   .video iframe, .video object, .video embed {
     position: absolute;
     top: 0;
@@ -210,9 +229,6 @@ a.arrow-nav {
     width: 100%;
     height: 100%; }
 
-@media screen and (max-width: 800px), screen and (max-device-width: 800px) {
-  .video {
-    display: none !important; } }
 .slide {
   position: absolute;
   left: 0;

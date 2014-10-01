@@ -1,5 +1,4 @@
 
-
 .text-wrapper{
 	width: 60%;
 	height: auto;
@@ -9,8 +8,9 @@
 	right: 0;
 	padding: 0;
 	margin-left: 40%;
-	background-color: blue;
+	background-color: black;
 	color: white;
+	box-sizing: border-box;
 }
 
 
@@ -47,8 +47,7 @@
 			position: absolute;
 			bottom: 10px;
 		}
-	}
-	
+	}	
 }
 
 .text{
@@ -60,6 +59,7 @@
 	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
 	-webkit-font-smoothing: antialised;
 	font-weight: lighter;
+	box-sizing: border-box;
 	#intro{
 		margin-bottom: 30%;
 	}

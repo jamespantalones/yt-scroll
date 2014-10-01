@@ -57,6 +57,7 @@
                     var r, n, i, a;
                     r = $(this);
                     a = r.data("id");
+                    console.log(a);
                     i = r.data("time");
                     if (!i) {
                         i = 0;
@@ -76,9 +77,9 @@
                 context: ".frame",
                 offset: "80%",
                 handler: function(e) {
-                    var r, n, i, a, u;
+                    var r, n, i, a, o;
                     r = $(this);
-                    u = r.data("id");
+                    o = r.data("id");
                     i = r.prev().data("id");
                     a = r.data("time");
                     if (!a) {
