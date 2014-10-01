@@ -22,13 +22,27 @@ ytServices.factory('heightService', ['$rootScope', ($rootScope) ->
 
 
 	window.addEventListener('resize', ->
+			width = $(window).width()
+			
+			if width < 768
+				$rootScope.$broadcast('mobile')
+
+			if width >= 768
+				$rootScope.$broadcast('desktop')
+
 			sendHeight(getHeight())
 		)
+
+	width = ->
+		width = $(window).width()
+		return width
 
 
 	return{
 		sendHeight: ->
 			return sendHeight(getHeight())
+		getWidth: ->
+			return $(window).width()
 	}
 
 ])

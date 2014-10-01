@@ -1,28 +1,43 @@
 (function() {
     "use strict";
-    var e;
-    e = angular.module("ytServices", []);
-    e.factory("heightService", [ "$rootScope", function(e) {
-        var t, n;
-        t = function() {
+    var t;
+    t = angular.module("ytServices", []);
+    t.factory("heightService", [ "$rootScope", function(t) {
+        var n, e, i;
+        n = function() {
             return $(".frame").height();
         };
-        n = function(t) {
-            var n, r;
-            n = {
-                height: t
+        e = function(n) {
+            var e, i;
+            e = {
+                height: n
             };
-            r = JSON.stringify(n);
-            console.log(r);
-            e.$broadcast("loaded");
-            return window.parent.postMessage(r, "*");
+            i = JSON.stringify(e);
+            console.log(i);
+            t.$broadcast("loaded");
+            return window.parent.postMessage(i, "*");
         };
         window.addEventListener("resize", function() {
-            return n(t());
+            var i;
+            i = $(window).width();
+            if (i < 768) {
+                t.$broadcast("mobile");
+            }
+            if (i >= 768) {
+                t.$broadcast("desktop");
+            }
+            return e(n());
         });
+        i = function() {
+            i = $(window).width();
+            return i;
+        };
         return {
             sendHeight: function() {
-                return n(t());
+                return e(n());
+            },
+            getWidth: function() {
+                return $(window).width();
             }
         };
     } ]);
