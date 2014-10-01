@@ -45,6 +45,18 @@
             link: r
         };
     });
+    e.directive("lazy", function() {
+        var e;
+        e = function(e, t, r) {
+            var n;
+            n = r.videoid;
+            t.data("youtube-id", n);
+            return t.lazyYT();
+        };
+        return {
+            link: e
+        };
+    });
     e.directive("wrap", function() {
         var e, t;
         e = 1;
@@ -52,7 +64,7 @@
             r.addClass("item" + e);
             $(".item" + e).waypoint({
                 context: ".frame",
-                offset: "20%",
+                offset: "10%",
                 handler: function(e) {
                     var r, n, i, a;
                     r = $(this);
@@ -75,7 +87,7 @@
                 }
             }).waypoint({
                 context: ".frame",
-                offset: "80%",
+                offset: "20%",
                 handler: function(e) {
                     var r, n, i, a, o;
                     r = $(this);

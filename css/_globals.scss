@@ -1,10 +1,18 @@
+*, *:before, *:after{
+	box-sizing: border-box;
+}
+
+
 html{
 	min-height: 100%;
 	width: 100%;
-	font-family: 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
+	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
 	font-weight: lighter;
 	font-size: 16px;
 	margin: 0;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
 }
 
 body{
@@ -36,6 +44,8 @@ p{
 	font-size: 1.4em;
 	line-height: 1.5;
 	color: $purple;
+	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialised;
 }
 
 

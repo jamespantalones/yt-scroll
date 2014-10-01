@@ -46,6 +46,20 @@ ytDirectives.directive('fadeVideo', ->
 	}
 )
 
+ytDirectives.directive('lazy', ->
+
+	link = ($scope, element, attrs) ->
+		id = attrs.videoid
+		element.data('youtube-id',id)
+		element.lazyYT()
+
+
+	return{
+		link: link
+	}
+
+)
+
 
 
 
@@ -60,7 +74,7 @@ ytDirectives.directive('wrap', ->
 		#set up waypoint for each item
 		$('.item' + counter).waypoint({
 			context: '.frame'
-			offset: '20%'
+			offset: '10%'
 			handler: (direction) ->
 				active = $(this)
 				videoId = active.data "id"
@@ -90,7 +104,7 @@ ytDirectives.directive('wrap', ->
 			}).waypoint({
 				
 				context: '.frame'
-				offset: '80%'
+				offset: '20%'
 				
 				handler: (direction) ->
 					
