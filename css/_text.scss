@@ -1,25 +1,43 @@
+
+
 .text-wrapper{
-	width: 50%;
+	width: 60%;
 	height: auto;
-	position: static;
+	position: absolute;
 	top: 0;
 	right: 0;
-	margin-left: 50%;
+	margin-top: 0;
+	padding: 0;
+	margin-left: 40%;
+	background-color: black;
+	color: white;
 }
 
 
 .intro-text{
-	color: white;
+	color: white !important;
+	position: relative;
 	width: 80%;
+	padding: 0;
 	margin: 0 10% 88px 10%;
 	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
 	font-weight: bold;
+	h1{
+		width: 100%;
+		font-size: 8em;
+	}
+	h2{
+		margin-bottom: 10%;
+	}
+	p{
+		color: white;
+	}
 }
 
 .text{
 	right: 0;
 	width: 80%;
-	margin: 0 10% 88px 10%;
+	margin: 20% 10% 88px 10%;
 	position: relative;
 	z-index: 3;
 	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
@@ -27,6 +45,9 @@
 	font-weight: lighter;
 	.topic{
 		margin-bottom: 200px;
+		&:first-child{
+			margin-top: 188px;
+		}
 	}
 	h1{
 		padding-left: 20px;
@@ -53,71 +74,19 @@
 
 	}
 
-	
+}
+
+a.arrow-nav{
+		text-decoration: none;
+	}
 	span.arrow{
 		font-size: 3em;
 		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-		padding-top: 200px;
+		padding-top: 0;
+		padding-bottom: 100px;
 		display: block;
 		padding-left: 20px;
-		color: $purple;
-		margin-top: 10%;
-	}
-}
-
-@media screen and (max-width: 800px), screen and (max-device-width: 800px){
-	.intro-text{
-		position: relative;
 		color: white;
-		width: 80%;
-		margin: 0 10% 88px 10%;
-		font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
-		font-weight: lighter;
-		font-size: 0.8em !important;
+		margin-top: 10% auto;
 	}
 
-	.text{
-		right: 0;
-		float: none;
-		width: 90%;
-		margin-left: 5%;
-		z-index: 3;
-		font-family: futura, 'apercumono', 'Helvetica Neue', Helvetica, sans-serif;
-		-webkit-font-smoothing: antialised;
-		font-weight: lighter;
-		.topic{
-			margin-bottom: 200px;
-		}
-		h1{
-			padding-left: 20px;
-			margin: 0;
-		}
-
-		h2{
-			padding-left: 20px;
-		}
-
-		.bodyText{
-			padding: 20px;
-			padding-top: 0;
-			font-size: 1.2em;
-			line-height: 1.5;
-			font-family: 'Times', serif;
-			-webkit-font-smoothing: antialised;
-			font-weight: lighter;
-			p{
-				padding-top: 0;
-				font-size: 1.5em;
-				margin-top: 0;
-			}
-
-		}
-
-		
-		span.arrow{
-			display: none !important;
-		}
-	}
-}

@@ -25,9 +25,11 @@ ytDirectives.directive('fadeVideo', ->
 	fadeOutVideo = ->
 		if flag == 0
 			$('.hero').fadeOut()
+			$('.video-wrapper').fadeIn()
 			flag = 1
 		else
 			$('.hero').fadeIn()
+			$('.video-wrapper').fadeOut()
 			flag = 0
 
 	link = ($scope, element, attrs) ->

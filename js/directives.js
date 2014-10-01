@@ -24,9 +24,11 @@
         e = function() {
             if (t === 0) {
                 $(".hero").fadeOut();
+                $(".video-wrapper").fadeIn();
                 return t = 1;
             } else {
                 $(".hero").fadeIn();
+                $(".video-wrapper").fadeOut();
                 return t = 0;
             }
         };

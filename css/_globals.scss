@@ -10,25 +10,24 @@ html{
 body{
 	height: 100%;
 	width: 100%;
-	background-color: white;
+	background-color: black;
 	margin: 0;
 }
 
 h1{
-	font-family: 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
+	font-family: futura, 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
 	font-weight: lighter;
-	text-transform: uppercase;
 	letter-spacing: -1px;
-	font-size: 8em;
-	color: $purple;
+	font-size: 4em;
+	line-height: 1;
 }
 
 h2{
-	font-family: futura, 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
+	font-family: futura,  'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
 	font-weight: lighter;
 	letter-spacing: -1px;
 	font-size: 2em;
-	color: $purple;
+	text-transform: uppercase;
 }
 
 
@@ -54,6 +53,7 @@ p{
 	min-height: 100%;
 	width: 100%;
 	overflow-x: hidden;
+	background-color: black;
 	overflow-y: scroll;
 	box-sizing: border-box;
 	background: url(../img/background.png) repeat top left;

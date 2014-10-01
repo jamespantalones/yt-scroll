@@ -9,8 +9,8 @@
   <div class="text-wrapper">
     <div class="intro-text">
       <h1 class="top">{{fields.title}}</h1>
-      <h2>{{fields.subTitle}}</h2><a id="start"></a>
-      <div ng-bind-html="trust(fields.introText)"></div>
+      <h2>{{fields.subTitle}}</h2><a href="#intro" offset="30" du-smooth-scroll="du-smooth-scroll" class="arrow-nav"><span class="arrow fa fa-angle-double-down"></span></a>
+      <div id="intro" ng-bind-html="trust(fields.introText)"></div>
     </div>
     <div class="text">
       <div ng-repeat-start="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" ng-if="$first" wrap="wrap" class="topic">
@@ -18,8 +18,8 @@
         <h2>{{item.fields.title}}</h2>
         <div ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></div>
       </div>
-      <div ng-repeat-end="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" ng-if="!$first" wrap="wrap" class="topic"><span class="arrow fa fa-angle-double-down"></span>
-        <h1>{{item.fields.order}}</h1>
+      <div ng-repeat-end="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" ng-if="!$first" wrap="wrap" class="topic"><a href="#{{item.fields.youTubeVideoId}}" du-smooth-scroll="du-smooth-scroll" offset="30" class="arrow-nav"><span class="arrow fa fa-angle-double-down"></span></a>
+        <h1 id="{{item.fields.youTubeVideoId}}">{{item.fields.order}}</h1>
         <h2>{{item.fields.title}}</h2>
         <div ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></div>
       </div>

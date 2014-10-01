@@ -2,9 +2,9 @@
     "use strict";
     var e;
     e = angular.module("ytControllers", []);
-    e.controller("IndexCtrl", [ "$scope", "$http", "contentfulClient", function(e, t, r) {
+    e.controller("IndexCtrl", [ "$scope", "$http", "contentfulClient", function(e, t, n) {
         e.features = "";
-        return r.entries({
+        return n.entries({
             content_type: "tGyjv9K8h2kiGAW6qe2WI",
             include: 1
         }).then(function(t) {
@@ -12,7 +12,7 @@
             return e.features = t;
         });
     } ]);
-    e.controller("DetailCtrl", [ "$scope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "heightService", function(e, t, r, n, o, l, i) {
+    e.controller("DetailCtrl", [ "$scope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "heightService", function(e, t, n, r, o, l, i) {
         var s;
         s = new Showdown.converter();
         e.player = {};
@@ -23,22 +23,22 @@
             showinfo: 0,
             hd: 1
         };
-        e.$on("youtube.player.ready", function(t, r) {
-            return e.player = r;
+        e.$on("youtube.player.ready", function(t, n) {
+            return e.player = n;
         });
         return o.entries({
             "sys.id": t.featureId,
             include: 10
         }).then(function(t) {
-            var r, n, o, u, a, c;
+            var n, r, o, u, a, d;
             e.feature = t[0];
             e.fields = e.feature.fields;
             console.log(e.fields);
-            c = e.fields.youTubeListItems;
-            for (u = 0, a = c.length; u < a; u++) {
-                r = c[u];
-                n = r.fields.bodyText;
-                n = s.makeHtml(n);
+            d = e.fields.youTubeListItems;
+            for (u = 0, a = d.length; u < a; u++) {
+                n = d[u];
+                r = n.fields.bodyText;
+                r = s.makeHtml(r);
             }
             e.trust = function(e) {
                 return l.trustAsHtml(e);
@@ -49,7 +49,7 @@
             e.video = e.items[0].fields.youTubeVideoId;
             e.coverBg = {
                 background: "url(http:" + o + ")",
-                backgroundSize: "cover"
+                backgroundSize: "51%"
             };
             return setTimeout(i.sendHeight, 2e3);
         });

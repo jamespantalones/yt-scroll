@@ -88,7 +88,7 @@ ytControllers.controller('DetailCtrl', [
 			#send message read
 			$scope.coverBg = {
 				background: "url(http:#{url})"
-				backgroundSize: 'cover'
+				backgroundSize: '51%'
 			}
 
 			setTimeout(heightService.sendHeight, 2000)
