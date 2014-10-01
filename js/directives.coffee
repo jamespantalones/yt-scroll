@@ -18,30 +18,30 @@ ytDirectives.directive('mouseback', ->
 )
 
 
+ytDirectives.directive('fadeVideo', ->
 
+	flag = 0
 
-
-
-
-ytDirectives.directive('sticky', ->
+	fadeOutVideo = ->
+		if flag == 0
+			$('.hero').fadeOut()
+			flag = 1
+		else
+			$('.hero').fadeIn()
+			flag = 0
 
 	link = ($scope, element, attrs) ->
-
 		element.waypoint({
 			context: '.frame'
-			offset: 50
+			offset: '50%'
 			handler: (direction) ->
-				if direction == 'down'
-					element.addClass "sticky"
-				else
-					element.removeClass "sticky"
+				fadeOutVideo()
 			})
+
 
 	return{
 		link: link
 	}
-
-
 )
 
 
@@ -72,7 +72,6 @@ ytDirectives.directive('wrap', ->
 				chapter = active.data "chapter"
 
 				if direction == 'down'
-					
 					if chapter == 1
 						#video is already loaded, so no need to reload
 						return

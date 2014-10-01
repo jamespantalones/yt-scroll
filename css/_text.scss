@@ -1,5 +1,14 @@
+.text-wrapper{
+	width: 50%;
+	height: auto;
+	position: static;
+	top: 0;
+	right: 0;
+	margin-left: 50%;
+}
+
+
 .intro-text{
-	position: relative;
 	color: white;
 	width: 80%;
 	margin: 0 10% 88px 10%;
@@ -9,8 +18,9 @@
 
 .text{
 	right: 0;
-	float: right;
-	width: 50%;
+	width: 80%;
+	margin: 0 10% 88px 10%;
+	position: relative;
 	z-index: 3;
 	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
 	-webkit-font-smoothing: antialised;

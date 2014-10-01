@@ -18,23 +18,29 @@
             link: e
         };
     });
-    e.directive("sticky", function() {
-        var e;
-        e = function(e, t, r) {
-            return t.waypoint({
+    e.directive("fadeVideo", function() {
+        var e, t, r;
+        t = 0;
+        e = function() {
+            if (t === 0) {
+                $(".hero").fadeOut();
+                return t = 1;
+            } else {
+                $(".hero").fadeIn();
+                return t = 0;
+            }
+        };
+        r = function(t, r, n) {
+            return r.waypoint({
                 context: ".frame",
-                offset: 50,
-                handler: function(e) {
-                    if (e === "down") {
-                        return t.addClass("sticky");
-                    } else {
-                        return t.removeClass("sticky");
-                    }
+                offset: "50%",
+                handler: function(t) {
+                    return e();
                 }
             });
         };
         return {
-            link: e
+            link: r
         };
     });
     e.directive("wrap", function() {

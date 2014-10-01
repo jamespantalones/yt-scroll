@@ -1,20 +1,28 @@
 
 <div du-scroll-container="du-scroll-container" class="frame">
-  <div ng-style="coverBg" class="hero"><a href="#start" du-smooth-scroll="du-smooth-scroll" offset="30"></a>
-    <h1 class="top">{{fields.title}}</h1>
-    <h2>{{fields.subTitle}}</h2>
+  <div ng-style="coverBg" class="hero"></div>
+  <div class="video-wrapper">
+    <div class="video">
+      <youtube-video id="main-vid" video-id="video" player-vars="playerVars"></youtube-video>
+    </div>
   </div>
-  <div class="intro-text"><a id="start"></a>
-    <div ng-bind-html="trust(fields.introText)"></div>
-  </div>
-  <div sticky="sticky" class="video">
-    <youtube-video id="main-vid" video-id="video" player-vars="playerVars"></youtube-video>
-  </div>
-  <div class="text">
-    <div wrap="wrap" ng-repeat="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" class="topic">
-      <h1>{{item.fields.order}}</h1>
-      <h2>{{item.fields.title}}</h2>
-      <div ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></div><span class="arrow fa fa-angle-double-down"></span>
+  <div class="text-wrapper">
+    <div class="intro-text">
+      <h1 class="top">{{fields.title}}</h1>
+      <h2>{{fields.subTitle}}</h2><a id="start"></a>
+      <div ng-bind-html="trust(fields.introText)"></div>
+    </div>
+    <div class="text">
+      <div ng-repeat-start="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" ng-if="$first" wrap="wrap" class="topic">
+        <h1 fade-video="fade-video">{{item.fields.order}}</h1>
+        <h2>{{item.fields.title}}</h2>
+        <div ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></div>
+      </div>
+      <div ng-repeat-end="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" ng-if="!$first" wrap="wrap" class="topic"><span class="arrow fa fa-angle-double-down"></span>
+        <h1>{{item.fields.order}}</h1>
+        <h2>{{item.fields.title}}</h2>
+        <div ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></div>
+      </div>
     </div>
   </div>
 </div>

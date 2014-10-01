@@ -1,28 +1,43 @@
 .frame(du-scroll-container)
 	div(class="hero", ng-style="coverBg")
-		a(href="#start", du-smooth-scroll, offset="30")
-		h1(class="top") {{fields.title}}
-		h2 {{fields.subTitle}}
+		
+		
 
-	
+	.video-wrapper
+		div(class="video")
+			youtube-video(id="main-vid", video-id="video", player-vars="playerVars")
+
+
+	.text-wrapper
 			
-	.intro-text
-		a(id="start")
-		div(ng-bind-html="trust(fields.introText)")
+		.intro-text
+			h1(class="top") {{fields.title}}
+			h2 {{fields.subTitle}}
+			a(id="start")
+			div(ng-bind-html="trust(fields.introText)")
 
 
-	div(class="video" sticky)
-		youtube-video(id="main-vid", video-id="video", player-vars="playerVars")
 
+		.text
+			div(class="topic", 
+				ng-repeat-start="item in fields.youTubeListItems", 
+				data-chapter="{{item.fields.order}}", 
+				data-id="{{item.fields.youTubeVideoId}}",
+				data-time="{{item.fields.startTime}}",
+				ng-if="$first", wrap)
 
-	.text
-		div(wrap class="topic", 
-			ng-repeat="item in fields.youTubeListItems", 
-			data-chapter="{{item.fields.order}}", 
-			data-id="{{item.fields.youTubeVideoId}}",
-			data-time="{{item.fields.startTime}}")
-			
-			h1 {{item.fields.order}}
-			h2 {{item.fields.title}}
-			div(class="bodyText", ng-bind-html="trust(item.fields.bodyText)")
-			span(class="arrow fa fa-angle-double-down")
+				h1(fade-video) {{item.fields.order}}
+				h2 {{item.fields.title}}
+				div(class="bodyText", ng-bind-html="trust(item.fields.bodyText)")
+
+			div(class="topic", 
+				ng-repeat-end="item in fields.youTubeListItems", 
+				data-chapter="{{item.fields.order}}", 
+				data-id="{{item.fields.youTubeVideoId}}",
+				data-time="{{item.fields.startTime}}",
+				ng-if="!$first", wrap)
+
+				span(class="arrow fa fa-angle-double-down")
+				h1 {{item.fields.order}}
+				h2 {{item.fields.title}}
+				div(class="bodyText", ng-bind-html="trust(item.fields.bodyText)")

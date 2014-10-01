@@ -49,13 +49,12 @@ p {
   height: 100%; }
 
 .frame {
-  position: absolute;
+  position: relative;
   margin: 0;
   top: 0;
   left: 0;
   height: 100%;
   min-height: 100%;
-  min-height: 700px;
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -79,16 +78,17 @@ p {
     max-height: 50px; }
 
 .hero {
-  position: relative;
+  position: fixed;
   margin: 0;
-  width: 100%;
+  width: 50%;
   min-height: 100%;
   min-height: 700px;
-  background-repeat: repeat;
   top: 0;
   left: 0;
   text-align: center;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: black;
+  z-index: 9; }
   .hero .image-hero {
     overflow: hidden;
     width: 600px;
@@ -100,96 +100,16 @@ p {
     .hero .image-hero img {
       max-width: 100%;
       opacity: 1; }
-  .hero h1 {
-    margin: 0;
-    position: relative;
-    text-align: center;
-    font-size: 3em;
-    line-height: 1;
-    color: white;
-    font-weight: bold;
-    font-size: 100px;
-    text-transform: none; }
-    .hero h1.top {
-      top: 15%;
-      font-family: futura, 'apercumono', 'Helvetica Neue', 'clan_pronarrow_ultra'; }
-    .hero h1.bottom {
-      bottom: 20px;
-      position: absolute; }
 
-.hero-overlay {
-  position: absolute;
+.text-wrapper {
+  width: 50%;
+  height: auto;
+  position: static;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99;
-  opacity: 0.5; }
+  right: 0;
+  margin-left: 50%; }
 
-@media screen and (max-width: 800px), screen and (max-device-width: 800px) {
-  .hero {
-    position: relative;
-    margin: 0;
-    width: 100%;
-    min-height: 100%;
-    min-height: 700px;
-    top: 0;
-    left: 0;
-    text-align: center;
-    overflow: hidden; }
-    .hero .image-hero {
-      overflow: hidden;
-      width: 300px;
-      height: auto;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 100px; }
-      .hero .image-hero img {
-        max-width: 100%;
-        -webkit-filter: grayscale(1);
-        opacity: 0.8; }
-    .hero h1 {
-      margin: 0;
-      text-align: center;
-      font-size: 4em !important;
-      width: 90%;
-      margin-left: 5%;
-      font-weight: bold; }
-    .hero h2 {
-      font-size: 1.5em; } }
-@media screen and (max-width: 600px), screen and (max-device-width: 600px) {
-  .hero {
-    position: relative;
-    margin: 0;
-    width: 100%;
-    min-height: 100%;
-    min-height: 700px;
-    top: 0;
-    left: 0;
-    text-align: center;
-    overflow: hidden; }
-    .hero .image-hero {
-      overflow: hidden;
-      width: 300px;
-      height: auto;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 100px; }
-      .hero .image-hero img {
-        max-width: 100%;
-        -webkit-filter: grayscale(1);
-        opacity: 0.8; }
-    .hero h1 {
-      margin: 0;
-      text-align: center;
-      font-size: 3em !important;
-      width: 90%;
-      margin-left: 5%;
-      font-weight: bold; }
-    .hero h2 {
-      font-size: 1.5em; } }
 .intro-text {
-  position: relative;
   color: white;
   width: 80%;
   margin: 0 10% 88px 10%;
@@ -198,8 +118,9 @@ p {
 
 .text {
   right: 0;
-  float: right;
-  width: 50%;
+  width: 80%;
+  margin: 0 10% 88px 10%;
+  position: relative;
   z-index: 3;
   font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
   -webkit-font-smoothing: antialised;
@@ -274,16 +195,23 @@ p {
         margin-top: 0; }
     .text span.arrow {
       display: none !important; } }
+.video-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background-color: black; }
+
 .video {
   position: relative;
-  float: left;
-  padding-bottom: 26.25%;
+  padding-bottom: 56.25%;
   padding-top: 30px;
   height: 0;
   overflow: hidden;
   margin-bottom: 50px;
-  margin-top: 10%;
-  width: 40%;
+  margin-top: 22.5%;
+  width: 90%;
   margin-right: 5%;
   margin-left: 5%;
   box-shadow: 1px 0px 1px #4d4d4d, 0px 1px 0px #333333, 2px 1px 0px #4d4d4d, 1px 2px 0px #333333, 3px 2px 0px #4d4d4d, 2px 3px 0px #333333, 4px 3px 0px #4d4d4d, 3px 4px 0px #333333, 5px 4px 0px #4d4d4d, 4px 5px 0px #333333, 6px 5px 0px #4d4d4d, 5px 6px 0px #333333, 7px 6px 0px #4d4d4d, 6px 7px 0px #333333, 8px 7px 0px #4d4d4d, 7px 8px 0px #333333, 9px 8px 0px #4d4d4d, 8px 9px 0px #333333, 10px 9px 0px #4d4d4d, 9px 10px 0px #333333, 11px 10px 0px #4d4d4d;
@@ -296,9 +224,6 @@ p {
     left: 0;
     width: 100%;
     height: 100%; }
-  .video.sticky {
-    position: fixed;
-    top: 0; }
 
 @media screen and (max-width: 800px), screen and (max-device-width: 800px) {
   .video {

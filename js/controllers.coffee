@@ -36,7 +36,7 @@ ytControllers.controller('DetailCtrl', [
 		$scope.player = {}
 
 		$scope.playerVars = {
-		    controls: 1
+		    controls: 0
 		    autoplay: 0
 		    modestbranding: 1
 		    showinfo: 0

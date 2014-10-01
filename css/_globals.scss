@@ -46,13 +46,12 @@ p{
 }
 
 .frame{
-	position: absolute;
+	position: relative;
 	margin: 0;
 	top: 0;
 	left: 0;
 	height: 100%;
 	min-height: 100%;
-	min-height: 700px;
 	width: 100%;
 	overflow-x: hidden;
 	overflow-y: scroll;
