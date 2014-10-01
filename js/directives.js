@@ -2,22 +2,6 @@
     "use strict";
     var e;
     e = angular.module("ytDirectives", []);
-    e.directive("mouseback", function() {
-        var e;
-        e = function(e, t, r) {
-            return t.mousemove(function(e) {
-                var t, r;
-                t = e.pageX * -1.5 / 15;
-                r = e.pageY * -1.5 / 15;
-                return $(this).css({
-                    backgroundPosition: t + "px " + r + "px"
-                });
-            });
-        };
-        return {
-            link: e
-        };
-    });
     e.directive("fadeVideo", function() {
         var e, t, r;
         t = 0;
@@ -66,41 +50,41 @@
                 context: ".frame",
                 offset: "10%",
                 handler: function(e) {
-                    var r, n, i, a;
+                    var r, n, a, i;
                     r = $(this);
-                    a = r.data("id");
-                    console.log(a);
-                    i = r.data("time");
-                    if (!i) {
-                        i = 0;
+                    i = r.data("id");
+                    console.log(i);
+                    a = r.data("time");
+                    if (!a) {
+                        a = 0;
                     }
                     n = r.data("chapter");
                     if (e === "down") {
                         if (n === 1) {
                             return;
                         }
-                        t.player.cueVideoById(a, i);
+                        t.player.cueVideoById(i, a);
                     } else {
                         return;
                     }
-                    return t.player.cueVideoById(a, i);
+                    return t.player.cueVideoById(i, a);
                 }
             }).waypoint({
                 context: ".frame",
                 offset: "20%",
                 handler: function(e) {
-                    var r, n, i, a, o;
+                    var r, n, a, i, d;
                     r = $(this);
-                    o = r.data("id");
-                    i = r.prev().data("id");
-                    a = r.data("time");
-                    if (!a) {
-                        a = 0;
+                    d = r.data("id");
+                    a = r.prev().data("id");
+                    i = r.data("time");
+                    if (!i) {
+                        i = 0;
                     }
                     n = r.data("chapter");
                     if (e === "up") {
                         if (r.prev().length) {
-                            return t.player.cueVideoById(i, a);
+                            return t.player.cueVideoById(a, i);
                         } else {}
                     }
                 }
