@@ -10,6 +10,19 @@
 	overflow: hidden;
 	background-color: black;
 	z-index: 9;
+	.hero-img-wrap{
+		width: 400px;
+		height: 400px;
+		box-sizing: border-box;
+		vertical-align: middle;
+		margin: 20% auto;
+		overflow: hidden;
+		border: 4px solid white;
+		img{
+			max-height: 100%;
+			width: auto
+		}
+	}
 }
 
 

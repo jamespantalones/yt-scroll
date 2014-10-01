@@ -60,7 +60,7 @@ ytDirectives.directive('wrap', ->
 		#set up waypoint for each item
 		$('.item' + counter).waypoint({
 			context: '.frame'
-			offset: '10%'
+			offset: '20%'
 			handler: (direction) ->
 				active = $(this)
 				videoId = active.data "id"

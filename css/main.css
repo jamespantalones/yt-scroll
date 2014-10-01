@@ -67,7 +67,11 @@ p {
   padding: 20px;
   -webkit-margin-before: none;
   -webkit-margin-after: none;
-  -webkit-padding-start: none; }
+  -webkit-padding-start: none;
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+  color: white; }
   .features li {
     margin: 0;
     display: inline-block;
@@ -75,6 +79,9 @@ p {
     padding: 0;
     height: 20px;
     max-height: 50px; }
+    .features li a {
+      color: white;
+      text-decoration: none; }
 
 .hero {
   position: fixed;
@@ -88,12 +95,24 @@ p {
   overflow: hidden;
   background-color: black;
   z-index: 9; }
+  .hero .hero-img-wrap {
+    width: 400px;
+    height: 400px;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    vertical-align: middle;
+    margin: 20% auto;
+    overflow: hidden;
+    border: 4px solid white; }
+    .hero .hero-img-wrap img {
+      max-height: 100%;
+      width: auto; }
 
 .text-wrapper {
   width: 60%;
   height: auto;
   position: absolute;
-  margin-bottom: 200px;
+  margin-bottom: 800px;
   top: 0;
   right: 0;
   padding: 0;
@@ -137,7 +156,7 @@ p {
 .text {
   right: 0;
   width: 80%;
-  margin: 120% 10% 88px 10%;
+  margin: 100% 10% 88px 10%;
   position: relative;
   z-index: 3;
   font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
@@ -174,7 +193,7 @@ p {
 a.arrow-nav {
   text-decoration: none; }
   a.arrow-nav span.arrow {
-    font-size: 3em;
+    font-size: 2em;
     text-align: center;
     padding-top: 0;
     padding-bottom: 100px;
@@ -189,7 +208,6 @@ a.arrow-nav {
   top: 0;
   height: 100%;
   width: 40%;
-  background-color: blue;
   display: none;
   overflow: hidden;
   -webkit-perspective: 1000px;
@@ -198,6 +216,9 @@ a.arrow-nav {
 
 .video {
   position: relative;
+  border: 4px solid white;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
   padding-bottom: 56.25%;
   padding-top: 30px;
   height: 0;
@@ -228,31 +249,3 @@ a.arrow-nav {
     left: 0;
     width: 100%;
     height: 100%; }
-
-.slide {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%; }
-
-.slide.ng-enter,
-.slide.ng-leave {
-  -webkit-transition: all 1s linear;
-          transition: all 1s linear; }
-
-.slide.ng-enter {
-  -webkit-transform: translate3d(100%, 0, 0);
-          transform: translate3d(100%, 0, 0); }
-
-.slide.ng-enter-active {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0); }
-
-.slide.ng-leave {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0); }
-
-.slide.ng-leave-active {
-  -webkit-transform: translate3d(-100%, 0, 0);
-          transform: translate3d(-100%, 0, 0); }

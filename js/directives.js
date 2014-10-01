@@ -52,7 +52,7 @@
             r.addClass("item" + e);
             $(".item" + e).waypoint({
                 context: ".frame",
-                offset: "10%",
+                offset: "20%",
                 handler: function(e) {
                     var r, n, i, a;
                     r = $(this);

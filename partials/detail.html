@@ -1,6 +1,8 @@
 
 <div du-scroll-container="du-scroll-container" class="frame">
-  <div ng-style="coverBg" class="hero"></div>
+  <div class="hero">
+    <div class="hero-img-wrap"><img ng-src="{{fields.heroImage.fields.file.url}}"/></div>
+  </div>
   <div class="video-wrapper">
     <div class="video">
       <youtube-video id="main-vid" video-id="video" player-vars="playerVars"></youtube-video>
