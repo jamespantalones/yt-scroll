@@ -10,9 +10,9 @@
     <div class="intro-text">
       <h1 class="top">{{fields.title}}</h1>
       <h2>{{fields.subTitle}}</h2><a href="#intro" offset="30" du-smooth-scroll="du-smooth-scroll" class="arrow-nav"><span class="arrow fa fa-angle-double-down"></span></a>
-      <div id="intro" ng-bind-html="trust(fields.introText)"></div>
     </div>
     <div class="text">
+      <div id="intro" ng-bind-html="trust(fields.introText)"></div>
       <div ng-repeat-start="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" ng-if="$first" wrap="wrap" class="topic">
         <h1 fade-video="fade-video">{{item.fields.order}}</h1>
         <h2>{{item.fields.title}}</h2>

@@ -15,11 +15,12 @@
 			h2 {{fields.subTitle}}
 			a(class="arrow-nav", href="#intro", offset="30", du-smooth-scroll)
 				span(class="arrow fa fa-angle-double-down")
-			div(id="intro", ng-bind-html="trust(fields.introText)")
+			
 
 
 
 		.text
+			div(id="intro", ng-bind-html="trust(fields.introText)")
 			div(class="topic", 
 				ng-repeat-start="item in fields.youTubeListItems", 
 				data-chapter="{{item.fields.order}}", 

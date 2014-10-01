@@ -35,7 +35,7 @@
         r = function(t, r, n) {
             return r.waypoint({
                 context: ".frame",
-                offset: "50%",
+                offset: "30%",
                 handler: function(t) {
                     return e();
                 }

@@ -4,24 +4,26 @@
 	width: 60%;
 	height: auto;
 	position: absolute;
+	margin-bottom: 200px;
 	top: 0;
 	right: 0;
-	margin-top: 0;
 	padding: 0;
 	margin-left: 40%;
-	background-color: black;
+	background-color: blue;
 	color: white;
 }
 
 
 .intro-text{
 	color: white !important;
-	position: relative;
+	position: absolute;
 	width: 80%;
+	height: 100vh;
 	padding: 0;
 	margin: 0 10% 88px 10%;
 	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
 	font-weight: bold;
+	text-align: center;
 	h1{
 		width: 100%;
 		font-size: 8em;
@@ -29,20 +31,41 @@
 	h2{
 		margin-bottom: 10%;
 	}
-	p{
-		color: white;
+	a.arrow-nav{
+		text-decoration: none;
+		text-align: center;
+		display: block;
+		span.arrow{
+			font-size: 50px;
+			height: 50px;
+			text-align: center;
+			display: block;
+			height: 20px;
+			width: 100%;
+			padding-left: 20px;
+			color: white;
+			position: absolute;
+			bottom: 10px;
+		}
 	}
+	
 }
 
 .text{
 	right: 0;
 	width: 80%;
-	margin: 20% 10% 88px 10%;
+	margin: 120% 10% 88px 10%;
 	position: relative;
 	z-index: 3;
 	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
 	-webkit-font-smoothing: antialised;
 	font-weight: lighter;
+	#intro{
+		margin-bottom: 30%;
+	}
+	p{
+		color: white;
+	}
 	.topic{
 		margin-bottom: 200px;
 		&:first-child{
@@ -77,8 +100,7 @@
 }
 
 a.arrow-nav{
-		text-decoration: none;
-	}
+	text-decoration: none;
 	span.arrow{
 		font-size: 3em;
 		text-align: center;
@@ -89,4 +111,6 @@ a.arrow-nav{
 		color: white;
 		margin-top: 10% auto;
 	}
+}
+
 

@@ -35,7 +35,7 @@ ytDirectives.directive('fadeVideo', ->
 	link = ($scope, element, attrs) ->
 		element.waypoint({
 			context: '.frame'
-			offset: '50%'
+			offset: '30%'
 			handler: (direction) ->
 				fadeOutVideo()
 			})
