@@ -68,7 +68,8 @@ p {
   background-color: black;
   overflow-y: scroll;
   -moz-box-sizing: border-box;
-       box-sizing: border-box; }
+       box-sizing: border-box;
+  -webkit-overflow-scrolling: touch; }
 
 .features {
   margin: 0;
@@ -100,12 +101,13 @@ p {
   .hero .hero-img-wrap {
     display: block;
     margin: 10% auto 10% auto;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     border: 4px solid white;
     overflow: hidden; }
     .hero .hero-img-wrap img {
       max-height: 100%;
+      height: 100%;
       width: auto; }
   @media (min-width: 768px) {
     .hero {
@@ -144,7 +146,7 @@ p {
   position: relative;
   margin: 0; }
   .title-text h1 {
-    font-size: 4em; }
+    font-size: 3em; }
   .title-text h2 {
     font-size: 1.5em;
     padding: 0 5%; }
