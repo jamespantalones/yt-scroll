@@ -214,7 +214,9 @@ a {
       font-size: 1.5em; } }
   @media (min-width: 1024px) {
     .text {
-      padding-bottom: 800px; } }
+      padding-bottom: 800px; }
+      .text .bodyText {
+        text-align: left; } }
 
 a.arrow-nav {
   text-decoration: none;

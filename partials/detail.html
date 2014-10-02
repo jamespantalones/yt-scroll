@@ -22,8 +22,8 @@
         <div ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></div>
       </div>
       <div ng-repeat-end="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" ng-if="!$first" wrap="wrap" class="topic"><a href="#{{item.fields.youTubeVideoId}}" du-smooth-scroll="du-smooth-scroll" offset="30" class="arrow-nav"><span class="arrow fa fa-angle-double-down"></span></a>
-        <div id="{{item.fields.youTubeVideoId}}" lazy="lazy" videoid="{{item.fields.youTubeVideoId}}" data-ratio="4:3" class="lazyYT">loading...</div>
-        <h1>{{item.fields.order}}</h1>
+        <div lazy="lazy" videoid="{{item.fields.youTubeVideoId}}" data-ratio="4:3" class="lazyYT">loading...</div>
+        <h1 id="{{item.fields.youTubeVideoId}}">{{item.fields.order}}</h1>
         <h2>{{item.fields.title}}</h2>
         <div ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></div>
       </div>
