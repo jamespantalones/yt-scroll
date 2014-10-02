@@ -48,16 +48,14 @@ ytControllers.controller('DetailCtrl', [
 		)
 
 
-		
-
-
+	
+		#GRAB DATA
 		contentfulClient.entries({'sys.id': $routeParams.featureId, 'include': 10}).then (data) ->
 			
 			$scope.feature = data[0]
 
 			$scope.fields = $scope.feature.fields
 
-			console.log $scope.fields
 
 			
 
@@ -71,37 +69,32 @@ ytControllers.controller('DetailCtrl', [
 
 
 			
-
+			#parse markdown
 			$scope.fields.introText = converter.makeHtml($scope.fields.introText)
 			
 			#get array of all items to send to factory
 			$scope.items = $scope.fields.youTubeListItems
-
-			url = $scope.fields.heroImage.fields.file.url
-
-			#send in image to service
-			# addBG.paste(url)
 
 		
 			#add initial youtube
 			$scope.video = $scope.items[0].fields.youTubeVideoId
 
 			#check for initial width
-			$scope.width = heightService.getWidth()
+			# $scope.width = heightService.getWidth()
 
-			if $scope.width < 768
-				$('.frame').removeClass('desktop').addClass "mobile"
+			# if $scope.width < 768
+			# 	$('.frame').removeClass('desktop').addClass "mobile"
 
 			
 
-			#listen for width
-			$scope.$on('mobile', (event) ->
-				$('.frame').removeClass('desktop').addClass "mobile"
-				)
+			# #listen for width
+			# $scope.$on('mobile', (event) ->
+			# 	$('.frame').removeClass('desktop').addClass "mobile"
+			# 	)
 
-			$scope.$on('desktop', (event) ->
-				$('.frame').removeClass('mobile').addClass "desktop"
-				)
+			# $scope.$on('desktop', (event) ->
+			# 	$('.frame').removeClass('mobile').addClass "desktop"
+			# 	)
 
 
 			setTimeout(heightService.sendHeight, 2000)

@@ -48,6 +48,12 @@ p{
 	-webkit-font-smoothing: antialised;
 }
 
+a {
+	text-rendering:optimizeLegibility;
+	text-decoration:none;
+	outline:none;
+}
+
 
 .ng-scope{
 	width: 100%;

@@ -52,6 +52,11 @@ p {
   font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
   -webkit-font-smoothing: antialised; }
 
+a {
+  text-rendering: optimizeLegibility;
+  text-decoration: none;
+  outline: none; }
+
 .ng-scope {
   width: 100%;
   height: 100%; }
@@ -101,8 +106,8 @@ p {
   .hero .hero-img-wrap {
     display: block;
     margin: 10% auto 10% auto;
-    width: 200px;
-    height: 200px;
+    width: 175px;
+    height: 175px;
     border: 4px solid white;
     overflow: hidden; }
     .hero .hero-img-wrap img {
@@ -110,6 +115,10 @@ p {
       height: 100%;
       width: auto; }
   @media (min-width: 768px) {
+    .hero .hero-img-wrap {
+      width: 400px;
+      height: 400px; } }
+  @media (min-width: 1024px) {
     .hero {
       position: fixed;
       width: 40%;
@@ -133,7 +142,7 @@ p {
   height: auto;
   position: relative;
   color: white; }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .text-wrapper {
       width: 60%;
       position: absolute;
@@ -146,15 +155,18 @@ p {
   position: relative;
   margin: 0; }
   .title-text h1 {
-    font-size: 3em; }
+    font-size: 2em; }
   .title-text h2 {
-    font-size: 1.5em;
+    font-size: 1.2em;
     padding: 0 5%; }
   .title-text a.arrow-nav {
     text-decoration: none;
     color: white;
     font-size: 50px; }
   @media (min-width: 768px) {
+    .title-text h1 {
+      font-size: 4em; } }
+  @media (min-width: 1024px) {
     .title-text {
       height: 70%;
       width: 90%;
@@ -166,49 +178,70 @@ p {
   color: white;
   padding: 0 5%; }
   .text #intro {
-    margin-top: 88px; }
+    margin-top: 128px;
+    text-align: center; }
+    @media (min-width: 768px) {
+      .text #intro {
+        margin-top: 10%; } }
     .text #intro p {
       color: white;
-      font-size: 1em; }
+      font-size: 1.2em; }
       @media (min-width: 768px) {
         .text #intro p {
           font-size: 1.5em; } }
-    @media (min-width: 768px) {
+      @media (min-width: 1024px) {
+        .text #intro p {
+          font-size: 1.5em;
+          text-align: left; } }
+    @media (min-width: 1024px) {
       .text #intro {
         padding-bottom: 10%; } }
   .text .topic {
-    margin: 20% 0; }
+    margin: 20% 0;
+    text-align: center; }
     .text .topic h1, .text .topic h2 {
       text-align: center;
       margin: 20px 0; }
-      @media (min-width: 768px) {
+      @media (min-width: 1024px) {
         .text .topic h1, .text .topic h2 {
           text-align: left; } }
+    .text .topic h1 {
+      margin-top: 40px; }
     .text .topic .bodyText {
       line-height: 1.5; }
   @media (min-width: 768px) {
+    .text .bodyText {
+      font-size: 1.5em; } }
+  @media (min-width: 1024px) {
     .text {
       padding-bottom: 800px; } }
 
 a.arrow-nav {
-  display: none; }
-  @media (min-width: 768px) {
-    a.arrow-nav {
-      text-decoration: none;
-      display: block; }
+  text-decoration: none;
+  display: block; }
+  a.arrow-nav span.arrow {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 15%;
+    padding-bottom: 100px;
+    display: block;
+    padding-left: 0;
+    color: white;
+    margin-top: 15% auto; }
+    @media (min-width: 768px) {
       a.arrow-nav span.arrow {
         font-size: 50px;
-        text-align: center;
-        padding-top: 0;
-        padding-bottom: 100px;
-        display: block;
-        padding-left: 20px;
-        color: white;
-        margin-top: 15% auto; } }
+        padding-top: 0; } }
 
-@media (min-width: 768px) {
-  .lazyYT {
-    display: none; } }
+.lazyYT {
+  width: 80% !important;
+  margin: auto;
+  padding-top: 50% !important;
+  z-index: 99 !important;
+  border: 4px solid white; }
+  @media (min-width: 1024px) {
+    .lazyYT {
+      display: none; } }
 
 .lazyYT-title {
   display: none !important; }
@@ -229,7 +262,7 @@ a.arrow-nav {
 .video-wrapper {
   opacity: 0;
   display: none; }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .video-wrapper {
       position: fixed;
       display: block;
@@ -245,7 +278,7 @@ a.arrow-nav {
 
 .video {
   opacity: 0; }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .video {
       opacity: 1;
       position: relative;

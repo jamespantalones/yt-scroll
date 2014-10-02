@@ -2,9 +2,33 @@
 
 ytDirectives = angular.module('ytDirectives', [])
 
+ytDirectives.directive('checkDevice', ['$window', '$rootScope', ($window, $rootScope) ->
+
+	link = ($scope, element, attrs) ->
+
+		$scope.onResize = ->
+			width = $window.innerWidth
+			
+			if width < 1024
+				element.removeClass('desktop').addClass "mobile"
+				$rootScope.$broadcast('mobile')
+			else
+				element.removeClass("mobile").addClass "desktop"
+
+		$scope.onResize()
+
+		angular.element($window).bind('resize', ->
+			$scope.onResize()
+			)
 
 
-ytDirectives.directive('fadeVideo', ->
+	return{
+		link: link
+	}
+])
+
+
+ytDirectives.directive('fadeVideo', ['$rootScope', ($rootScope) ->
 
 	flag = 0
 
@@ -26,11 +50,13 @@ ytDirectives.directive('fadeVideo', ->
 				fadeOutVideo()
 			})
 
-
 	return{
 		link: link
 	}
-)
+])
+
+
+
 
 ytDirectives.directive('lazy', ->
 
@@ -49,9 +75,11 @@ ytDirectives.directive('lazy', ->
 
 
 
-ytDirectives.directive('wrap', ->
+ytDirectives.directive('wrap', ['$rootScope', ($rootScope) ->
 
 	counter = 1
+
+
 	
 	link = ($scope, element, attrs) ->
 		#give each element a unique class
@@ -64,7 +92,6 @@ ytDirectives.directive('wrap', ->
 			handler: (direction) ->
 				active = $(this)
 				videoId = active.data "id"
-				console.log videoId
 				
 				#grab timecode
 				time = active.data "time"
@@ -103,8 +130,7 @@ ytDirectives.directive('wrap', ->
 					chapter = active.data "chapter"
 					
 					if direction == 'up'
-						if active.prev().length
-
+						if preVideo
 							$scope.player.cueVideoById(preVideo, time)
 						else
 							return
@@ -120,6 +146,6 @@ ytDirectives.directive('wrap', ->
 		link: link
 	}
 
-)
+])
 
 

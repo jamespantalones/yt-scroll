@@ -6,8 +6,8 @@
 	.hero-img-wrap{
 		display: block;
 		margin: 10% auto 10% auto;
-		width: 200px;
-		height: 200px;
+		width: 175px;
+		height: 175px;
 		border: 4px solid white;
 		overflow: hidden;
 		img{
@@ -17,6 +17,12 @@
 		}
 	}
 	@media (min-width: 768px){
+		.hero-img-wrap{
+			width: 400px;
+			height: 400px;
+		}
+	}
+	@media (min-width: 1024px){
 		position: fixed;
 		width: 40%;
 		top: 0;
