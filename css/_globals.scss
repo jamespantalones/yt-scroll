@@ -75,3 +75,9 @@ a {
 	-webkit-overflow-scrolling: touch;
 	
 }
+
+//REMOVE SCROLLBAR
+
+::-webkit-scrollbar{
+	display: none;
+}

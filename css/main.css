@@ -76,6 +76,9 @@ a {
        box-sizing: border-box;
   -webkit-overflow-scrolling: touch; }
 
+::-webkit-scrollbar {
+  display: none; }
+
 .features {
   margin: 0;
   margin-top: 0;
