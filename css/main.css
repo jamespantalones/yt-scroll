@@ -75,6 +75,9 @@ a {
   -moz-box-sizing: border-box;
        box-sizing: border-box;
   -webkit-overflow-scrolling: touch; }
+  @media (device-width: 768px) and (device-height: 1024px) {
+    .frame {
+      height: 1024px; } }
 
 ::-webkit-scrollbar {
   display: none; }
