@@ -1,0 +1,32 @@
+
+<div du-scroll-container="du-scroll-container" check-device="check-device" class="frame desktop">
+  <div class="hero">
+    <div class="hero-img-wrap"><a href="#intro" offset="30" du-smooth-scroll="du-smooth-scroll"><img ng-src="{{fields.heroImage.fields.file.url}}"/></a></div>
+  </div>
+  <div class="video-wrapper">
+    <div class="video">
+      <youtube-video id="main-vid" video-id="video" player-vars="playerVars"></youtube-video>
+    </div>
+  </div>
+  <div class="text-wrapper">
+    <div class="title-text">
+      <h1 class="top">{{fields.title}}</h1>
+      <h2>{{fields.subTitle}}</h2><a href="#intro" offset="30" du-smooth-scroll="du-smooth-scroll" class="arrow-nav"><span class="arrow fa fa-angle-double-down"></span></a>
+    </div>
+    <div class="text">
+      <div id="intro" ng-bind-html="trust(fields.introText)"></div>
+      <div ng-repeat-start="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" ng-if="$first" wrap="wrap" class="topic">
+        <div lazy="lazy" videoid="{{item.fields.youTubeVideoId}}" data-ratio="4:3" class="lazyYT">loading...</div>
+        <h1 fade-video="fade-video">{{item.fields.order}}</h1>
+        <h2>{{item.fields.title}}</h2>
+        <div ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></div>
+      </div>
+      <div ng-repeat-end="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" ng-if="!$first" wrap="wrap" class="topic"><a href="#{{item.fields.youTubeVideoId}}" du-smooth-scroll="du-smooth-scroll" offset="30" class="arrow-nav"><span class="arrow fa fa-angle-double-down"></span></a>
+        <div lazy="lazy" videoid="{{item.fields.youTubeVideoId}}" data-ratio="4:3" class="lazyYT">loading...</div>
+        <h1 id="{{item.fields.youTubeVideoId}}">{{item.fields.order}}</h1>
+        <h2>{{item.fields.title}}</h2>
+        <div ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></div>
+      </div>
+    </div>
+  </div>
+</div>

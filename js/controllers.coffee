@@ -79,23 +79,6 @@ ytControllers.controller('DetailCtrl', [
 			#add initial youtube
 			$scope.video = $scope.items[0].fields.youTubeVideoId
 
-			#check for initial width
-			# $scope.width = heightService.getWidth()
-
-			# if $scope.width < 768
-			# 	$('.frame').removeClass('desktop').addClass "mobile"
-
-			
-
-			# #listen for width
-			# $scope.$on('mobile', (event) ->
-			# 	$('.frame').removeClass('desktop').addClass "mobile"
-			# 	)
-
-			# $scope.$on('desktop', (event) ->
-			# 	$('.frame').removeClass('mobile').addClass "desktop"
-			# 	)
-
 
 			setTimeout(heightService.sendHeight, 2000)
 

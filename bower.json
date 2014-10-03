@@ -28,6 +28,7 @@
     "angular-youtube-mb": "~0.1.2",
     "ng-contentful": "~0.1.2",
     "jquery-waypoints": "~2.0.5",
-    "ngFitText": "~3.0.0"
+    "ngFitText": "~3.0.0",
+    "angular-sanitize": "~1.2.26"
   }
 }

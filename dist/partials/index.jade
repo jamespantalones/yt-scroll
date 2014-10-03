@@ -1,0 +1,4 @@
+ul(class="features")
+	li(ng-model="features", ng-repeat="feature in features")
+		a(href="#/{{feature.sys.id}}")
+			h3 {{feature.fields.title}}

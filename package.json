@@ -1,0 +1,28 @@
+{
+  "name": "yt_lectures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edweena/yt-scroll.git"
+  },
+  "author": "James Pants",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edweena/yt-scroll/issues"
+  },
+  "homepage": "https://github.com/edweena/yt-scroll",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.6.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-dentist": "^0.3.4"
+  }
+}
