@@ -6,7 +6,7 @@
 html{
 	min-height: 100%;
 	width: 100%;
-	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
+	font-family: futura,  Helvetica, sans-serif;
 	font-weight: lighter;
 	font-size: 16px;
 	margin: 0;
@@ -23,17 +23,18 @@ body{
 }
 
 h1{
-	font-family: futura, 'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
+	font-family: 'clan_pronarrow_ultra', Helvetica, sans-serif;
 	font-weight: lighter;
 	letter-spacing: -1px;
 	font-size: 4em;
 	line-height: 1;
+	-webkit-font-smoothing: antialised;
 }
 
 h2{
-	font-family: futura,  'Helvetica Neue', 'clan_pronarrow_ultra', Helvetica, sans-serif;
+	font-family: 'clan_pronarrow_ultra', Helvetica, sans-serif;
 	font-weight: lighter;
-	letter-spacing: -1px;
+	letter-spacing: 1px;
 	font-size: 2em;
 	text-transform: uppercase;
 }
@@ -44,7 +45,7 @@ p{
 	font-size: 1.4em;
 	line-height: 1.5;
 	color: $purple;
-	font-family: futura, 'Helvetica Neue', Helvetica, sans-serif;
+	font-family: futura,  Helvetica, sans-serif;
 	-webkit-font-smoothing: antialised;
 }
 
