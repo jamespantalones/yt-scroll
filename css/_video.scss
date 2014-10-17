@@ -32,26 +32,25 @@
 .video-wrapper{
 	opacity: 0;
 	display: none;
-	@media (min-width: 1024px){
-		position: fixed;
-		display: block;
-		opacity: 1;
-		left: 0;
-		top: 0;
-		height: 100%;
-		width: 40%;
-		display: none;
-		@include vendorize(perspective, 1000px);
-	}
+	position: fixed;
+	display: block;
+	opacity: 1;
+	left: 0;
+	top: 0;
+	padding-top: 0;
+	height: 100%;
+	width: 50%;
+	@include vendorize(perspective, 1000px);
+
 }
 
 
 .video{
 	opacity: 0;
+	@include vendorize(box-shadow, 5px 5px 5px);
 	@media (min-width: 1024px){
 		opacity: 1;
 		position: relative;
-		border: 4px solid white;
 		box-sizing: border-box;
 		padding-bottom: 56.25%;
 		padding-top: 30px;
@@ -63,13 +62,6 @@
 		margin-right: 5%;
 		margin-left: 5%;
 		z-index: 1;
-		transition: all .5s ease;
-		@include vendorize(perspective, 1000px);
-		@include vendorize(transition, all .5s linear);
-		@include vendorize(transform, rotateX(10deg) rotateY(40deg) rotateZ(-10deg));
-		&:hover, &.playing{
-			@include vendorize(transform, rotateX(0deg) rotateY(0deg) rotateZ(0deg));
-		}
 		iframe, object, embed{
 			position: absolute;
 			top: 0;
@@ -79,4 +71,43 @@
 
 		}
 	}
+}
+
+.video-mobile{
+	opacity: 1;
+	opacity: 1;
+	position: relative;
+	box-sizing: border-box;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+	margin-bottom: 50px;
+	margin-top: 22.5%;
+	width: 90%;
+	margin-right: 5%;
+	margin-left: 5%;
+	z-index: 1;
+	@include vendorize(box-shadow, 5px 5px 5px);
+	iframe, object, embed{
+		
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	@media (min-width: 1024px){
+		display: none;
+	}
+}
+
+.transform{
+	@include vendorize(perspective, 1000px);
+	@include vendorize(transition, transform .1s linear);
+	// @include vendorize(transform, rotateX(10deg) rotateY(40deg) rotateZ(-10deg));
+	&:hover, &.playing{
+			@include vendorize(transform, rotateX(0deg) rotateY(0deg) rotateZ(0deg));
+		}
+
 }

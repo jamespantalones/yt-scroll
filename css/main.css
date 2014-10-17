@@ -28,7 +28,7 @@ html {
 body {
   height: 100%;
   width: 100%;
-  background-color: black;
+  background-color: white;
   margin: 0; }
 
 h1 {
@@ -71,7 +71,9 @@ a {
   min-height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background-color: black;
+  background-color: white;
+  background: url(../img/background.png) repeat top left;
+  color: black;
   overflow-y: scroll;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
@@ -79,6 +81,11 @@ a {
   @media (device-width: 768px) and (device-height: 1024px) {
     .frame {
       height: 1024px; } }
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+  cursor: pointer !important; }
 
 ::-webkit-scrollbar {
   display: none; }
@@ -108,50 +115,53 @@ a {
 .hero {
   position: relative;
   width: 100%;
-  background-color: black;
-  text-align: center; }
+  text-align: center;
+  -webkit-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px; }
   .hero .hero-img-wrap {
     display: block;
     margin: 10% auto 10% auto;
     width: 175px;
     height: 175px;
-    border: 4px solid white;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
     overflow: hidden; }
     .hero .hero-img-wrap img {
-      max-height: 100%;
-      height: 100%;
-      width: auto; }
+      height: 101%;
+      width: 101%; }
   @media (min-width: 768px) {
     .hero .hero-img-wrap {
-      width: 400px;
-      height: 400px; } }
+      width: 80%;
+      height: auto; } }
   @media (min-width: 1024px) {
     .hero {
       position: fixed;
-      width: 40%;
+      width: 50%;
       top: 0;
       left: 0;
       height: 100%;
       text-align: center;
       -moz-box-sizing: border-box;
-           box-sizing: border-box; }
+           box-sizing: border-box;
+      background-size: cover; }
       .hero .hero-img-wrap {
-        width: 400px;
-        height: 400px;
-        margin: 25% auto 10% auto;
+        width: 100%;
+        height: 100%;
+        margin: 0;
         overflow: hidden; }
         .hero .hero-img-wrap img {
-          height: 100%;
+          height: 101%;
           width: auto; } }
 
 .text-wrapper {
   width: 100%;
   height: auto;
   position: relative;
-  color: white; }
+  color: black; }
   @media (min-width: 1024px) {
     .text-wrapper {
-      width: 60%;
+      width: 50%;
       position: absolute;
       top: 0;
       right: 0;
@@ -182,7 +192,6 @@ a {
         margin-top: 88px; } }
 
 .text {
-  color: white;
   padding: 0 5%; }
   .text #intro {
     margin-top: 128px;
@@ -191,7 +200,6 @@ a {
       .text #intro {
         margin-top: 10%; } }
     .text #intro p {
-      color: white;
       font-size: 1.2em; }
       @media (min-width: 768px) {
         .text #intro p {
@@ -216,6 +224,12 @@ a {
       margin-top: 40px; }
     .text .topic .bodyText {
       line-height: 1.5; }
+    .text .topic p.play-button {
+      display: inline-block;
+      padding: 0 10px; }
+      .text .topic p.play-button:hover {
+        background-color: black;
+        color: white; }
   @media (min-width: 768px) {
     .text .bodyText {
       font-size: 1.5em; } }
@@ -227,15 +241,16 @@ a {
 
 a.arrow-nav {
   text-decoration: none;
-  display: block; }
+  display: block;
+  color: black; }
   a.arrow-nav span.arrow {
+    color: black;
     font-size: 30px;
     text-align: center;
     padding-top: 15%;
     padding-bottom: 100px;
     display: block;
     padding-left: 0;
-    color: white;
     margin-top: 15% auto; }
     @media (min-width: 768px) {
       a.arrow-nav span.arrow {
@@ -270,28 +285,28 @@ a.arrow-nav {
 
 .video-wrapper {
   opacity: 0;
-  display: none; }
-  @media (min-width: 1024px) {
-    .video-wrapper {
-      position: fixed;
-      display: block;
-      opacity: 1;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 40%;
-      display: none;
-      -webkit-perspective: 1000px;
-      -ms-perspective: 1000px;
-      perspective: 1000px; } }
+  display: none;
+  position: fixed;
+  display: block;
+  opacity: 1;
+  left: 0;
+  top: 0;
+  padding-top: 0;
+  height: 100%;
+  width: 50%;
+  -webkit-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px; }
 
 .video {
-  opacity: 0; }
+  opacity: 0;
+  -ms-box-shadow: 5px 5px 5px;
+  -o-box-shadow: 5px 5px 5px;
+  box-shadow: 5px 5px 5px; }
   @media (min-width: 1024px) {
     .video {
       opacity: 1;
       position: relative;
-      border: 4px solid white;
       -moz-box-sizing: border-box;
            box-sizing: border-box;
       padding-bottom: 56.25%;
@@ -303,24 +318,50 @@ a.arrow-nav {
       width: 90%;
       margin-right: 5%;
       margin-left: 5%;
-      z-index: 1;
-      -webkit-transition: all .5s ease;
-              transition: all .5s ease;
-      -webkit-perspective: 1000px;
-      -ms-perspective: 1000px;
-      perspective: 1000px;
-      -webkit-transition: all 0.5s linear;
-      transition: all 0.5s linear;
-      -webkit-transform: rotateX(10deg) rotateY(40deg) rotateZ(-10deg);
-      -ms-transform: rotateX(10deg) rotateY(40deg) rotateZ(-10deg);
-      transform: rotateX(10deg) rotateY(40deg) rotateZ(-10deg); }
-      .video:hover, .video.playing {
-        -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-        -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+      z-index: 1; }
       .video iframe, .video object, .video embed {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%; } }
+
+.video-mobile {
+  opacity: 1;
+  opacity: 1;
+  position: relative;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 50px;
+  margin-top: 22.5%;
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+  z-index: 1;
+  -ms-box-shadow: 5px 5px 5px;
+  -o-box-shadow: 5px 5px 5px;
+  box-shadow: 5px 5px 5px; }
+  .video-mobile iframe, .video-mobile object, .video-mobile embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  @media (min-width: 1024px) {
+    .video-mobile {
+      display: none; } }
+
+.transform {
+  -webkit-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transition: -webkit-transform 0.1s linear;
+  transition: transform 0.1s linear; }
+  .transform:hover, .transform.playing {
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }

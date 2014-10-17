@@ -30,49 +30,7 @@ ytDirectives.directive('checkDevice', ['$window', '$rootScope', ($window, $rootS
 ])
 
 
-ytDirectives.directive('fadeVideo', ['$window', ($window) ->
 
-	flag = 0
-	id = 0
-
-
-	link = ($scope, element, attrs) ->
-		$scope.fadeOutVideo = ->
-			$('.hero').fadeOut()
-			$('.video-wrapper').fadeIn()
-
-		$scope.fadeInVideo = ->
-			$('.hero').fadeIn()
-			$('.video-wrapper').fadeOut()
-
-		$scope.videoControl = ->
-			console.log 'video contorl called'
-			width = $window.innerWidth
-			if width < 1024
-				$.waypoints('destroy')
-			else
-				element.waypoint({
-					context: '.frame'
-					offset: '30%'
-					handler: (direction) ->
-						if direction == 'down'
-							$scope.fadeOutVideo()
-						if direction == 'up'
-							$scope.fadeInVideo()
-					})
-		
-		$scope.videoControl(element)
-
-		angular.element($window).bind('resize', ->
-			#needs to only send once DONE resizing
-			clearTimeout(id)
-			id = setTimeout($scope.videoControl, 1000)
-		)
-
-	return{
-		link: link
-	}
-])
 
 
 
@@ -92,86 +50,62 @@ ytDirectives.directive('lazy', ->
 )
 
 
-
-
-ytDirectives.directive('wrap', ['$rootScope', '$window', ($rootScope, $window) ->
-
-	counter = 1
-
-
+ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeout) ->
 	
-	link = ($scope, element, attrs) ->
+	wrapper = $('.video')
 
-		$scope.wrapMedia = ->
-			width = $window.innerWidth
-			console.log 'yo'
-			if width > 1024
-				#give each element a unique class
-				element.addClass("item" + counter)
-				
-				#set up waypoint for each item
-				$('.item' + counter).waypoint({
+	link = ($scope, element, attrs) ->
+		
+		$timeout ->
+			
+
+			swapBackground = (thumbnail) ->
+				wrapper.css
+					backgroundImage: "url(#{thumbnail})"
+					backgroundSize: "cover"
+
+				#update current time
+				console.log "Current time is #{$scope.video.currentTime}"
+			
+
+			wrapMedia = ->
+				item = $('.item')
+
+				item.waypoint({
 					context: '.frame'
 					offset: '10%'
 					handler: (direction) ->
 						active = $(this)
+						#will check for existence
+						preVideo = active.prev().data "id"
+						console.log preVideo
+						
 						videoId = active.data "id"
-						
+						thumbnail = active.data "thumbnail"
+
 						#grab timecode
-						time = active.data "time"
-						
-						if !time
-							time = 0
-						
+						$scope.video.currentTime = active.data "time"
 						chapter = active.data "chapter"
 
+
+						#make sure we actually have a time
+						if !$scope.time
+							$scope.time = 0
+
+
 						if direction == 'down'
-							if chapter == 1
-								#video is already loaded, so no need to reload
-								return
-							$scope.player.cueVideoById(videoId, time)
+							swapBackground(thumbnail)
+						if direction == 'up'
 
-						else
-							return
-						
-					
-						$scope.player.cueVideoById(videoId, time)
-					
+							if preVideo
+								swapBackground(thumbnail)
+							else
+								swapBackground(thumbnail)
 
-					}).waypoint({
-						
-						context: '.frame'
-						offset: '20%'
-						
-						handler: (direction) ->
-							
-							active = $(this)
-							videoId = active.data "id"
-							preVideo = active.prev().data "id"
-							time = active.data "time"
-							if !time
-								time = 0
-							chapter = active.data "chapter"
-							
-							if direction == 'up'
-								if preVideo
-									$scope.player.cueVideoById(preVideo, time)
-								else
-									return
 						})
+			
 
-					
-
-				#increment counter
-				counter++
-			else
-				$.waypoints('destroy')
-
-		$scope.wrapMedia()
-
-		angular.element($window).bind('resize', ->
-			$scope.wrapMedia()
-		)
+			wrapMedia()
 
 
 	return{
@@ -179,5 +113,21 @@ ytDirectives.directive('wrap', ['$rootScope', '$window', ($rootScope, $window) -
 	}
 
 ])
+
+
+
+
+
+ytDirectives.directive('triggerPlay', ->
+
+
+	link = ($scope, element, attrs) ->
+
+
+
+	return{
+		link: link
+	}
+)
 
 

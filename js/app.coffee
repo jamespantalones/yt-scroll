@@ -13,9 +13,9 @@ app = angular.module('ytlist', [
 	]
 )
 
-app.config(['$routeProvider', '$locationProvider', 'contentfulClientProvider',
+app.config(['$routeProvider', '$locationProvider', 'contentfulClientProvider', '$sceDelegateProvider',
 	
-	($routeProvider, $locationProvider, contentfulClientProvider) ->
+	($routeProvider, $locationProvider, contentfulClientProvider, $sceDelegateProvider) ->
 
 		$routeProvider.when('/', {
 			templateUrl: 'partials/index.html',
@@ -29,6 +29,12 @@ app.config(['$routeProvider', '$locationProvider', 'contentfulClientProvider',
 		
 		.otherwise({
 			redirectTo: '/'
+			})
+
+		$sceDelegateProvider.resourceUrlWhitelist({
+			'self',
+			'http://www.youtube.com/**'
+			'https://www.youtube.com/**'
 			})
 
 

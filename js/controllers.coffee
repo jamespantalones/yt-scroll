@@ -23,17 +23,63 @@ ytControllers.controller('IndexCtrl', [
 
 ytControllers.controller('DetailCtrl', [
 	'$scope'
+	'$rootScope'
 	'$routeParams'
 	'$http'
 	'$location'
 	'contentfulClient'
 	'$sce'
 	'heightService'
-	($scope, $routeParams, $http, $location, contentfulClient, $sce, heightService) ->
+	'initVidStyles'
+	'initThumbStyles'
+	'initButtonStyles'
+	($scope, $rootScope, $routeParams, $http, $location, contentfulClient, $sce, heightService, initVidStyles, initThumbStyles, initButtonStyles) ->
 
 		converter = new Showdown.converter()
 
+		$scope.dataready = false
+
+		$scope.vidMaster = initVidStyles
+		$scope.thumbMaster = initThumbStyles
+		$scope.buttonMaster = initButtonStyles
+
+		$scope.youTubePrefix = '//www.youtube.com/embed/'
+		$scope.youTubeParams = '?autoplay=0&loop=1&hd=1&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0'
+
+		#init current time
+
+		$scope.$watch("vidMaster", ->
+			$scope.videoStyles = ->
+				return{
+					opacity: $scope.vidMaster.opacity
+				}
+		)
+
+		$scope.$watch("thumbMaster", ->
+			$scope.thumbStyles = ->
+				return{
+					backgroundImage: $scope.thumbMaster.backgroundImage
+				}
+		)
+
+		$scope.$watch("buttonMaster", ->
+			$scope.buttonStyles = ->
+				return{
+					display: $scope.buttonMaster.display
+				}
+		)
+
+
+
+
 		$scope.player = {}
+
+		#init video
+		$scope.video = {}
+		$scope.video.currentTime = 0
+		$scope.video.id = ''
+
+		
 
 		$scope.playerVars = {
 		    controls: 0
@@ -44,8 +90,11 @@ ytControllers.controller('DetailCtrl', [
 		}
 
 		$scope.$on('youtube.player.ready', ($event, player) ->
+			console.log 'ready'
 			$scope.player = player
 		)
+
+
 
 
 	
@@ -55,6 +104,8 @@ ytControllers.controller('DetailCtrl', [
 			$scope.feature = data[0]
 
 			$scope.fields = $scope.feature.fields
+
+			console.log $scope.fields
 
 
 			
@@ -75,12 +126,38 @@ ytControllers.controller('DetailCtrl', [
 			#get array of all items to send to factory
 			$scope.items = $scope.fields.youTubeListItems
 
+			#init video
+			$scope.video.id = $scope.items[0].fields.youTubeVideoId
 		
-			#add initial youtube
-			$scope.video = $scope.items[0].fields.youTubeVideoId
+			#add initial background thumbnail for start purposes
+			$scope.thumbMaster.backgroundImage = "url(#{$scope.fields.heroImage.fields.file.url})"
+			$scope.thumbInit = "url(#{$scope.fields.heroImage.fields.file.url})"
+			
+			$scope.thumbMaster.backgroundSize = 'cover'
 
 
-			setTimeout(heightService.sendHeight, 2000)
+			#set data live
+			$scope.dataready = true
+			# $rootScope.$broadcast('listready')
+
+
+			
+			$scope.playVideo = (currentTime) ->
+				#bring in video. using fade instead of show for firefox' sake
+				$scope.vidMaster.opacity = 1
+				
+				$scope.thumbMaster.backgroundImage = 'none'
+				
+				$scope.buttonMaster.display = 'none'
+				
+				$scope.player.seekTo(currentTime)
+				
+				$scope.player.playVideo()
+				
+
+
+
+
 
 
 

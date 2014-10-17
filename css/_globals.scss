@@ -18,7 +18,7 @@ html{
 body{
 	height: 100%;
 	width: 100%;
-	background-color: black;
+	background-color: white;
 	margin: 0;
 }
 
@@ -70,7 +70,9 @@ a {
 	min-height: 100%;
 	width: 100%;
 	overflow-x: hidden;
-	background-color: black;
+	background-color: white;
+	background: url(../img/background.png) repeat top left;
+	color: black;
 	overflow-y: scroll;
 	box-sizing: border-box;
 	-webkit-overflow-scrolling: touch;
@@ -79,6 +81,13 @@ a {
 	}
 	
 }
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer !important;
+}
+
 
 //REMOVE SCROLLBAR
 

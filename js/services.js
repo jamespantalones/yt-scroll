@@ -41,4 +41,21 @@
             }
         };
     } ]);
+    t.factory("initVidStyles", function() {
+        return {
+            opacity: 0
+        };
+    });
+    t.factory("initThumbStyles", function() {
+        return {
+            backgroundImage: "none",
+            backgroundSize: "cover",
+            backgroundPosition: "center center"
+        };
+    });
+    t.factory("initButtonStyles", function() {
+        return {
+            display: "block"
+        };
+    });
 }).call(this);

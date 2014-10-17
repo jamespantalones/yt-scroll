@@ -46,3 +46,28 @@ ytServices.factory('heightService', ['$rootScope', ($rootScope) ->
 	}
 
 ])
+
+ytServices.factory('initVidStyles', ->
+
+	return{
+		opacity: 0
+	}
+
+)
+
+ytServices.factory('initThumbStyles', ->
+
+	return{
+		backgroundImage: 'none'
+		backgroundSize: 'cover'
+		backgroundPosition: 'center center'
+	}
+
+)
+
+ytServices.factory('initButtonStyles', ->
+	
+	return{
+		display: 'block'
+	}
+)

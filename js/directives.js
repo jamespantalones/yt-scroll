@@ -3,147 +3,95 @@
     var e;
     e = angular.module("ytDirectives", []);
     e.directive("checkDevice", [ "$window", "$rootScope", function(e, n) {
-        var r;
-        r = function(r, t, i) {
-            r.onResize = function() {
-                var r;
-                r = e.innerWidth;
-                if (r < 1024) {
-                    t.removeClass("desktop").addClass("mobile");
+        var i;
+        i = function(i, r, t) {
+            i.onResize = function() {
+                var i;
+                i = e.innerWidth;
+                if (i < 1024) {
+                    r.removeClass("desktop").addClass("mobile");
                     return n.$broadcast("mobile");
                 } else {
-                    return t.removeClass("mobile").addClass("desktop");
+                    return r.removeClass("mobile").addClass("desktop");
                 }
             };
-            r.onResize();
+            i.onResize();
             return angular.element(e).bind("resize", function() {
-                return r.onResize();
+                return i.onResize();
             });
         };
         return {
-            link: r
-        };
-    } ]);
-    e.directive("fadeVideo", [ "$window", function(e) {
-        var n, r, t;
-        n = 0;
-        r = 0;
-        t = function(n, t, i) {
-            n.fadeOutVideo = function() {
-                $(".hero").fadeOut();
-                return $(".video-wrapper").fadeIn();
-            };
-            n.fadeInVideo = function() {
-                $(".hero").fadeIn();
-                return $(".video-wrapper").fadeOut();
-            };
-            n.videoControl = function() {
-                var r;
-                console.log("video contorl called");
-                r = e.innerWidth;
-                if (r < 1024) {
-                    return $.waypoints("destroy");
-                } else {
-                    return t.waypoint({
-                        context: ".frame",
-                        offset: "30%",
-                        handler: function(e) {
-                            if (e === "down") {
-                                n.fadeOutVideo();
-                            }
-                            if (e === "up") {
-                                return n.fadeInVideo();
-                            }
-                        }
-                    });
-                }
-            };
-            n.videoControl(t);
-            return angular.element(e).bind("resize", function() {
-                clearTimeout(r);
-                return r = setTimeout(n.videoControl, 1e3);
-            });
-        };
-        return {
-            link: t
+            link: i
         };
     } ]);
     e.directive("lazy", function() {
         var e;
-        e = function(e, n, r) {
-            var t;
-            t = r.videoid;
-            n.data("youtube-id", t);
+        e = function(e, n, i) {
+            var r;
+            r = i.videoid;
+            n.data("youtube-id", r);
             return n.lazyYT();
         };
         return {
             link: e
         };
     });
-    e.directive("wrap", [ "$rootScope", "$window", function(e, n) {
-        var r, t;
-        r = 1;
-        t = function(e, t, i) {
-            e.wrapMedia = function() {
-                var i;
-                i = n.innerWidth;
-                console.log("yo");
-                if (i > 1024) {
-                    t.addClass("item" + r);
-                    $(".item" + r).waypoint({
+    e.directive("wrapWaypoints", [ "$window", "$timeout", function(e, n) {
+        var i, r;
+        r = $(".video");
+        i = function(e, i, t) {
+            return n(function() {
+                var n, i;
+                n = function(n) {
+                    r.css({
+                        backgroundImage: "url(" + n + ")",
+                        backgroundSize: "cover"
+                    });
+                    return console.log("Current time is " + e.video.currentTime);
+                };
+                i = function() {
+                    var i;
+                    i = $(".item");
+                    return i.waypoint({
                         context: ".frame",
                         offset: "10%",
-                        handler: function(n) {
-                            var r, t, i, o;
+                        handler: function(i) {
+                            var r, t, o, a, u;
                             r = $(this);
-                            o = r.data("id");
-                            i = r.data("time");
-                            if (!i) {
-                                i = 0;
-                            }
+                            o = r.prev().data("id");
+                            console.log(o);
+                            u = r.data("id");
+                            a = r.data("thumbnail");
+                            e.video.currentTime = r.data("time");
                             t = r.data("chapter");
-                            if (n === "down") {
-                                if (t === 1) {
-                                    return;
+                            if (!e.time) {
+                                e.time = 0;
+                            }
+                            if (i === "down") {
+                                n(a);
+                            }
+                            if (i === "up") {
+                                if (o) {
+                                    return n(a);
+                                } else {
+                                    return n(a);
                                 }
-                                e.player.cueVideoById(o, i);
-                            } else {
-                                return;
-                            }
-                            return e.player.cueVideoById(o, i);
-                        }
-                    }).waypoint({
-                        context: ".frame",
-                        offset: "20%",
-                        handler: function(n) {
-                            var r, t, i, o, a;
-                            r = $(this);
-                            a = r.data("id");
-                            i = r.prev().data("id");
-                            o = r.data("time");
-                            if (!o) {
-                                o = 0;
-                            }
-                            t = r.data("chapter");
-                            if (n === "up") {
-                                if (i) {
-                                    return e.player.cueVideoById(i, o);
-                                } else {}
                             }
                         }
                     });
-                    return r++;
-                } else {
-                    return $.waypoints("destroy");
-                }
-            };
-            e.wrapMedia();
-            return angular.element(n).bind("resize", function() {
-                return e.wrapMedia();
+                };
+                return i();
             });
         };
         return {
-            link: t
+            link: i
         };
     } ]);
+    e.directive("triggerPlay", function() {
+        var e;
+        e = function(e, n, i) {};
+        return {
+            link: e
+        };
+    });
 }).call(this);
