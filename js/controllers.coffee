@@ -32,16 +32,24 @@ ytControllers.controller('DetailCtrl', [
 	'heightService'
 	'initVidStyles'
 	'initThumbStyles'
-	'initButtonStyles'
-	($scope, $rootScope, $routeParams, $http, $location, contentfulClient, $sce, heightService, initVidStyles, initThumbStyles, initButtonStyles) ->
+	'initButtonStyles',
+	'initHeroStyles',
+	($scope, $rootScope, $routeParams, $http, $location, contentfulClient, $sce, heightService, initVidStyles, initThumbStyles, initButtonStyles, initHeroStyles) ->
 
 		converter = new Showdown.converter()
+		
 
+		#inits
+		$scope.player = {}
+		$scope.video = {}
+		$scope.video.currentTime = 0
+		$scope.video.id = ''
 		$scope.dataready = false
 
 		$scope.vidMaster = initVidStyles
 		$scope.thumbMaster = initThumbStyles
 		$scope.buttonMaster = initButtonStyles
+		$scope.heroMaster = initHeroStyles
 
 		$scope.youTubePrefix = '//www.youtube.com/embed/'
 		$scope.youTubeParams = '?autoplay=0&loop=1&hd=1&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0'
@@ -69,15 +77,14 @@ ytControllers.controller('DetailCtrl', [
 				}
 		)
 
+		$scope.$watch("heroMaster", ->
+			$scope.heroStyles = ->
+				return{
+					backgroundImage: $scope.heroMaster.backgroundImage
+				}
+		)
 
-
-
-		$scope.player = {}
-
-		#init video
-		$scope.video = {}
-		$scope.video.currentTime = 0
-		$scope.video.id = ''
+		
 
 		
 
@@ -96,8 +103,6 @@ ytControllers.controller('DetailCtrl', [
 
 
 
-
-	
 		#GRAB DATA
 		contentfulClient.entries({'sys.id': $routeParams.featureId, 'include': 10}).then (data) ->
 			
@@ -108,16 +113,9 @@ ytControllers.controller('DetailCtrl', [
 			console.log $scope.fields
 
 
-			
-
 			for item in $scope.fields.youTubeListItems
 				text = item.fields.bodyText
 				text = converter.makeHtml(text)
-
-
-			$scope.trust = (body) ->
-				return $sce.trustAsHtml(body)
-
 
 			
 			#parse markdown
@@ -131,6 +129,7 @@ ytControllers.controller('DetailCtrl', [
 		
 			#add initial background thumbnail for start purposes
 			$scope.thumbMaster.backgroundImage = "url(#{$scope.fields.heroImage.fields.file.url})"
+			$scope.heroMaster.backgroundImage = "url(#{$scope.fields.heroImageBlur.fields.file.url})"
 			$scope.thumbInit = "url(#{$scope.fields.heroImage.fields.file.url})"
 			
 			$scope.thumbMaster.backgroundSize = 'cover'
@@ -138,10 +137,9 @@ ytControllers.controller('DetailCtrl', [
 
 			#set data live
 			$scope.dataready = true
-			# $rootScope.$broadcast('listready')
 
 
-			
+			#onclick handlers
 			$scope.playVideo = (currentTime) ->
 				#bring in video. using fade instead of show for firefox' sake
 				$scope.vidMaster.opacity = 1
@@ -153,6 +151,10 @@ ytControllers.controller('DetailCtrl', [
 				$scope.player.seekTo(currentTime)
 				
 				$scope.player.playVideo()
+
+			#allow editors html
+			$scope.trust = (body) ->
+				return $sce.trustAsHtml(body)
 				
 
 

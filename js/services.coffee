@@ -71,3 +71,13 @@ ytServices.factory('initButtonStyles', ->
 		display: 'block'
 	}
 )
+
+
+ytServices.factory('initHeroStyles', ->
+	
+	return{
+		backgroundImage: 'none'
+		backgroundSize: 'cover'
+		backgroundPosition: 'center center'
+	}
+)

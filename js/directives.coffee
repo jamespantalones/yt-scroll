@@ -52,16 +52,21 @@ ytDirectives.directive('lazy', ->
 
 ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeout) ->
 	
-	wrapper = $('.video')
+	videoBack = $('.video')
+	wrapper = $('.video-wrapper')
+
 
 	link = ($scope, element, attrs) ->
 		
 		$timeout ->
 			
 
-			swapBackground = (thumbnail) ->
-				wrapper.css
+			swapBackground = (thumbnail, thumblur) ->
+				videoBack.css
 					backgroundImage: "url(#{thumbnail})"
+					backgroundSize: "cover"
+				wrapper.css
+					backgroundImage: "url(#{thumblur})"
 					backgroundSize: "cover"
 
 				#update current time
@@ -82,6 +87,7 @@ ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeo
 						
 						videoId = active.data "id"
 						thumbnail = active.data "thumbnail"
+						thumblur = active.data "thumblur"
 
 						#grab timecode
 						$scope.video.currentTime = active.data "time"
@@ -94,13 +100,13 @@ ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeo
 
 
 						if direction == 'down'
-							swapBackground(thumbnail)
+							swapBackground(thumbnail, thumblur)
 						if direction == 'up'
 
 							if preVideo
-								swapBackground(thumbnail)
+								swapBackground(thumbnail, thumblur)
 							else
-								swapBackground(thumbnail)
+								swapBackground(thumbnail, thumblur)
 
 						})
 			

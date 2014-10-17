@@ -1,6 +1,6 @@
 
 <div du-scroll-container="du-scroll-container" check-device="check-device" class="frame desktop">
-  <div class="video-wrapper">
+  <div ng-style="heroStyles()" class="video-wrapper">
     <div ng-style="thumbStyles()" ng-click="playVideo(video.currentTime)" class="video transform">
       <div ng-style="buttonStyles()" class="lazyYT-button"></div>
       <div ng-style="videoStyles()">
@@ -16,14 +16,14 @@
     <div class="text">
       <div id="intro" ng-bind-html="trust(fields.introText)"></div>
       <div ng-if="dataready" wrap-waypoints="wrap-waypoints" class="item-container">
-        <div ng-repeat="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-time="{{item.fields.startTime}}" data-thumbnail="{{item.fields.videoThumbnail.fields.file.url}}" class="item">
+        <div ng-repeat="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-thumblur="{{item.fields.thumbBlur.fields.file.url}}" data-time="{{item.fields.startTime}}" data-thumbnail="{{item.fields.videoThumbnail.fields.file.url}}" class="item">
           <div class="video-mobile">
             <iframe width="420" height="315" ng-src="{{youTubePrefix + item.fields.youTubeVideoId + youTubeParams}}" frameborder="0" allowfullscreen>="allowfullscreen>"></iframe>
           </div>
           <h1>{{item.fields.order}}</h1>
           <h2>{{item.fields.title}}</h2>
           <div ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></div>
-          <p ng-click="playVideo(video.currentTime)" class="play-button"><span class="fa fa-play"></span> PLAY</p>
+          <p ng-click="playVideo(item.fields.startTime)" class="play-button"><span class="fa fa-play"></span> PLAY</p>
         </div>
       </div>
     </div>

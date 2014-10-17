@@ -1,6 +1,6 @@
 .frame(du-scroll-container, class="desktop", check-device)
 	
-	.video-wrapper
+	.video-wrapper(ng-style="heroStyles()")
 		div(class="video transform", ng-style="thumbStyles()", ng-click="playVideo(video.currentTime)")
 			div(class="lazyYT-button", ng-style="buttonStyles()")
 			div(ng-style="videoStyles()")
@@ -28,6 +28,7 @@
 					ng-repeat="item in fields.youTubeListItems", 
 					data-chapter="{{item.fields.order}}", 
 					data-id="{{item.fields.youTubeVideoId}}",
+					data-thumblur="{{item.fields.thumbBlur.fields.file.url}}",
 					data-time="{{item.fields.startTime}}",
 					data-thumbnail="{{item.fields.videoThumbnail.fields.file.url}}")
 
@@ -40,7 +41,7 @@
 					h2 {{item.fields.title}}
 					
 					div(class="bodyText", ng-bind-html="trust(item.fields.bodyText)")
-					p(ng-click="playVideo(video.currentTime)", class="play-button") <span class="fa fa-play"></span> PLAY
+					p(ng-click="playVideo(item.fields.startTime)", class="play-button") <span class="fa fa-play"></span> PLAY
 
 
 

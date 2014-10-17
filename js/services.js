@@ -1,61 +1,68 @@
 (function() {
     "use strict";
-    var t;
-    t = angular.module("ytServices", []);
-    t.factory("heightService", [ "$rootScope", function(t) {
-        var n, e, i;
-        n = function() {
+    var n;
+    n = angular.module("ytServices", []);
+    n.factory("heightService", [ "$rootScope", function(n) {
+        var t, e, r;
+        t = function() {
             return $(".frame").height();
         };
-        e = function(n) {
-            var e, i;
+        e = function(t) {
+            var e, r;
             e = {
-                height: n
+                height: t
             };
-            i = JSON.stringify(e);
-            console.log(i);
-            t.$broadcast("loaded");
-            return window.parent.postMessage(i, "*");
+            r = JSON.stringify(e);
+            console.log(r);
+            n.$broadcast("loaded");
+            return window.parent.postMessage(r, "*");
         };
         window.addEventListener("resize", function() {
-            var i;
-            i = $(window).width();
-            if (i < 768) {
-                t.$broadcast("mobile");
+            var r;
+            r = $(window).width();
+            if (r < 768) {
+                n.$broadcast("mobile");
             }
-            if (i >= 768) {
-                t.$broadcast("desktop");
+            if (r >= 768) {
+                n.$broadcast("desktop");
             }
-            return e(n());
+            return e(t());
         });
-        i = function() {
-            i = $(window).width();
-            return i;
+        r = function() {
+            r = $(window).width();
+            return r;
         };
         return {
             sendHeight: function() {
-                return e(n());
+                return e(t());
             },
             getWidth: function() {
                 return $(window).width();
             }
         };
     } ]);
-    t.factory("initVidStyles", function() {
+    n.factory("initVidStyles", function() {
         return {
             opacity: 0
         };
     });
-    t.factory("initThumbStyles", function() {
+    n.factory("initThumbStyles", function() {
         return {
             backgroundImage: "none",
             backgroundSize: "cover",
             backgroundPosition: "center center"
         };
     });
-    t.factory("initButtonStyles", function() {
+    n.factory("initButtonStyles", function() {
         return {
             display: "block"
+        };
+    });
+    n.factory("initHeroStyles", function() {
+        return {
+            backgroundImage: "none",
+            backgroundSize: "cover",
+            backgroundPosition: "center center"
         };
     });
 }).call(this);

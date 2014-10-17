@@ -2,94 +2,100 @@
     "use strict";
     var e;
     e = angular.module("ytDirectives", []);
-    e.directive("checkDevice", [ "$window", "$rootScope", function(e, n) {
-        var i;
-        i = function(i, r, t) {
-            i.onResize = function() {
-                var i;
-                i = e.innerWidth;
-                if (i < 1024) {
-                    r.removeClass("desktop").addClass("mobile");
-                    return n.$broadcast("mobile");
+    e.directive("checkDevice", [ "$window", "$rootScope", function(e, r) {
+        var n;
+        n = function(n, i, t) {
+            n.onResize = function() {
+                var n;
+                n = e.innerWidth;
+                if (n < 1024) {
+                    i.removeClass("desktop").addClass("mobile");
+                    return r.$broadcast("mobile");
                 } else {
-                    return r.removeClass("mobile").addClass("desktop");
+                    return i.removeClass("mobile").addClass("desktop");
                 }
             };
-            i.onResize();
+            n.onResize();
             return angular.element(e).bind("resize", function() {
-                return i.onResize();
+                return n.onResize();
             });
         };
         return {
-            link: i
+            link: n
         };
     } ]);
     e.directive("lazy", function() {
         var e;
-        e = function(e, n, i) {
-            var r;
-            r = i.videoid;
-            n.data("youtube-id", r);
-            return n.lazyYT();
+        e = function(e, r, n) {
+            var i;
+            i = n.videoid;
+            r.data("youtube-id", i);
+            return r.lazyYT();
         };
         return {
             link: e
         };
     });
-    e.directive("wrapWaypoints", [ "$window", "$timeout", function(e, n) {
-        var i, r;
-        r = $(".video");
-        i = function(e, i, t) {
-            return n(function() {
-                var n, i;
-                n = function(n) {
-                    r.css({
+    e.directive("wrapWaypoints", [ "$window", "$timeout", function(e, r) {
+        var n, i, t;
+        i = $(".video");
+        t = $(".video-wrapper");
+        n = function(e, n, o) {
+            return r(function() {
+                var r, n;
+                r = function(r, n) {
+                    i.css({
+                        backgroundImage: "url(" + r + ")",
+                        backgroundSize: "cover"
+                    });
+                    t.css({
                         backgroundImage: "url(" + n + ")",
                         backgroundSize: "cover"
                     });
                     return console.log("Current time is " + e.video.currentTime);
                 };
-                i = function() {
-                    var i;
-                    i = $(".item");
-                    return i.waypoint({
+                n = function() {
+                    var n;
+                    n = $(".item");
+                    return n.waypoint({
                         context: ".frame",
                         offset: "10%",
-                        handler: function(i) {
-                            var r, t, o, a, u;
-                            r = $(this);
-                            o = r.prev().data("id");
+                        handler: function(n) {
+                            var i, t, o, a, u, c;
+                            i = $(this);
+                            o = i.prev().data("id");
                             console.log(o);
-                            u = r.data("id");
-                            a = r.data("thumbnail");
-                            e.video.currentTime = r.data("time");
-                            t = r.data("chapter");
+                            c = i.data("id");
+                            u = i.data("thumbnail");
+                            a = i.data("thumblur");
+                            e.video.currentTime = i.data("time");
+                            t = i.data("chapter");
                             if (!e.time) {
                                 e.time = 0;
                             }
-                            if (i === "down") {
-                                n(a);
+                            if (n === "down") {
+                                r(u, a);
                             }
-                            if (i === "up") {
+                            if (n === "up") {
                                 if (o) {
-                                    return n(a);
+                                    return r(u, a);
                                 } else {
-                                    return n(a);
+                                    return r(u, a);
                                 }
                             }
                         }
                     });
                 };
-                return i();
+                return n();
             });
         };
         return {
-            link: i
+            link: n
         };
     } ]);
     e.directive("triggerPlay", function() {
         var e;
-        e = function(e, n, i) {};
+        e = function(e, r, n) {};
         return {
             link: e
         };

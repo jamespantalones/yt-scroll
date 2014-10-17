@@ -32,15 +32,15 @@ body {
   margin: 0; }
 
 h1 {
-  font-family: 'clan_pronarrow_ultra', Helvetica, sans-serif;
-  font-weight: lighter;
+  font-family: futura, Helvetica, sans-serif;
+  font-weight: bold;
   letter-spacing: -1px;
   font-size: 4em;
   line-height: 1;
   -webkit-font-smoothing: antialised; }
 
 h2 {
-  font-family: 'clan_pronarrow_ultra', Helvetica, sans-serif;
+  font-family: futura, Helvetica, sans-serif;
   font-weight: lighter;
   letter-spacing: 1px;
   font-size: 2em;
@@ -359,8 +359,11 @@ a.arrow-nav {
   -webkit-perspective: 1000px;
   -ms-perspective: 1000px;
   perspective: 1000px;
-  -webkit-transition: -webkit-transform 0.1s linear;
-  transition: transform 0.1s linear; }
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+  -webkit-transform: rotateX(10deg) rotateY(30deg) rotateZ(-10deg);
+  -ms-transform: rotateX(10deg) rotateY(30deg) rotateZ(-10deg);
+  transform: rotateX(10deg) rotateY(30deg) rotateZ(-10deg); }
   .transform:hover, .transform.playing {
     -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);

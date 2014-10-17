@@ -104,8 +104,8 @@
 
 .transform{
 	@include vendorize(perspective, 1000px);
-	@include vendorize(transition, transform .1s linear);
-	// @include vendorize(transform, rotateX(10deg) rotateY(40deg) rotateZ(-10deg));
+	@include vendorize(transition, transform .3s linear);
+	@include vendorize(transform, rotateX(10deg) rotateY(30deg) rotateZ(-10deg));
 	&:hover, &.playing{
 			@include vendorize(transform, rotateX(0deg) rotateY(0deg) rotateZ(0deg));
 		}
