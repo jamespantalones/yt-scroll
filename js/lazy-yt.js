@@ -11,6 +11,7 @@
             height = $el.data('height'),
             ratio = $el.data('ratio'),
             id = $el.data('youtube-id'),
+            thumbnail = $el.data('thumbnail'),
             aspectRatio = ['16', '9'],
             paddingTop = 0,
             youtubeParameters = $el.data('parameters') || '';
@@ -27,7 +28,7 @@
             'height': height,
             'width': width,
             'padding-top': paddingTop,
-            'background': 'url(//img.youtube.com/vi/' + id + '/hqdefault.jpg) center center no-repeat',
+            'background': 'url(' + thumbnail + ') center center no-repeat',
             'cursor': 'pointer',
             'background-size': 'cover'
         })

@@ -12,7 +12,7 @@
             return e.features = t;
         });
     } ]);
-    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "heightService", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, o, n, u, i, a, l, s, d, c) {
+    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "heightService", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, o, n, i, u, a, l, s, d, c) {
         var f;
         f = new Showdown.converter();
         e.player = {};
@@ -65,16 +65,16 @@
             console.log("ready");
             return e.player = r;
         });
-        return u.entries({
+        return i.entries({
             "sys.id": r.featureId,
             include: 10
         }).then(function(t) {
-            var r, o, n, u, a;
+            var r, o, n, i, a;
             e.feature = t[0];
             e.fields = e.feature.fields;
             console.log(e.fields);
             a = e.fields.youTubeListItems;
-            for (n = 0, u = a.length; n < u; n++) {
+            for (n = 0, i = a.length; n < i; n++) {
                 r = a[n];
                 o = r.fields.bodyText;
                 o = f.makeHtml(o);
@@ -83,7 +83,7 @@
             e.items = e.fields.youTubeListItems;
             e.video.id = e.items[0].fields.youTubeVideoId;
             e.thumbMaster.backgroundImage = "url(" + e.fields.heroImage.fields.file.url + ")";
-            e.heroMaster.backgroundImage = "url(" + e.fields.heroImageBlur.fields.file.url + ")";
+            e.thumbMaster.initBackground = e.fields.heroImage.fields.file.url;
             e.thumbInit = "url(" + e.fields.heroImage.fields.file.url + ")";
             e.thumbMaster.backgroundSize = "cover";
             e.dataready = true;
@@ -95,7 +95,7 @@
                 return e.player.playVideo();
             };
             return e.trust = function(e) {
-                return i.trustAsHtml(e);
+                return u.trustAsHtml(e);
             };
         });
     } ]);

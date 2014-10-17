@@ -47,7 +47,8 @@
 
 .video{
 	opacity: 0;
-	@include vendorize(box-shadow, 5px 5px 5px);
+	@include vendorize(box-shadow, 5px 5px 15px);
+	@include vendorize(transition, background .2s linear);
 	@media (min-width: 1024px){
 		opacity: 1;
 		position: relative;
@@ -62,6 +63,7 @@
 		margin-right: 5%;
 		margin-left: 5%;
 		z-index: 1;
+		background-size: cover !important;
 		iframe, object, embed{
 			position: absolute;
 			top: 0;

@@ -129,7 +129,7 @@ ytControllers.controller('DetailCtrl', [
 		
 			#add initial background thumbnail for start purposes
 			$scope.thumbMaster.backgroundImage = "url(#{$scope.fields.heroImage.fields.file.url})"
-			$scope.heroMaster.backgroundImage = "url(#{$scope.fields.heroImageBlur.fields.file.url})"
+			$scope.thumbMaster.initBackground = $scope.fields.heroImage.fields.file.url
 			$scope.thumbInit = "url(#{$scope.fields.heroImage.fields.file.url})"
 			
 			$scope.thumbMaster.backgroundSize = 'cover'

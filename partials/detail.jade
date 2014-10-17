@@ -13,6 +13,8 @@
 	.text-wrapper
 			
 		.title-text
+			.mobile-image
+				img(ng-src="{{fields.heroImage.fields.file.url}}")
 			h1(class="top") {{fields.title}}
 			h2 {{fields.subTitle}}
 			a(class="arrow-nav", href="#intro", offset="30", du-smooth-scroll)
@@ -32,15 +34,15 @@
 					data-time="{{item.fields.startTime}}",
 					data-thumbnail="{{item.fields.videoThumbnail.fields.file.url}}")
 
-					.video-mobile
-						iframe(width="420", height="315", ng-src="{{youTubePrefix + item.fields.youTubeVideoId + youTubeParams}}", frameborder="0", allowfullscreen>)
+					div(lazy="lazy", thumbnail="{{item.fields.videoThumbnail.fields.file.url}}", videoid="{{item.fields.youTubeVideoId}}", data-ratio="16:9", class="lazyYT") loading...
+
 
 					
 					h1 {{item.fields.order}}
 					
 					h2 {{item.fields.title}}
 					
-					div(class="bodyText", ng-bind-html="trust(item.fields.bodyText)")
+					p(class="bodyText", ng-bind-html="trust(item.fields.bodyText)")
 					p(ng-click="playVideo(item.fields.startTime)", class="play-button") <span class="fa fa-play"></span> PLAY
 
 

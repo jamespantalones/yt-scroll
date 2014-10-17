@@ -2,15 +2,15 @@
     "use strict";
     var e;
     e = angular.module("ytDirectives", []);
-    e.directive("checkDevice", [ "$window", "$rootScope", function(e, r) {
+    e.directive("checkDevice", [ "$window", "$rootScope", function(e, t) {
         var n;
-        n = function(n, i, t) {
+        n = function(n, i, r) {
             n.onResize = function() {
                 var n;
                 n = e.innerWidth;
                 if (n < 1024) {
                     i.removeClass("desktop").addClass("mobile");
-                    return r.$broadcast("mobile");
+                    return t.$broadcast("mobile");
                 } else {
                     return i.removeClass("mobile").addClass("desktop");
                 }
@@ -24,63 +24,65 @@
             link: n
         };
     } ]);
-    e.directive("lazy", function() {
-        var e;
-        e = function(e, r, n) {
-            var i;
-            i = n.videoid;
-            r.data("youtube-id", i);
-            return r.lazyYT();
+    e.directive("lazy", [ "$timeout", function(e) {
+        var t;
+        t = function(t, n, i) {
+            return e(function() {
+                var e, t;
+                e = i.videoid;
+                t = i.thumbnail;
+                n.data("youtube-id", e);
+                n.data("thumbnail", t);
+                return n.lazyYT();
+            });
         };
         return {
-            link: e
+            link: t
         };
-    });
-    e.directive("wrapWaypoints", [ "$window", "$timeout", function(e, r) {
-        var n, i, t;
+    } ]);
+    e.directive("wrapWaypoints", [ "$window", "$timeout", function(e, t) {
+        var n, i, r;
         i = $(".video");
-        t = $(".video-wrapper");
-        n = function(e, n, o) {
-            return r(function() {
-                var r, n;
-                r = function(r, n) {
-                    i.css({
-                        backgroundImage: "url(" + r + ")",
+        r = $(".video-wrapper");
+        n = function(e, n, r) {
+            return t(function() {
+                var t, n;
+                t = function(e, t) {
+                    if (!t) {
+                        t = "";
+                    }
+                    return i.css({
+                        backgroundImage: "url(" + e + ")",
                         backgroundSize: "cover"
                     });
-                    t.css({
-                        backgroundImage: "url(" + n + ")",
-                        backgroundSize: "cover"
-                    });
-                    return console.log("Current time is " + e.video.currentTime);
                 };
                 n = function() {
                     var n;
                     n = $(".item");
                     return n.waypoint({
                         context: ".frame",
-                        offset: "10%",
+                        offset: "50%",
                         handler: function(n) {
-                            var i, t, o, a, u, c;
+                            var i, r, a, o, u, c;
                             i = $(this);
-                            o = i.prev().data("id");
-                            console.log(o);
+                            a = i.prev().data("id");
+                            console.log(a);
                             c = i.data("id");
                             u = i.data("thumbnail");
-                            a = i.data("thumblur");
+                            o = i.data("thumblur");
                             e.video.currentTime = i.data("time");
-                            t = i.data("chapter");
+                            r = i.data("chapter");
                             if (!e.time) {
                                 e.time = 0;
                             }
                             if (n === "down") {
-                                r(u, a);
+                                t(u, o);
                             }
                             if (n === "up") {
-                                if (o) {
-                                    return r(u, a);
+                                if (a) {
+                                    return t(u, o);
                                 } else {
-                                    return r(u, a);
+                                    return t(e.thumbMaster.initBackground);
                                 }
                             }
                         }
@@ -95,7 +97,7 @@
     } ]);
     e.directive("triggerPlay", function() {
         var e;
-        e = function(e, r, n) {};
+        e = function(e, t, n) {};
         return {
             link: e
         };

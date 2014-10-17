@@ -35,19 +35,26 @@ ytDirectives.directive('checkDevice', ['$window', '$rootScope', ($window, $rootS
 
 
 
-ytDirectives.directive('lazy', ->
+ytDirectives.directive('lazy', ['$timeout', ($timeout) ->
 
 	link = ($scope, element, attrs) ->
-		id = attrs.videoid
-		element.data('youtube-id',id)
-		element.lazyYT()
+		$timeout ->
+			#grab attrs from directive
+			id = attrs.videoid
+			thumbnail = attrs.thumbnail
+
+			#add as data items to generated div
+			element.data('youtube-id',id)
+			element.data('thumbnail', thumbnail)
+			
+			element.lazyYT()
 
 
 	return{
 		link: link
 	}
 
-)
+])
 
 
 ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeout) ->
@@ -62,15 +69,18 @@ ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeo
 			
 
 			swapBackground = (thumbnail, thumblur) ->
+				if !thumblur
+					thumblur = ''
+				
 				videoBack.css
 					backgroundImage: "url(#{thumbnail})"
 					backgroundSize: "cover"
-				wrapper.css
-					backgroundImage: "url(#{thumblur})"
-					backgroundSize: "cover"
+				
+				# wrapper.css
+				# 	backgroundImage: "url(#{thumblur})"
+				# 	backgroundSize: "cover"
 
 				#update current time
-				console.log "Current time is #{$scope.video.currentTime}"
 			
 
 			wrapMedia = ->
@@ -78,7 +88,7 @@ ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeo
 
 				item.waypoint({
 					context: '.frame'
-					offset: '10%'
+					offset: '50%'
 					handler: (direction) ->
 						active = $(this)
 						#will check for existence
@@ -106,7 +116,7 @@ ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeo
 							if preVideo
 								swapBackground(thumbnail, thumblur)
 							else
-								swapBackground(thumbnail, thumblur)
+								swapBackground($scope.thumbMaster.initBackground)
 
 						})
 			
