@@ -2184,6 +2184,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/rbma-couch-sharp.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 194119,
+		"inputAbbreviatedPath": "\/img\/rbma-couch-sharp.jpg",
+		"outputAbbreviatedPath": "\/img\/rbma-couch-sharp.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/rbma-couch.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 194119,
+		"inputAbbreviatedPath": "\/img\/rbma-couch.jpg",
+		"outputAbbreviatedPath": "\/img\/rbma-couch.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/silver-apples.jpg": {
 		"fileType": 16384,
 		"ignore": 0,

@@ -48,7 +48,7 @@
 .video{
 	opacity: 0;
 	@include vendorize(box-shadow, 5px 5px 15px);
-	@include vendorize(transition, background .2s linear);
+	// @include vendorize(transition, background .2s linear);
 	@media (min-width: 1024px){
 		opacity: 1;
 		position: relative;
@@ -58,7 +58,7 @@
 		height: 0;
 		overflow: hidden;
 		margin-bottom: 50px;
-		margin-top: 22.5%;
+		margin-top: 25%;
 		width: 90%;
 		margin-right: 5%;
 		margin-left: 5%;
@@ -106,8 +106,8 @@
 
 .transform{
 	@include vendorize(perspective, 1000px);
-	@include vendorize(transition, transform .3s linear);
-	@include vendorize(transform, rotateX(10deg) rotateY(30deg) rotateZ(-10deg));
+	// @include vendorize(transition, transform .3s linear);
+	// @include vendorize(transform, rotateX(10deg) rotateY(30deg) rotateZ(-10deg));
 	&:hover, &.playing{
 			@include vendorize(transform, rotateX(0deg) rotateY(0deg) rotateZ(0deg));
 		}

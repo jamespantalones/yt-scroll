@@ -3,7 +3,6 @@
 	width: 100%;
 	height: auto;
 	position: relative;
-	color: black;
 	@media (min-width: 1024px){
 		width: 50%;
 		position: absolute;
@@ -82,7 +81,7 @@
 		}
 	}
 
-	.topic{
+	.item{
 		margin: 20% 0;
 		text-align: center;
 		h1, h2{
@@ -97,12 +96,18 @@
 		}
 		p.play-button{
 			display: inline-block;
-			padding: 0 10px;
+			padding: 3px 10px;
+			border: 1px solid black;
+			box-sizing: border-box;
+			width: 50%;
+			display: none;
 			&:hover{
-
 				background-color: black;
 				color: white;
 
+			}
+			@media (min-width: 1024px){
+				display: block;
 			}
 
 		}
@@ -125,9 +130,7 @@
 a.arrow-nav{
 	text-decoration: none;
 	display: block;
-	color: black;
 	span.arrow{
-		color: black;
 		font-size: 30px;
 		text-align: center;
 		padding-top: 15%;

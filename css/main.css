@@ -10,6 +10,7 @@ html {
   font-weight: lighter;
   font-size: 16px;
   margin: 0;
+  color: white;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent; }
@@ -23,6 +24,7 @@ body {
 h1 {
   font-family: 'Karla', futura, Helvetica, sans-serif;
   font-weight: bold;
+  color: white;
   letter-spacing: -1px;
   font-size: 4em;
   line-height: 1;
@@ -31,14 +33,18 @@ h1 {
 h2 {
   font-family: 'Karla', futura, Helvetica, sans-serif;
   font-weight: lighter;
+  color: white;
   letter-spacing: 1px;
   font-size: 2em;
   text-transform: uppercase; }
 
+.arrow-nav {
+  color: white; }
+
 p {
   font-size: 1.4em;
   line-height: 1.5;
-  color: black;
+  color: white;
   font-family: 'Karla', futura,  Helvetica, sans-serif;
   -webkit-font-smoothing: antialised; }
 
@@ -61,14 +67,14 @@ a {
   overflow-x: hidden;
   background-color: white;
   background: url(../img/background.png) repeat top left;
+  background: black;
   color: black;
   overflow-y: scroll;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
-  -webkit-overflow-scrolling: touch; }
-  @media (device-width: 768px) and (device-height: 1024px) {
-    .frame {
-      height: 1024px; } }
+  -webkit-overflow-scrolling: touch;
+  -webkit-transition: background 0.3s linear;
+  transition: background 0.3s linear; }
 
 [ng-click],
 [data-ng-click],
@@ -103,8 +109,7 @@ a {
 .text-wrapper {
   width: 100%;
   height: auto;
-  position: relative;
-  color: black; }
+  position: relative; }
   @media (min-width: 1024px) {
     .text-wrapper {
       width: 50%;
@@ -166,23 +171,31 @@ a {
     @media (min-width: 1024px) {
       .text #intro {
         padding-bottom: 10%; } }
-  .text .topic {
+  .text .item {
     margin: 20% 0;
     text-align: center; }
-    .text .topic h1, .text .topic h2 {
+    .text .item h1, .text .item h2 {
       text-align: center;
       margin: 20px 0; }
       @media (min-width: 1024px) {
-        .text .topic h1, .text .topic h2 {
+        .text .item h1, .text .item h2 {
           text-align: left; } }
-    .text .topic h1 {
+    .text .item h1 {
       margin-top: 40px; }
-    .text .topic p.play-button {
+    .text .item p.play-button {
       display: inline-block;
-      padding: 0 10px; }
-      .text .topic p.play-button:hover {
+      padding: 3px 10px;
+      border: 1px solid black;
+      -moz-box-sizing: border-box;
+           box-sizing: border-box;
+      width: 50%;
+      display: none; }
+      .text .item p.play-button:hover {
         background-color: black;
         color: white; }
+      @media (min-width: 1024px) {
+        .text .item p.play-button {
+          display: block; } }
   @media (min-width: 768px) {
     .text .bodyText {
       font-size: 1.5em; } }
@@ -194,10 +207,8 @@ a {
 
 a.arrow-nav {
   text-decoration: none;
-  display: block;
-  color: black; }
+  display: block; }
   a.arrow-nav span.arrow {
-    color: black;
     font-size: 30px;
     text-align: center;
     padding-top: 15%;
@@ -255,9 +266,7 @@ a.arrow-nav {
   opacity: 0;
   -ms-box-shadow: 5px 5px 15px;
   -o-box-shadow: 5px 5px 15px;
-  box-shadow: 5px 5px 15px;
-  -webkit-transition: background 0.2s linear;
-  transition: background 0.2s linear; }
+  box-shadow: 5px 5px 15px; }
   @media (min-width: 1024px) {
     .video {
       opacity: 1;
@@ -269,7 +278,7 @@ a.arrow-nav {
       height: 0;
       overflow: hidden;
       margin-bottom: 50px;
-      margin-top: 22.5%;
+      margin-top: 25%;
       width: 90%;
       margin-right: 5%;
       margin-left: 5%;
@@ -314,12 +323,7 @@ a.arrow-nav {
 .transform {
   -webkit-perspective: 1000px;
   -ms-perspective: 1000px;
-  perspective: 1000px;
-  -webkit-transition: -webkit-transform 0.3s linear;
-  transition: transform 0.3s linear;
-  -webkit-transform: rotateX(10deg) rotateY(30deg) rotateZ(-10deg);
-  -ms-transform: rotateX(10deg) rotateY(30deg) rotateZ(-10deg);
-  transform: rotateX(10deg) rotateY(30deg) rotateZ(-10deg); }
+  perspective: 1000px; }
   .transform:hover, .transform.playing {
     -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);

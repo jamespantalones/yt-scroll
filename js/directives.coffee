@@ -147,3 +147,37 @@ ytDirectives.directive('triggerPlay', ->
 )
 
 
+ytDirectives.directive('moveVideo', ->
+
+	text = $('.text-wrapper')
+	video = $('.video')
+	frame = $('.frame')
+	start = 0
+	flag = 0
+
+
+	
+	link = ($scope, element, attrs) ->
+		element.scroll ->
+			offset = -text.offset().top
+			shift = offset * 0.005
+
+			
+
+
+			video.css
+				'-webkitTransform': "translateY(#{shift + 'px'})"
+				'-mozTransform': "translateY(#{shift + 'px'})"
+				'-msTransform': "translateY(#{shift + 'px'})"
+				'-oTransform': "translateY(#{shift + 'px'})"
+				'transform': "translateY(#{shift + 'px'})"
+				# transform: "rotateX(#{shift + 'deg'})"
+				# transform: "rotateX(#{shift * 0.1}deg)"
+
+
+	return{
+		link: link
+	}
+)
+
+
