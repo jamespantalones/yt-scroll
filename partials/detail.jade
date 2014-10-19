@@ -1,8 +1,8 @@
-.frame(du-scroll-container, class="desktop", check-device, move-video)
+.frame(du-scroll-container, class="desktop", move-video)
 	
 	.video-wrapper(ng-style="heroStyles()")
-		div(class="video transform", ng-style="thumbStyles()", ng-click="playVideo(video.currentTime)")
-			div(class="lazyYT-button", ng-style="buttonStyles()")
+		div(class="video transform", ng-style="thumbStyles()")
+			div(class="lazyYT-button", ng-style="buttonStyles()", ng-click="playVideo(video.currentTime)")
 			div(ng-style="videoStyles()")
 				youtube-video(id="main-vid", 
 						video-id="video.id", 
@@ -34,7 +34,7 @@
 					data-time="{{item.fields.startTime}}",
 					data-thumbnail="{{item.fields.videoThumbnail.fields.file.url}}")
 
-					div(lazy="lazy", thumbnail="{{item.fields.videoThumbnail.fields.file.url}}", videoid="{{item.fields.youTubeVideoId}}", data-ratio="16:9", class="lazyYT") loading...
+					div(lazy="lazy", thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=500", videoid="{{item.fields.youTubeVideoId}}", data-ratio="16:9", class="lazyYT") loading...
 
 
 					

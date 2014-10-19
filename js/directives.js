@@ -2,38 +2,16 @@
     "use strict";
     var t;
     t = angular.module("ytDirectives", []);
-    t.directive("checkDevice", [ "$window", "$rootScope", function(t, r) {
-        var e;
-        e = function(e, n, i) {
-            e.onResize = function() {
-                var e;
-                e = t.innerWidth;
-                if (e < 1024) {
-                    n.removeClass("desktop").addClass("mobile");
-                    return r.$broadcast("mobile");
-                } else {
-                    return n.removeClass("mobile").addClass("desktop");
-                }
-            };
-            e.onResize();
-            return angular.element(t).bind("resize", function() {
-                return e.onResize();
-            });
-        };
-        return {
-            link: e
-        };
-    } ]);
     t.directive("lazy", [ "$timeout", function(t) {
         var r;
-        r = function(r, e, n) {
+        r = function(r, n, e) {
             return t(function() {
                 var t, r;
-                t = n.videoid;
-                r = n.thumbnail;
-                e.data("youtube-id", t);
-                e.data("thumbnail", r);
-                return e.lazyYT();
+                t = e.videoid;
+                r = e.thumbnail;
+                n.data("youtube-id", t);
+                n.data("thumbnail", r);
+                return n.lazyYT();
             });
         };
         return {
@@ -41,44 +19,44 @@
         };
     } ]);
     t.directive("wrapWaypoints", [ "$window", "$timeout", function(t, r) {
-        var e, n, i;
-        n = $(".video");
+        var n, e, i;
+        e = $(".video");
         i = $(".video-wrapper");
-        e = function(t, e, i) {
+        n = function(t, n, i) {
             return r(function() {
-                var r, e;
+                var r, n;
                 r = function(t, r) {
                     if (!r) {
                         r = "";
                     }
-                    return n.css({
+                    return e.css({
                         backgroundImage: "url(" + t + ")",
                         backgroundSize: "cover"
                     });
                 };
-                e = function() {
-                    var e;
-                    e = $(".item");
-                    return e.waypoint({
+                n = function() {
+                    var n;
+                    n = $(".item");
+                    return n.waypoint({
                         context: ".frame",
                         offset: "50%",
-                        handler: function(e) {
-                            var n, i, a, o, u, c;
-                            n = $(this);
-                            a = n.prev().data("id");
+                        handler: function(n) {
+                            var e, i, a, o, u, c;
+                            e = $(this);
+                            a = e.prev().data("id");
                             console.log(a);
-                            c = n.data("id");
-                            u = n.data("thumbnail");
-                            o = n.data("thumblur");
-                            t.video.currentTime = n.data("time");
-                            i = n.data("chapter");
+                            c = e.data("id");
+                            u = e.data("thumbnail");
+                            o = e.data("thumblur");
+                            t.video.currentTime = e.data("time");
+                            i = e.data("chapter");
                             if (!t.time) {
                                 t.time = 0;
                             }
-                            if (e === "down") {
+                            if (n === "down") {
                                 r(u, o);
                             }
-                            if (e === "up") {
+                            if (n === "up") {
                                 if (a) {
                                     return r(u, o);
                                 } else {
@@ -88,28 +66,28 @@
                         }
                     });
                 };
-                return e();
+                return n();
             });
         };
         return {
-            link: e
+            link: n
         };
     } ]);
     t.directive("triggerPlay", function() {
         var t;
-        t = function(t, r, e) {};
+        t = function(t, r, n) {};
         return {
             link: t
         };
     });
     t.directive("moveVideo", function() {
-        var t, r, e, n, i, a;
+        var t, r, n, e, i, a;
         i = $(".text-wrapper");
         a = $(".video");
         r = $(".frame");
-        n = 0;
+        e = 0;
         t = 0;
-        e = function(t, r, e) {
+        n = function(t, r, n) {
             return r.scroll(function() {
                 var t, r;
                 t = -i.offset().top;
@@ -124,7 +102,7 @@
             });
         };
         return {
-            link: e
+            link: n
         };
     });
 }).call(this);
