@@ -12,18 +12,18 @@
             return e.features = t;
         });
     } ]);
-    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "heightService", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, o, n, i, u, a, l, s, d, c) {
-        var f;
-        f = new Showdown.converter();
+    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, o, n, i, u, a, l, s, d) {
+        var c;
+        c = new Showdown.converter();
         e.player = {};
         e.video = {};
         e.video.currentTime = 0;
         e.video.id = "";
         e.dataready = false;
-        e.vidMaster = l;
-        e.thumbMaster = s;
-        e.buttonMaster = d;
-        e.heroMaster = c;
+        e.vidMaster = a;
+        e.thumbMaster = l;
+        e.buttonMaster = s;
+        e.heroMaster = d;
         e.youTubePrefix = "//www.youtube.com/embed/";
         e.youTubeParams = "?autoplay=0&loop=1&hd=1&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0";
         e.$watch("vidMaster", function() {
@@ -77,9 +77,9 @@
             for (n = 0, i = a.length; n < i; n++) {
                 r = a[n];
                 o = r.fields.bodyText;
-                o = f.makeHtml(o);
+                o = c.makeHtml(o);
             }
-            e.fields.introText = f.makeHtml(e.fields.introText);
+            e.fields.introText = c.makeHtml(e.fields.introText);
             e.items = e.fields.youTubeListItems;
             e.video.id = e.items[0].fields.youTubeVideoId;
             e.thumbMaster.backgroundImage = "url(" + e.fields.heroImage.fields.file.url + "?w=500)";

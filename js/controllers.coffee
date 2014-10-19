@@ -29,12 +29,11 @@ ytControllers.controller('DetailCtrl', [
 	'$location'
 	'contentfulClient'
 	'$sce'
-	'heightService'
 	'initVidStyles'
 	'initThumbStyles'
 	'initButtonStyles',
 	'initHeroStyles',
-	($scope, $rootScope, $routeParams, $http, $location, contentfulClient, $sce, heightService, initVidStyles, initThumbStyles, initButtonStyles, initHeroStyles) ->
+	($scope, $rootScope, $routeParams, $http, $location, contentfulClient, $sce, initVidStyles, initThumbStyles, initButtonStyles, initHeroStyles) ->
 
 		converter = new Showdown.converter()
 		
