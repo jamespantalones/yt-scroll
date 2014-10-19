@@ -128,9 +128,9 @@ ytControllers.controller('DetailCtrl', [
 			$scope.video.id = $scope.items[0].fields.youTubeVideoId
 		
 			#add initial background thumbnail for start purposes
-			$scope.thumbMaster.backgroundImage = "url(#{$scope.fields.heroImage.fields.file.url})"
+			$scope.thumbMaster.backgroundImage = "url(#{$scope.fields.heroImage.fields.file.url}?w=500)"
 			$scope.thumbMaster.initBackground = $scope.fields.heroImage.fields.file.url
-			$scope.thumbInit = "url(#{$scope.fields.heroImage.fields.file.url})"
+			$scope.thumbInit = "url(#{$scope.fields.heroImage.fields.file.url}?w=500)"
 			
 			$scope.thumbMaster.backgroundSize = 'cover'
 

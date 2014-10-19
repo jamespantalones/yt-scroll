@@ -44,14 +44,9 @@ ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeo
 					thumblur = ''
 				
 				videoBack.css
-					backgroundImage: "url(#{thumbnail})"
+					backgroundImage: "url(#{thumbnail}?w=500)"
 					backgroundSize: "cover"
 				
-				# wrapper.css
-				# 	backgroundImage: "url(#{thumblur})"
-				# 	backgroundSize: "cover"
-
-				#update current time
 			
 
 			wrapMedia = ->
@@ -142,8 +137,6 @@ ytDirectives.directive('moveVideo', ->
 				'-msTransform': "translateY(#{shift + 'px'})"
 				'-oTransform': "translateY(#{shift + 'px'})"
 				'transform': "translateY(#{shift + 'px'})"
-				# transform: "rotateX(#{shift + 'deg'})"
-				# transform: "rotateX(#{shift * 0.1}deg)"
 
 
 	return{
