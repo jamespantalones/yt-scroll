@@ -1,7 +1,7 @@
 (function() {
     "use strict";
     var e;
-    e = angular.module("ytlist", [ "ngRoute", "ngSanitize", "ngAnimate", "ng-contentful", "duScroll", "youtube-embed", "ytControllers", "ytDirectives", "ytServices" ]);
+    e = angular.module("ytlist", [ "ngRoute", "ngSanitize", "ng-contentful", "duScroll", "youtube-embed", "ytControllers", "ytDirectives", "ytServices" ]);
     e.config([ "$routeProvider", "$locationProvider", "contentfulClientProvider", "$sceDelegateProvider", function(e, t, r, l) {
         e.when("/", {
             templateUrl: "partials/index.html",

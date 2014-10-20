@@ -8,11 +8,10 @@
             content_type: "tGyjv9K8h2kiGAW6qe2WI",
             include: 1
         }).then(function(t) {
-            console.log(t);
             return e.features = t;
         });
     } ]);
-    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, o, n, i, u, a, l, s, d) {
+    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, n, o, u, i, a, s, l, d) {
         var c;
         c = new Showdown.converter();
         e.player = {};
@@ -21,8 +20,8 @@
         e.video.id = "";
         e.dataready = false;
         e.vidMaster = a;
-        e.thumbMaster = l;
-        e.buttonMaster = s;
+        e.thumbMaster = s;
+        e.buttonMaster = l;
         e.heroMaster = d;
         e.youTubePrefix = "//www.youtube.com/embed/";
         e.youTubeParams = "?autoplay=0&loop=1&hd=1&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0";
@@ -62,22 +61,20 @@
             hd: 1
         };
         e.$on("youtube.player.ready", function(t, r) {
-            console.log("ready");
             return e.player = r;
         });
-        return i.entries({
+        return u.entries({
             "sys.id": r.featureId,
             include: 10
         }).then(function(t) {
-            var r, o, n, i, a;
+            var r, n, o, u, a;
             e.feature = t[0];
             e.fields = e.feature.fields;
-            console.log(e.fields);
             a = e.fields.youTubeListItems;
-            for (n = 0, i = a.length; n < i; n++) {
-                r = a[n];
-                o = r.fields.bodyText;
-                o = c.makeHtml(o);
+            for (o = 0, u = a.length; o < u; o++) {
+                r = a[o];
+                n = r.fields.bodyText;
+                n = c.makeHtml(n);
             }
             e.fields.introText = c.makeHtml(e.fields.introText);
             e.items = e.fields.youTubeListItems;
@@ -95,7 +92,7 @@
                 return e.player.playVideo();
             };
             return e.trust = function(e) {
-                return u.trustAsHtml(e);
+                return i.trustAsHtml(e);
             };
         });
     } ]);

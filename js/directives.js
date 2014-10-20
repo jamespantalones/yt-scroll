@@ -41,24 +41,23 @@
                         context: ".frame",
                         offset: "50%",
                         handler: function(n) {
-                            var e, i, a, o, u, c;
+                            var e, i, a, u, o, c;
                             e = $(this);
                             a = e.prev().data("id");
-                            console.log(a);
                             c = e.data("id");
-                            u = e.data("thumbnail");
-                            o = e.data("thumblur");
+                            o = e.data("thumbnail");
+                            u = e.data("thumblur");
                             t.video.currentTime = e.data("time");
                             i = e.data("chapter");
                             if (!t.time) {
                                 t.time = 0;
                             }
                             if (n === "down") {
-                                r(u, o);
+                                r(o, u);
                             }
                             if (n === "up") {
                                 if (a) {
-                                    return r(u, o);
+                                    return r(o, u);
                                 } else {
                                     return r(t.thumbMaster.initBackground);
                                 }

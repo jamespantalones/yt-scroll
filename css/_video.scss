@@ -69,11 +69,12 @@
 		height: 0;
 		overflow: hidden;
 		margin-bottom: 50px;
-		margin-top: 25%;
+		margin-top: 20%;
 		width: 80%;
 		margin-left: 10%;
 		// margin-right: 5%;
 		// margin-left: 5%;
+		// @include vendorize(transform, rotateX(10deg) rotateY(80deg) rotateZ(2deg));
 		z-index: 1;
 		background-size: cover !important;
 		iframe, object, embed{
@@ -102,7 +103,6 @@
 	margin-right: 5%;
 	margin-left: 5%;
 	z-index: 1;
-	@include vendorize(box-shadow, 5px 5px 5px);
 	iframe, object, embed{
 		
 		position: absolute;

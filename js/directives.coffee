@@ -59,7 +59,6 @@ ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeo
 						active = $(this)
 						#will check for existence
 						preVideo = active.prev().data "id"
-						console.log preVideo
 						
 						videoId = active.data "id"
 						thumbnail = active.data "thumbnail"

@@ -12,15 +12,15 @@ module.exports = (grunt) ->
 
 				#files to concatenate
 				src: [
+					"bower_components/"
 					"bower_components/angular/angular.min.js"
 					"bower_components/angular-route/angular-route.js"
 					"bower_components/angular-sanitize/angular-sanitize.min.js"
 					"bower_components/angular-scroll/angular-scroll.min.js"
-					"bower_components/angular-animate/angular-animate.min.js"
 					"bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"
 					"bower_components/contentful/dist/contentful.min.js"
 					"bower_components/ng-contentful/ng-contentful.js"
-					"bower_components/showdown/src/showdown.js"
+					"bower_components/showdown/compressed/showdown.js"
 					"bower_components/jquery-waypoints/waypoints.min.js"
 					"js/lazy-yt.js"
 					"js/app.js"
@@ -47,6 +47,7 @@ module.exports = (grunt) ->
 		uglify: {
 			options: {
 				banner: '/* EDWEENA INDUSTRIES */\n'
+				preserveComments: false
 			}
 			index: {
 				src: 'dist/js/app.concat.js'

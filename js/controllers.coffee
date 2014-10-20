@@ -12,7 +12,6 @@ ytControllers.controller('IndexCtrl', [
 		$scope.features = ''
 
 		contentfulClient.entries({'content_type': 'tGyjv9K8h2kiGAW6qe2WI','include': 1}).then (data) ->
-			console.log data
 			$scope.features = data
 
 
@@ -96,7 +95,6 @@ ytControllers.controller('DetailCtrl', [
 		}
 
 		$scope.$on('youtube.player.ready', ($event, player) ->
-			console.log 'ready'
 			$scope.player = player
 		)
 
@@ -109,7 +107,6 @@ ytControllers.controller('DetailCtrl', [
 
 			$scope.fields = $scope.feature.fields
 
-			console.log $scope.fields
 
 
 			for item in $scope.fields.youTubeListItems
