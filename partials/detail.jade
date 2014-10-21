@@ -2,7 +2,7 @@
 	
 	.video-wrapper(ng-style="heroStyles()")
 		div(class="video transform", ng-style="thumbStyles()")
-			div(class="lazyYT-button", ng-style="buttonStyles()", ng-click="playVideo(video.currentTime)")
+			div(class="lazyYT-button", ng-style="buttonStyles()", ng-class="{scrolled: scrolled}", ng-click="playVideo(video.currentTime)")
 			div(ng-style="videoStyles()")
 				youtube-video(id="main-vid", 
 						video-id="video.id", 
@@ -34,7 +34,7 @@
 					data-time="{{item.fields.startTime}}",
 					data-thumbnail="{{item.fields.videoThumbnail.fields.file.url}}")
 
-					div(lazy="lazy", thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=500", videoid="{{item.fields.youTubeVideoId}}", data-ratio="16:9", class="lazyYT") loading...
+					div(lazy="lazy", thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=900", videoid="{{item.fields.youTubeVideoId}}", data-ratio="16:9", class="lazyYT") loading...
 
 
 					

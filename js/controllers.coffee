@@ -44,6 +44,10 @@ ytControllers.controller('DetailCtrl', [
 		$scope.video.id = ''
 		$scope.dataready = false
 
+		#don't display play button until first waypoint hit
+		$scope.scrolled = false
+
+
 		$scope.vidMaster = initVidStyles
 		$scope.thumbMaster = initThumbStyles
 		$scope.buttonMaster = initButtonStyles
@@ -124,9 +128,9 @@ ytControllers.controller('DetailCtrl', [
 			$scope.video.id = $scope.items[0].fields.youTubeVideoId
 		
 			#add initial background thumbnail for start purposes
-			$scope.thumbMaster.backgroundImage = "url(#{$scope.fields.heroImage.fields.file.url}?w=500)"
+			$scope.thumbMaster.backgroundImage = "url(#{$scope.fields.heroImage.fields.file.url}?w=900)"
 			$scope.thumbMaster.initBackground = $scope.fields.heroImage.fields.file.url
-			$scope.thumbInit = "url(#{$scope.fields.heroImage.fields.file.url}?w=500)"
+			$scope.thumbInit = "url(#{$scope.fields.heroImage.fields.file.url}?w=900)"
 			
 			$scope.thumbMaster.backgroundSize = 'cover'
 

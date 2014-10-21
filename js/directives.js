@@ -4,11 +4,11 @@
     t = angular.module("ytDirectives", []);
     t.directive("lazy", [ "$timeout", function(t) {
         var r;
-        r = function(r, n, e) {
+        r = function(r, n, i) {
             return t(function() {
                 var t, r;
-                t = e.videoid;
-                r = e.thumbnail;
+                t = i.videoid;
+                r = i.thumbnail;
                 n.data("youtube-id", t);
                 n.data("thumbnail", r);
                 return n.lazyYT();
@@ -19,17 +19,17 @@
         };
     } ]);
     t.directive("wrapWaypoints", [ "$window", "$timeout", function(t, r) {
-        var n, e, i;
-        e = $(".video");
-        i = $(".video-wrapper");
-        n = function(t, n, i) {
+        var n, i, a;
+        i = $(".video");
+        a = $(".video-wrapper");
+        n = function(t, n, a) {
             return r(function() {
                 var r, n;
                 r = function(t, r) {
                     if (!r) {
                         r = "";
                     }
-                    return e.css({
+                    return i.css({
                         backgroundImage: "url(" + t + "?w=500)",
                         backgroundSize: "cover"
                     });
@@ -41,23 +41,33 @@
                         context: ".frame",
                         offset: "50%",
                         handler: function(n) {
-                            var e, i, a, u, o, c;
-                            e = $(this);
-                            a = e.prev().data("id");
-                            c = e.data("id");
-                            o = e.data("thumbnail");
-                            u = e.data("thumblur");
-                            t.video.currentTime = e.data("time");
-                            i = e.data("chapter");
+                            var i, a, e, o, u, c;
+                            i = $(this);
+                            e = i.prev().data("id");
+                            c = i.data("id");
+                            u = i.data("thumbnail");
+                            o = i.data("thumblur");
+                            t.video.currentTime = i.data("time");
+                            a = i.data("chapter");
                             if (!t.time) {
                                 t.time = 0;
                             }
                             if (n === "down") {
-                                r(o, u);
+                                r(u, o);
+                                if (a === 1) {
+                                    $(".lazyYT-button").css({
+                                        opacity: 1
+                                    });
+                                }
                             }
                             if (n === "up") {
-                                if (a) {
-                                    return r(o, u);
+                                if (a === 1) {
+                                    $(".lazyYT-button").css({
+                                        opacity: 0
+                                    });
+                                }
+                                if (e) {
+                                    return r(u, o);
                                 } else {
                                     return r(t.thumbMaster.initBackground);
                                 }
@@ -80,18 +90,18 @@
         };
     });
     t.directive("moveVideo", function() {
-        var t, r, n, e, i, a;
-        i = $(".text-wrapper");
-        a = $(".video");
+        var t, r, n, i, a, e;
+        a = $(".text-wrapper");
+        e = $(".video");
         r = $(".frame");
-        e = 0;
+        i = 0;
         t = 0;
         n = function(t, r, n) {
             return r.scroll(function() {
                 var t, r;
-                t = -i.offset().top;
+                t = -a.offset().top;
                 r = t * .005;
-                return a.css({
+                return e.css({
                     "-webkitTransform": "translateY(" + (r + "px") + ")",
                     "-mozTransform": "translateY(" + (r + "px") + ")",
                     "-msTransform": "translateY(" + (r + "px") + ")",

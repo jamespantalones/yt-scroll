@@ -19,6 +19,7 @@
         e.video.currentTime = 0;
         e.video.id = "";
         e.dataready = false;
+        e.scrolled = false;
         e.vidMaster = a;
         e.thumbMaster = s;
         e.buttonMaster = l;
@@ -79,9 +80,9 @@
             e.fields.introText = c.makeHtml(e.fields.introText);
             e.items = e.fields.youTubeListItems;
             e.video.id = e.items[0].fields.youTubeVideoId;
-            e.thumbMaster.backgroundImage = "url(" + e.fields.heroImage.fields.file.url + "?w=500)";
+            e.thumbMaster.backgroundImage = "url(" + e.fields.heroImage.fields.file.url + "?w=900)";
             e.thumbMaster.initBackground = e.fields.heroImage.fields.file.url;
-            e.thumbInit = "url(" + e.fields.heroImage.fields.file.url + "?w=500)";
+            e.thumbInit = "url(" + e.fields.heroImage.fields.file.url + "?w=900)";
             e.thumbMaster.backgroundSize = "cover";
             e.dataready = true;
             e.playVideo = function(t) {

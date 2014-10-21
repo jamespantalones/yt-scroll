@@ -76,7 +76,14 @@ ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeo
 
 						if direction == 'down'
 							swapBackground(thumbnail, thumblur)
+							if chapter == 1
+								$('.lazyYT-button').css
+									opacity: 1
+	
 						if direction == 'up'
+							if chapter == 1
+								$('.lazyYT-button').css
+									opacity: 0
 
 							if preVideo
 								swapBackground(thumbnail, thumblur)

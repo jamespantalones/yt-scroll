@@ -132,7 +132,9 @@ a {
 .title-text {
   text-align: center;
   position: relative;
-  margin: 0; }
+  margin: 0;
+  width: 100%;
+  height: 100%; }
   .title-text h1 {
     font-size: 2em; }
   .title-text h2 {
@@ -143,23 +145,21 @@ a {
     font-size: 50px; }
   @media (min-width: 768px) {
     .title-text h1 {
-      font-size: 4em; } }
+      font-size: 4em;
+      padding-top: 30%; } }
   @media (min-width: 1024px) {
     .title-text {
-      height: 70%;
-      width: 90%;
-      margin: 30% 5% 88px 5%; }
+      height: 100%;
+      width: 100%;
+      margin: 0 0 0 0; }
       .title-text a.arrow-nav {
-        margin-top: 88px; } }
+        margin-top: 20px; } }
 
 .text {
   padding: 0 5%; }
   .text #intro {
     margin-top: 0;
     text-align: center; }
-    @media (min-width: 768px) {
-      .text #intro {
-        margin-top: 10%; } }
     .text #intro p {
       font-size: 1.2em; }
       @media (min-width: 768px) {
@@ -236,6 +236,7 @@ a.arrow-nav {
   display: none !important; }
 
 .lazyYT-button {
+  opacity: 0;
   margin: 0 !important;
   padding: 0 !important;
   width: 60px !important;
@@ -257,6 +258,8 @@ a.arrow-nav {
       margin-left: 0 !important;
       background-repeat: no-repeat;
       background-position: center center; } }
+  .lazyYT-button.scrolled {
+    opacity: 1; }
 
 .video-wrapper {
   opacity: 0;
@@ -290,8 +293,8 @@ a.arrow-nav {
       overflow: hidden;
       margin-bottom: 50px;
       margin-top: 20%;
-      width: 80%;
-      margin-left: 10%;
+      width: 90%;
+      margin-left: 5%;
       z-index: 1;
       background-size: cover !important; }
       .video iframe, .video object, .video embed {
