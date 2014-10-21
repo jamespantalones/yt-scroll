@@ -20,9 +20,8 @@
       <div id="intro" ng-bind-html="trust(fields.introText)"></div>
       <div ng-if="dataready" wrap-waypoints="wrap-waypoints" class="item-container">
         <div ng-repeat="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-thumblur="{{item.fields.thumbBlur.fields.file.url}}" data-time="{{item.fields.startTime}}" data-thumbnail="{{item.fields.videoThumbnail.fields.file.url}}" class="item">
-          <div lazy="lazy" thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=800" videoid="{{item.fields.youTubeVideoId}}" data-ratio="16:9" class="lazyYT">loading...</div>
-          <h1>{{item.fields.order}}</h1>
-          <h2>{{item.fields.title}}</h2>
+          <div lazy="lazy" thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=800" videoid="{{item.fields.youTubeVideoId}}" data-ratio="16:9" data-seconds="{{item.fields.startTime}}" class="lazyYT">loading...</div>
+          <h2><strong>{{item.fields.order}}</strong> {{item.fields.title}}</h2>
           <p ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></p>
           <p ng-click="playVideo(item.fields.startTime)" class="play-button"><span class="fa fa-play"></span> PLAY</p>
         </div>

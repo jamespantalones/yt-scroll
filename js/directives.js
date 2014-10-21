@@ -4,13 +4,15 @@
     t = angular.module("ytDirectives", []);
     t.directive("lazy", [ "$timeout", function(t) {
         var r;
-        r = function(r, n, i) {
+        r = function(r, n, a) {
             return t(function() {
-                var t, r;
-                t = i.videoid;
-                r = i.thumbnail;
+                var t, r, i;
+                t = a.videoid;
+                r = a.thumbnail;
+                i = a.seconds;
                 n.data("youtube-id", t);
                 n.data("thumbnail", r);
+                n.data("timecode", i);
                 return n.lazyYT();
             });
         };
@@ -19,17 +21,17 @@
         };
     } ]);
     t.directive("wrapWaypoints", [ "$window", "$timeout", function(t, r) {
-        var n, i, a;
-        i = $(".video");
-        a = $(".video-wrapper");
-        n = function(t, n, a) {
+        var n, a, i;
+        a = $(".video");
+        i = $(".video-wrapper");
+        n = function(t, n, i) {
             return r(function() {
                 var r, n;
                 r = function(t, r) {
                     if (!r) {
                         r = "";
                     }
-                    return i.css({
+                    return a.css({
                         backgroundImage: "url(" + t + "?w=800)",
                         backgroundSize: "cover"
                     });
@@ -41,27 +43,27 @@
                         context: ".frame",
                         offset: "50%",
                         handler: function(n) {
-                            var i, a, e, o, u, c;
-                            i = $(this);
-                            e = i.prev().data("id");
-                            c = i.data("id");
-                            u = i.data("thumbnail");
-                            o = i.data("thumblur");
-                            t.video.currentTime = i.data("time");
-                            a = i.data("chapter");
+                            var a, i, e, o, u, c;
+                            a = $(this);
+                            e = a.prev().data("id");
+                            c = a.data("id");
+                            u = a.data("thumbnail");
+                            o = a.data("thumblur");
+                            t.video.currentTime = a.data("time");
+                            i = a.data("chapter");
                             if (!t.time) {
                                 t.time = 0;
                             }
                             if (n === "down") {
                                 r(u, o);
-                                if (a === 1) {
+                                if (i === 1) {
                                     $(".lazyYT-button").css({
                                         opacity: 1
                                     });
                                 }
                             }
                             if (n === "up") {
-                                if (a === 1) {
+                                if (i === 1) {
                                     $(".lazyYT-button").css({
                                         opacity: 0
                                     });
@@ -90,17 +92,17 @@
         };
     });
     t.directive("moveVideo", function() {
-        var t, r, n, i, a, e;
-        a = $(".text-wrapper");
+        var t, r, n, a, i, e;
+        i = $(".text-wrapper");
         e = $(".video");
         r = $(".frame");
-        i = 0;
+        a = 0;
         t = 0;
         n = function(t, r, n) {
             return r.scroll(function() {
                 var t, r;
-                t = -a.offset().top;
-                r = t * .009;
+                t = -i.offset().top;
+                r = t * .02;
                 return e.css({
                     "-webkitTransform": "translateY(" + (r + "px") + ")",
                     "-mozTransform": "translateY(" + (r + "px") + ")",

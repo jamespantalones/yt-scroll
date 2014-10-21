@@ -106,7 +106,6 @@ ytControllers.controller('DetailCtrl', [
 		contentfulClient.entries({'sys.id': $routeParams.featureId, 'include': 10}).then (data) ->
 			
 			$scope.feature = data[0]
-
 			console.log $scope.feature
 
 			$scope.fields = $scope.feature.fields
@@ -114,8 +113,9 @@ ytControllers.controller('DetailCtrl', [
 
 
 			for item in $scope.fields.youTubeListItems
-				text = item.fields.bodyText
-				text = converter.makeHtml(text)
+				if item.fields.bodyText
+					text = item.fields.bodyText
+					text = converter.makeHtml(text)
 
 			
 			#parse markdown

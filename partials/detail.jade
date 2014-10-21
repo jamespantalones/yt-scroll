@@ -35,13 +35,10 @@
 					data-time="{{item.fields.startTime}}",
 					data-thumbnail="{{item.fields.videoThumbnail.fields.file.url}}")
 
-					div(lazy="lazy", thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=800", videoid="{{item.fields.youTubeVideoId}}", data-ratio="16:9", class="lazyYT") loading...
-
+					div(lazy="lazy", thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=800", videoid="{{item.fields.youTubeVideoId}}", data-ratio="16:9", data-seconds="{{item.fields.startTime}}", class="lazyYT") loading...
 
 					
-					h1 {{item.fields.order}}
-					
-					h2 {{item.fields.title}}
+					h2 <strong>{{item.fields.order}}</strong> {{item.fields.title}}
 					
 					p(class="bodyText", ng-bind-html="trust(item.fields.bodyText)")
 					p(ng-click="playVideo(item.fields.startTime)", class="play-button") <span class="fa fa-play"></span> PLAY

@@ -14,8 +14,8 @@
 
 .mobile-image{
 	display: block;
-	width: 50%;
-	margin: 10% 25% 0 25%;
+	width: 90%;
+	margin: 10% 5% 0 5%;
 	overflow: hidden;
 	box-sizing: border-box;
 	@media (min-width: 1024px){
@@ -100,19 +100,19 @@
 
 	.item{
 		margin: 20% 0;
-		text-align: center;
+		text-align: left;
 		@media (max-width: 1024px){
 			text-align: left;
 		}
-		h1, h2{
+		h2{
 			text-align: left;
 			margin: 20px 0;
+			margin-bottom: 0;
+			display: inline-block;
+			vertical-align: top;;
 			@media (min-width: 1024px){
 				text-align: left;
 			}
-		}
-		h1{
-			margin-top: 40px;
 		}
 		p.play-button{
 			display: inline-block;
@@ -141,6 +141,7 @@
 	@media (min-width: 768px){
 		.bodyText{
 			font-size: 1.5em;
+			margin-top: 10px;
 		}
 	}
 	@media (min-width: 1024px){

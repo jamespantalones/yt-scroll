@@ -13,10 +13,14 @@ ytDirectives.directive('lazy', ['$timeout', ($timeout) ->
 			#grab attrs from directive
 			id = attrs.videoid
 			thumbnail = attrs.thumbnail
+			timecode = attrs.seconds
+
+
 
 			#add as data items to generated div
 			element.data('youtube-id',id)
 			element.data('thumbnail', thumbnail)
+			element.data('timecode', timecode)
 			
 			element.lazyYT()
 
@@ -132,7 +136,7 @@ ytDirectives.directive('moveVideo', ->
 	link = ($scope, element, attrs) ->
 		element.scroll ->
 			offset = -text.offset().top
-			shift = offset * 0.009
+			shift = offset * 0.02
 
 			
 
