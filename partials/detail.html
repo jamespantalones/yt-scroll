@@ -11,14 +11,16 @@
   <div class="text-wrapper">
     <div class="title-text">
       <div class="mobile-image"><img ng-src="{{fields.heroImage.fields.file.url}}"/></div>
-      <h1 class="top">{{fields.title}}</h1>
-      <h2>{{fields.subTitle}}</h2><a href="#intro" offset="30" du-smooth-scroll="du-smooth-scroll" class="arrow-nav"><span class="arrow fa fa-angle-double-down"></span></a>
+      <div class="table-cell">
+        <h1 class="top">{{fields.title}}</h1>
+        <h2>{{fields.subTitle}}</h2><a href="#intro" offset="30" du-smooth-scroll="du-smooth-scroll" class="arrow-nav"><span class="arrow fa fa-angle-double-down"></span></a>
+      </div>
     </div>
     <div class="text">
       <div id="intro" ng-bind-html="trust(fields.introText)"></div>
       <div ng-if="dataready" wrap-waypoints="wrap-waypoints" class="item-container">
         <div ng-repeat="item in fields.youTubeListItems" data-chapter="{{item.fields.order}}" data-id="{{item.fields.youTubeVideoId}}" data-thumblur="{{item.fields.thumbBlur.fields.file.url}}" data-time="{{item.fields.startTime}}" data-thumbnail="{{item.fields.videoThumbnail.fields.file.url}}" class="item">
-          <div lazy="lazy" thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=900" videoid="{{item.fields.youTubeVideoId}}" data-ratio="16:9" class="lazyYT">loading...</div>
+          <div lazy="lazy" thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=800" videoid="{{item.fields.youTubeVideoId}}" data-ratio="16:9" class="lazyYT">loading...</div>
           <h1>{{item.fields.order}}</h1>
           <h2>{{item.fields.title}}</h2>
           <p ng-bind-html="trust(item.fields.bodyText)" class="bodyText"></p>

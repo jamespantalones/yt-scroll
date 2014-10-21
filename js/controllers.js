@@ -11,7 +11,7 @@
             return e.features = t;
         });
     } ]);
-    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, n, o, u, i, a, s, l, d) {
+    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, n, o, u, i, a, l, s, d) {
         var c;
         c = new Showdown.converter();
         e.player = {};
@@ -21,8 +21,8 @@
         e.dataready = false;
         e.scrolled = false;
         e.vidMaster = a;
-        e.thumbMaster = s;
-        e.buttonMaster = l;
+        e.thumbMaster = l;
+        e.buttonMaster = s;
         e.heroMaster = d;
         e.youTubePrefix = "//www.youtube.com/embed/";
         e.youTubeParams = "?autoplay=0&loop=1&hd=1&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0";
@@ -70,6 +70,7 @@
         }).then(function(t) {
             var r, n, o, u, a;
             e.feature = t[0];
+            console.log(e.feature);
             e.fields = e.feature.fields;
             a = e.fields.youTubeListItems;
             for (o = 0, u = a.length; o < u; o++) {
@@ -80,9 +81,9 @@
             e.fields.introText = c.makeHtml(e.fields.introText);
             e.items = e.fields.youTubeListItems;
             e.video.id = e.items[0].fields.youTubeVideoId;
-            e.thumbMaster.backgroundImage = "url(" + e.fields.heroImage.fields.file.url + "?w=900)";
+            e.thumbMaster.backgroundImage = "url(" + e.fields.heroImage.fields.file.url + "?w=800)";
             e.thumbMaster.initBackground = e.fields.heroImage.fields.file.url;
-            e.thumbInit = "url(" + e.fields.heroImage.fields.file.url + "?w=900)";
+            e.thumbInit = "url(" + e.fields.heroImage.fields.file.url + "?w=800)";
             e.thumbMaster.backgroundSize = "cover";
             e.dataready = true;
             e.playVideo = function(t) {

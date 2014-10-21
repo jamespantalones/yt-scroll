@@ -15,10 +15,11 @@
 		.title-text
 			.mobile-image
 				img(ng-src="{{fields.heroImage.fields.file.url}}")
-			h1(class="top") {{fields.title}}
-			h2 {{fields.subTitle}}
-			a(class="arrow-nav", href="#intro", offset="30", du-smooth-scroll)
-				span(class="arrow fa fa-angle-double-down")
+			.table-cell
+				h1(class="top") {{fields.title}}
+				h2 {{fields.subTitle}}
+				a(class="arrow-nav", href="#intro", offset="30", du-smooth-scroll)
+					span(class="arrow fa fa-angle-double-down")
 			
 
 		.text
@@ -34,7 +35,7 @@
 					data-time="{{item.fields.startTime}}",
 					data-thumbnail="{{item.fields.videoThumbnail.fields.file.url}}")
 
-					div(lazy="lazy", thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=900", videoid="{{item.fields.youTubeVideoId}}", data-ratio="16:9", class="lazyYT") loading...
+					div(lazy="lazy", thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=800", videoid="{{item.fields.youTubeVideoId}}", data-ratio="16:9", class="lazyYT") loading...
 
 
 					

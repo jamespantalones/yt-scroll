@@ -30,7 +30,7 @@
                         r = "";
                     }
                     return i.css({
-                        backgroundImage: "url(" + t + "?w=900)",
+                        backgroundImage: "url(" + t + "?w=800)",
                         backgroundSize: "cover"
                     });
                 };

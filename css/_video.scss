@@ -1,9 +1,8 @@
 .lazyYT{
-	width: 80% !important;
+	width: 100% !important;
 	margin: auto;
-	padding-top: 50% !important;
+	padding-top: 60% !important;
 	z-index: 99 !important;
-	border: 4px solid white;
 	@media (min-width: 1024px){
 		display: none ;
 	}
@@ -48,13 +47,18 @@
 	display: none;
 	position: fixed;
 	display: block;
+	background: black;
 	opacity: 1;
 	left: 0;
 	top: 0;
 	padding-top: 0;
 	height: 100%;
 	width: 50%;
+	border-right: 1px solid white;
 	@include vendorize(perspective, 1000px);
+	@media (max-width: 1024px){
+		border: 0;
+	}
 
 }
 
@@ -62,13 +66,14 @@
 .video{
 	opacity: 0;
 	box-sizing: border-box;
-	border: 1px solid white;
+	border: 2px solid white;
+	@include vendorize(backface-visibility, hidden);
 	// @include vendorize(transition, background .2s linear);
 	@media (min-width: 1024px){
 		opacity: 1;
 		position: relative;
 		box-sizing: border-box;
-		padding-bottom: 46.25%;
+		padding-bottom: 56.25%;
 		padding-top: 30px;
 		height: 0;
 		overflow: hidden;

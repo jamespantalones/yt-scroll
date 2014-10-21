@@ -44,7 +44,7 @@ ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeo
 					thumblur = ''
 				
 				videoBack.css
-					backgroundImage: "url(#{thumbnail}?w=900)"
+					backgroundImage: "url(#{thumbnail}?w=800)"
 					backgroundSize: "cover"
 				
 			
