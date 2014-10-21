@@ -44,7 +44,7 @@ ytDirectives.directive('wrapWaypoints', ['$window', '$timeout', ($window, $timeo
 					thumblur = ''
 				
 				videoBack.css
-					backgroundImage: "url(#{thumbnail}?w=500)"
+					backgroundImage: "url(#{thumbnail}?w=900)"
 					backgroundSize: "cover"
 				
 			
@@ -132,7 +132,7 @@ ytDirectives.directive('moveVideo', ->
 	link = ($scope, element, attrs) ->
 		element.scroll ->
 			offset = -text.offset().top
-			shift = offset * 0.005
+			shift = offset * 0.009
 
 			
 

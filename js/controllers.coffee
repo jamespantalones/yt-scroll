@@ -88,8 +88,6 @@ ytControllers.controller('DetailCtrl', [
 
 		
 
-		
-
 		$scope.playerVars = {
 		    controls: 0
 		    autoplay: 0

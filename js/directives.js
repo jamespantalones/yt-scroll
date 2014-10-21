@@ -30,7 +30,7 @@
                         r = "";
                     }
                     return i.css({
-                        backgroundImage: "url(" + t + "?w=500)",
+                        backgroundImage: "url(" + t + "?w=900)",
                         backgroundSize: "cover"
                     });
                 };
@@ -100,7 +100,7 @@
             return r.scroll(function() {
                 var t, r;
                 t = -a.offset().top;
-                r = t * .005;
+                r = t * .009;
                 return e.css({
                     "-webkitTransform": "translateY(" + (r + "px") + ")",
                     "-mozTransform": "translateY(" + (r + "px") + ")",
