@@ -65,12 +65,10 @@ a {
 
 .frame {
   position: relative;
-  margin: 0;
-  top: 0;
+  top: -58px;
   left: 0;
   height: 100%;
   width: 100%;
-  margin-top: -58px;
   overflow-x: hidden;
   background-color: #fffff7;
   color: black;
@@ -342,7 +340,7 @@ a.arrow-nav {
   display: block;
   opacity: 1;
   left: 0;
-  top: 0;
+  top: -58px;
   padding-top: 0;
   height: 100%;
   width: 50%;
