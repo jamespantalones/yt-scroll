@@ -81,6 +81,8 @@ a {
 	left: 0;
 	height: 100%;
 	width: 100%;
+	//- Account for title bar
+	margin-top: -58px;
 	overflow-x: hidden;
 	background-color: $white;
 	color: black;
