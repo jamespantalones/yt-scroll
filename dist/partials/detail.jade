@@ -2,7 +2,7 @@
 	
 	.video-wrapper(ng-style="heroStyles()")
 		div(class="video transform", ng-style="thumbStyles()")
-			div(class="lazyYT-button", ng-style="buttonStyles()", ng-click="playVideo(video.currentTime)")
+			div(class="lazyYT-button", ng-style="buttonStyles()", ng-class="{scrolled: scrolled}", ng-click="playVideo(video.currentTime)")
 			div(ng-style="videoStyles()")
 				youtube-video(id="main-vid", 
 						video-id="video.id", 
@@ -15,8 +15,16 @@
 		.title-text
 			.mobile-image
 				img(ng-src="{{fields.heroImage.fields.file.url}}")
-			h1(class="top") {{fields.title}}
-			h2 {{fields.subTitle}}
+			.table-cell
+				h1(class="top") {{fields.title}}
+				h2 {{fields.subTitle}}
+				
+			.button-group
+				a(href="https://twitter.com/share?url={{fields.shareUrl}}/&via=rbma&text={{fields.twitterShareText}}", class="button", target="blank")
+					i(class="fa fa-twitter")
+				a(href="https://www.facebook.com/sharer/sharer.php?u={{fields.shareUrl}}" class="button" target="blank")
+					i(class="fa fa-facebook")
+				
 			a(class="arrow-nav", href="#intro", offset="30", du-smooth-scroll)
 				span(class="arrow fa fa-angle-double-down")
 			
@@ -34,13 +42,10 @@
 					data-time="{{item.fields.startTime}}",
 					data-thumbnail="{{item.fields.videoThumbnail.fields.file.url}}")
 
-					div(lazy="lazy", thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=500", videoid="{{item.fields.youTubeVideoId}}", data-ratio="16:9", class="lazyYT") loading...
-
+					div(lazy="lazy", thumbnail="{{item.fields.videoThumbnail.fields.file.url}}?w=800", videoid="{{item.fields.youTubeVideoId}}", data-ratio="16:9", data-seconds="{{item.fields.startTime}}", class="lazyYT") loading...
 
 					
-					h1 {{item.fields.order}}
-					
-					h2 {{item.fields.title}}
+					h2 <strong>{{item.fields.order}}</strong> {{item.fields.title}}
 					
 					p(class="bodyText", ng-bind-html="trust(item.fields.bodyText)")
 					p(ng-click="playVideo(item.fields.startTime)", class="play-button") <span class="fa fa-play"></span> PLAY

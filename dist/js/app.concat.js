@@ -1263,6 +1263,7 @@ var Showdown={extensions:{}},forEach=Showdown.forEach=function(a,b){if(typeof a.
             ratio = $el.data('ratio'),
             id = $el.data('youtube-id'),
             thumbnail = $el.data('thumbnail'),
+            timecode = $el.data('timecode'),
             aspectRatio = ['16', '9'],
             paddingTop = 0,
             youtubeParameters = $el.data('parameters') || '';
@@ -1293,7 +1294,7 @@ var Showdown={extensions:{}},forEach=Showdown.forEach=function(a,b){if(typeof a.
         $el.on('click', function (e) {
             e.preventDefault();
             if (!$el.hasClass('lazyYT-video-loaded') && $el.hasClass('lazyYT-image-loaded')) {
-                $el.html('<iframe width="' + width + '" height="' + height + '" src="//www.youtube.com/embed/' + id + '?autoplay=1&' + youtubeParameters + '" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>')
+                $el.html('<iframe width="' + width + '" height="' + height + '" src="//www.youtube.com/embed/' + id + '?autoplay=1&hd=0&start=' + timecode + '&' + youtubeParameters + '" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>')
                     .removeClass('lazyYT-image-loaded')
                     .addClass('lazyYT-video-loaded');
             }
@@ -1343,7 +1344,7 @@ var Showdown={extensions:{}},forEach=Showdown.forEach=function(a,b){if(typeof a.
             return e.features = t;
         });
     } ]);
-    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, n, o, u, i, a, s, l, d) {
+    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, n, o, i, u, a, s, l, d) {
         var c;
         c = new Showdown.converter();
         e.player = {};
@@ -1351,6 +1352,7 @@ var Showdown={extensions:{}},forEach=Showdown.forEach=function(a,b){if(typeof a.
         e.video.currentTime = 0;
         e.video.id = "";
         e.dataready = false;
+        e.scrolled = false;
         e.vidMaster = a;
         e.thumbMaster = s;
         e.buttonMaster = l;
@@ -1395,25 +1397,27 @@ var Showdown={extensions:{}},forEach=Showdown.forEach=function(a,b){if(typeof a.
         e.$on("youtube.player.ready", function(t, r) {
             return e.player = r;
         });
-        return u.entries({
+        return i.entries({
             "sys.id": r.featureId,
             include: 10
         }).then(function(t) {
-            var r, n, o, u, a;
+            var r, n, o, i, a;
             e.feature = t[0];
             e.fields = e.feature.fields;
             a = e.fields.youTubeListItems;
-            for (o = 0, u = a.length; o < u; o++) {
+            for (o = 0, i = a.length; o < i; o++) {
                 r = a[o];
-                n = r.fields.bodyText;
-                n = c.makeHtml(n);
+                if (r.fields.bodyText) {
+                    n = r.fields.bodyText;
+                    n = c.makeHtml(n);
+                }
             }
             e.fields.introText = c.makeHtml(e.fields.introText);
             e.items = e.fields.youTubeListItems;
             e.video.id = e.items[0].fields.youTubeVideoId;
-            e.thumbMaster.backgroundImage = "url(" + e.fields.heroImage.fields.file.url + "?w=500)";
+            e.thumbMaster.backgroundImage = "url(" + e.fields.heroImage.fields.file.url + "?w=800)";
             e.thumbMaster.initBackground = e.fields.heroImage.fields.file.url;
-            e.thumbInit = "url(" + e.fields.heroImage.fields.file.url + "?w=500)";
+            e.thumbInit = "url(" + e.fields.heroImage.fields.file.url + "?w=800)";
             e.thumbMaster.backgroundSize = "cover";
             e.dataready = true;
             e.playVideo = function(t) {
@@ -1424,7 +1428,7 @@ var Showdown={extensions:{}},forEach=Showdown.forEach=function(a,b){if(typeof a.
                 return e.player.playVideo();
             };
             return e.trust = function(e) {
-                return i.trustAsHtml(e);
+                return u.trustAsHtml(e);
             };
         });
     } ]);
@@ -1434,13 +1438,15 @@ var Showdown={extensions:{}},forEach=Showdown.forEach=function(a,b){if(typeof a.
     t = angular.module("ytDirectives", []);
     t.directive("lazy", [ "$timeout", function(t) {
         var r;
-        r = function(r, n, e) {
+        r = function(r, n, a) {
             return t(function() {
-                var t, r;
-                t = e.videoid;
-                r = e.thumbnail;
+                var t, r, i;
+                t = a.videoid;
+                r = a.thumbnail;
+                i = a.seconds;
                 n.data("youtube-id", t);
                 n.data("thumbnail", r);
+                n.data("timecode", i);
                 return n.lazyYT();
             });
         };
@@ -1449,8 +1455,8 @@ var Showdown={extensions:{}},forEach=Showdown.forEach=function(a,b){if(typeof a.
         };
     } ]);
     t.directive("wrapWaypoints", [ "$window", "$timeout", function(t, r) {
-        var n, e, i;
-        e = $(".video");
+        var n, a, i;
+        a = $(".video");
         i = $(".video-wrapper");
         n = function(t, n, i) {
             return r(function() {
@@ -1459,8 +1465,8 @@ var Showdown={extensions:{}},forEach=Showdown.forEach=function(a,b){if(typeof a.
                     if (!r) {
                         r = "";
                     }
-                    return e.css({
-                        backgroundImage: "url(" + t + "?w=500)",
+                    return a.css({
+                        backgroundImage: "url(" + t + "?w=800)",
                         backgroundSize: "cover"
                     });
                 };
@@ -1471,23 +1477,33 @@ var Showdown={extensions:{}},forEach=Showdown.forEach=function(a,b){if(typeof a.
                         context: ".frame",
                         offset: "50%",
                         handler: function(n) {
-                            var e, i, a, u, o, c;
-                            e = $(this);
-                            a = e.prev().data("id");
-                            c = e.data("id");
-                            o = e.data("thumbnail");
-                            u = e.data("thumblur");
-                            t.video.currentTime = e.data("time");
-                            i = e.data("chapter");
+                            var a, i, e, o, u, c;
+                            a = $(this);
+                            e = a.prev().data("id");
+                            c = a.data("id");
+                            u = a.data("thumbnail");
+                            o = a.data("thumblur");
+                            t.video.currentTime = a.data("time");
+                            i = a.data("chapter");
                             if (!t.time) {
                                 t.time = 0;
                             }
                             if (n === "down") {
-                                r(o, u);
+                                r(u, o);
+                                if (i === 1) {
+                                    $(".lazyYT-button").css({
+                                        opacity: 1
+                                    });
+                                }
                             }
                             if (n === "up") {
-                                if (a) {
-                                    return r(o, u);
+                                if (i === 1) {
+                                    $(".lazyYT-button").css({
+                                        opacity: 0
+                                    });
+                                }
+                                if (e) {
+                                    return r(u, o);
                                 } else {
                                     return r(t.thumbMaster.initBackground);
                                 }
@@ -1510,18 +1526,18 @@ var Showdown={extensions:{}},forEach=Showdown.forEach=function(a,b){if(typeof a.
         };
     });
     t.directive("moveVideo", function() {
-        var t, r, n, e, i, a;
+        var t, r, n, a, i, e;
         i = $(".text-wrapper");
-        a = $(".video");
+        e = $(".video");
         r = $(".frame");
-        e = 0;
+        a = 0;
         t = 0;
         n = function(t, r, n) {
             return r.scroll(function() {
                 var t, r;
                 t = -i.offset().top;
-                r = t * .005;
-                return a.css({
+                r = t * .02;
+                return e.css({
                     "-webkitTransform": "translateY(" + (r + "px") + ")",
                     "-mozTransform": "translateY(" + (r + "px") + ")",
                     "-msTransform": "translateY(" + (r + "px") + ")",

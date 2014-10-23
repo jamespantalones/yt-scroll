@@ -11,7 +11,7 @@
             return e.features = t;
         });
     } ]);
-    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, n, o, i, u, a, l, s, d) {
+    e.controller("DetailCtrl", [ "$scope", "$rootScope", "$routeParams", "$http", "$location", "contentfulClient", "$sce", "initVidStyles", "initThumbStyles", "initButtonStyles", "initHeroStyles", function(e, t, r, n, o, i, u, a, s, l, d) {
         var c;
         c = new Showdown.converter();
         e.player = {};
@@ -21,8 +21,8 @@
         e.dataready = false;
         e.scrolled = false;
         e.vidMaster = a;
-        e.thumbMaster = l;
-        e.buttonMaster = s;
+        e.thumbMaster = s;
+        e.buttonMaster = l;
         e.heroMaster = d;
         e.youTubePrefix = "//www.youtube.com/embed/";
         e.youTubeParams = "?autoplay=0&loop=1&hd=1&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0";
@@ -70,7 +70,6 @@
         }).then(function(t) {
             var r, n, o, i, a;
             e.feature = t[0];
-            console.log(e.feature);
             e.fields = e.feature.fields;
             a = e.fields.youTubeListItems;
             for (o = 0, i = a.length; o < i; o++) {
