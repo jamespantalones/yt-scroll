@@ -18,7 +18,8 @@ html {
 body {
   height: 100%;
   width: 100%;
-  margin: 0; }
+  margin: 0;
+  background-color: #fffff7; }
 
 h1 {
   font-family: 'Karla', Helvetica, sans-serif;
