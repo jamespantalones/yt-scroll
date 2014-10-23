@@ -47,14 +47,13 @@
 	display: none;
 	position: fixed;
 	display: block;
-	background: black;
 	opacity: 1;
 	left: 0;
 	top: 0;
 	padding-top: 0;
 	height: 100%;
 	width: 50%;
-	border-right: 1px solid white;
+	border-right: 1px solid black;
 	@include vendorize(perspective, 1000px);
 	@media (max-width: 1024px){
 		border: 0;
@@ -66,7 +65,8 @@
 .video{
 	opacity: 0;
 	box-sizing: border-box;
-	border: 2px solid white;
+	border: 1px solid black;
+	// @include vendorize(box-shadow, 2px 2px 15px black);
 	@include vendorize(backface-visibility, hidden);
 	// @include vendorize(transition, background .2s linear);
 	@media (min-width: 1024px){
@@ -78,12 +78,9 @@
 		height: 0;
 		overflow: hidden;
 		margin-bottom: 50px;
-		margin-top: 20%;
+		margin-top: 22.5%;
 		width: 90%;
 		margin-left: 5%;
-		// margin-right: 5%;
-		// margin-left: 5%;
-		// @include vendorize(transform, rotateX(10deg) rotateY(80deg) rotateZ(2deg));
 		z-index: 1;
 		background-size: cover !important;
 		iframe, object, embed{
@@ -94,6 +91,11 @@
 			height: 100%;
 
 		}
+	}
+	@media (max-width: 1350px) and (min-height: 850px){
+
+		margin-top: 40%;
+
 	}
 }
 

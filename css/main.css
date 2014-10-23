@@ -71,8 +71,8 @@ a {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background-color: black;
-  color: white;
+  background-color: #fffff7;
+  color: black;
   overflow-y: scroll;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
@@ -142,16 +142,43 @@ a {
   width: 100%;
   height: 100%; }
   .title-text h1 {
-    font-size: 2em; }
+    font-size: 2em;
+    margin-top: 25px; }
   .title-text h2 {
     font-size: 1.2em;
     padding: 0 5%; }
   .title-text a.arrow-nav {
     text-decoration: none;
-    font-size: 50px; }
+    font-size: 50px;
+    color: black; }
     @media (max-width: 1024px) {
       .title-text a.arrow-nav {
         display: none; } }
+  .title-text .button-group {
+    margin-top: 50px; }
+    .title-text .button-group a {
+      color: white;
+      display: inline-block; }
+      .title-text .button-group a.button {
+        line-height: 40px;
+        margin: 2px;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        box-shadow: 1px 0px 1px #4d4d4d, 0px 1px 0px #333333, 2px 1px 0px #4d4d4d, 1px 2px 0px #333333, 3px 2px 0px #4d4d4d, 2px 3px 0px #333333, 4px 3px 0px #4d4d4d, 3px 4px 0px #333333, 5px 4px 0px #4d4d4d, 4px 5px 0px #333333, 6px 5px 0px #4d4d4d, 5px 6px 0px #333333, 7px 6px 0px #4d4d4d, 6px 7px 0px #333333, 8px 7px 0px #4d4d4d, 7px 8px 0px #333333, 9px 8px 0px #4d4d4d, 8px 9px 0px #333333, 10px 9px 0px #4d4d4d, 9px 10px 0px #333333, 11px 10px 0px #4d4d4d;
+        background-color: black;
+        -webkit-transition: all 0.1s linear;
+        transition: all 0.1s linear; }
+        .title-text .button-group a.button:hover {
+          -webkit-transform: translate(5px, 5px);
+          -ms-transform: translate(5px, 5px);
+          transform: translate(5px, 5px);
+          -ms-box-shadow: none;
+          -o-box-shadow: none;
+          box-shadow: none; }
+    @media (max-width: 1024px) {
+      .title-text .button-group {
+        margin-bottom: 40px; } }
   @media (min-width: 768px) {
     .title-text h1 {
       font-size: 3em;
@@ -160,6 +187,16 @@ a {
     .title-text h1 {
       font-size: 4em;
       padding-top: 50%;
+      margin-top: -70px; } }
+  @media (min-width: 1024px) and (max-width: 1350px) and (min-height: 850px) {
+    .title-text h1 {
+      font-size: 4em;
+      padding-top: 70%;
+      margin-top: -70px; } }
+  @media (min-width: 1024px) and (max-width: 1150px) and (min-height: 850px) {
+    .title-text h1 {
+      font-size: 4em;
+      padding-top: 75%;
       margin-top: -70px; } }
   @media (min-width: 1024px) {
     .title-text {
@@ -172,7 +209,7 @@ a {
 .text {
   padding: 0 5%; }
   .text #intro {
-    margin-top: 70px;
+    margin-top: 20px;
     text-align: center; }
     @media (max-width: 1024px) {
       .text #intro {
@@ -188,7 +225,8 @@ a {
           text-align: left; } }
     @media (min-width: 1024px) {
       .text #intro {
-        padding-bottom: 10%; } }
+        padding-bottom: 10%;
+        margin-top: 70px; } }
   .text .item {
     margin: 20% 0;
     text-align: left; }
@@ -206,18 +244,22 @@ a {
           text-align: left; } }
     .text .item p.play-button {
       display: inline-block;
-      padding: 3px 10px;
-      border: 1px solid white;
+      padding: 3px 20px;
+      border: 1px solid black;
       -moz-box-sizing: border-box;
            box-sizing: border-box;
-      width: 50%;
       display: none; }
       .text .item p.play-button:hover {
         background-color: black;
         color: white; }
+      .text .item p.play-button .fa-play {
+        font-size: 0.5em;
+        padding-bottom: 3px;
+        vertical-align: middle; }
       @media (min-width: 1024px) {
         .text .item p.play-button {
-          display: block; } }
+          display: inline-block;
+          margin-top: 0; } }
   @media (max-width: 767px) {
     .text .bodyText {
       font-size: 1em; } }
@@ -227,7 +269,7 @@ a {
       margin-top: 10px; } }
   @media (min-width: 1024px) {
     .text {
-      padding-bottom: 800px; }
+      padding-bottom: 400px; }
       .text .bodyText {
         text-align: left; } }
 
@@ -290,14 +332,13 @@ a.arrow-nav {
   display: none;
   position: fixed;
   display: block;
-  background: black;
   opacity: 1;
   left: 0;
   top: 0;
   padding-top: 0;
   height: 100%;
   width: 50%;
-  border-right: 1px solid white;
+  border-right: 1px solid black;
   -webkit-perspective: 1000px;
   -ms-perspective: 1000px;
   perspective: 1000px; }
@@ -309,7 +350,7 @@ a.arrow-nav {
   opacity: 0;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
-  border: 2px solid white;
+  border: 1px solid black;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden; }
@@ -324,7 +365,7 @@ a.arrow-nav {
       height: 0;
       overflow: hidden;
       margin-bottom: 50px;
-      margin-top: 20%;
+      margin-top: 22.5%;
       width: 90%;
       margin-left: 5%;
       z-index: 1;
@@ -335,6 +376,9 @@ a.arrow-nav {
         left: 0;
         width: 100%;
         height: 100%; } }
+  @media (max-width: 1350px) and (min-height: 850px) {
+    .video {
+      margin-top: 40%; } }
 
 .video-mobile {
   opacity: 1;

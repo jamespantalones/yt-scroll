@@ -13,8 +13,9 @@
       <div class="mobile-image"><img ng-src="{{fields.heroImage.fields.file.url}}"/></div>
       <div class="table-cell">
         <h1 class="top">{{fields.title}}</h1>
-        <h2>{{fields.subTitle}}</h2><a href="#intro" offset="30" du-smooth-scroll="du-smooth-scroll" class="arrow-nav"><span class="arrow fa fa-angle-double-down"></span></a>
+        <h2>{{fields.subTitle}}</h2>
       </div>
+      <div class="button-group"><a href="https://twitter.com/share?url={{fields.shareUrl}}/&amp;via=rbma&amp;text={{fields.twitterShareText}}" target="blank" class="button"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u={{fields.shareUrl}}" target="blank" class="button"><i class="fa fa-facebook"></i></a></div><a href="#intro" offset="30" du-smooth-scroll="du-smooth-scroll" class="arrow-nav"><span class="arrow fa fa-angle-double-down"></span></a>
     </div>
     <div class="text">
       <div id="intro" ng-bind-html="trust(fields.introText)"></div>

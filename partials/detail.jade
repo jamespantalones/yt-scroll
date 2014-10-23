@@ -18,8 +18,15 @@
 			.table-cell
 				h1(class="top") {{fields.title}}
 				h2 {{fields.subTitle}}
-				a(class="arrow-nav", href="#intro", offset="30", du-smooth-scroll)
-					span(class="arrow fa fa-angle-double-down")
+				
+			.button-group
+				a(href="https://twitter.com/share?url={{fields.shareUrl}}/&via=rbma&text={{fields.twitterShareText}}", class="button", target="blank")
+					i(class="fa fa-twitter")
+				a(href="https://www.facebook.com/sharer/sharer.php?u={{fields.shareUrl}}" class="button" target="blank")
+					i(class="fa fa-facebook")
+				
+			a(class="arrow-nav", href="#intro", offset="30", du-smooth-scroll)
+				span(class="arrow fa fa-angle-double-down")
 			
 
 		.text
