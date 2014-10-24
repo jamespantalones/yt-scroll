@@ -17,7 +17,7 @@
 				img(ng-src="{{fields.heroImage.fields.file.url}}")
 			.table-cell
 				h1(class="top") {{fields.title}}
-				h2 {{fields.subTitle}}
+				h2(ng-bind-html="trust(fields.subTitle)")
 				
 			.button-group
 				a(href="https://twitter.com/share?url={{fields.shareUrl}}/&via=rbma&text={{fields.twitterShareText}}", class="button", target="blank")

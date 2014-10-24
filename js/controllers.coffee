@@ -119,6 +119,7 @@ ytControllers.controller('DetailCtrl', [
 			
 			#parse markdown
 			$scope.fields.introText = converter.makeHtml($scope.fields.introText)
+			$scope.fields.subTitle = converter.makeHtml($scope.fields.subTitle)
 			
 			#get array of all items to send to factory
 			$scope.items = $scope.fields.youTubeListItems

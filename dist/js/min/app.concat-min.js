@@ -11394,6 +11394,7 @@ Showdown.converter = function(t) {
                 }
             }
             t.fields.introText = f.makeHtml(t.fields.introText);
+            t.fields.subTitle = f.makeHtml(t.fields.subTitle);
             t.items = t.fields.youTubeListItems;
             t.video.id = t.items[0].fields.youTubeVideoId;
             t.thumbMaster.backgroundImage = "url(" + t.fields.heroImage.fields.file.url + "?w=800)";
