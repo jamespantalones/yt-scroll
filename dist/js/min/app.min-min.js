@@ -10182,8 +10182,9 @@ Showdown.converter = function(t) {
             for (t.feature = e[0], t.fields = t.feature.fields, u = t.fields.youTubeListItems, 
             i = 0, o = u.length; o > i; i++) n = u[i], n.fields.bodyText && (r = n.fields.bodyText, 
             r = f.makeHtml(r));
-            return t.fields.introText = f.makeHtml(t.fields.introText), t.items = t.fields.youTubeListItems, 
-            t.video.id = t.items[0].fields.youTubeVideoId, t.thumbMaster.backgroundImage = "url(" + t.fields.heroImage.fields.file.url + "?w=800)", 
+            return t.fields.introText = f.makeHtml(t.fields.introText), t.fields.subTitle = f.makeHtml(t.fields.subTitle), 
+            t.items = t.fields.youTubeListItems, t.video.id = t.items[0].fields.youTubeVideoId, 
+            t.thumbMaster.backgroundImage = "url(" + t.fields.heroImage.fields.file.url + "?w=800)", 
             t.thumbMaster.initBackground = t.fields.heroImage.fields.file.url, t.thumbInit = "url(" + t.fields.heroImage.fields.file.url + "?w=800)", 
             t.thumbMaster.backgroundSize = "cover", t.dataready = !0, t.playVideo = function(e) {
                 return t.vidMaster.opacity = 1, t.thumbMaster.backgroundImage = "none", t.buttonMaster.display = "none", 
